@@ -6,8 +6,8 @@ const TopBar = () => {
       <div className="container flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <span className="text-yellow font-bold text-2xl tracking-tight">LIFT</span>
-          <span className="text-white font-bold text-2xl tracking-tight">PRO</span>
+          <span className="text-yellow font-bold text-2xl tracking-tight">JCL</span>
+          <span className="text-white font-bold text-2xl tracking-tight">Empilhadeiras</span>
         </div>
 
         {/* Info groups */}
