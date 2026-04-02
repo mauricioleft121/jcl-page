@@ -9,10 +9,12 @@ const ContactSection = () => {
     whatsapp: "",
     state: "",
     city: "",
+    interest: "",
+    productInterest: "",
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -61,7 +63,6 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Social icons */}
             <div className="flex gap-3 mt-6">
               {[Facebook, Instagram, Linkedin].map((Icon, i) => (
                 <a
@@ -90,6 +91,33 @@ const ContactSection = () => {
               <div className="grid grid-cols-2 gap-4">
                 <FormField label="Estado" name="state" value={formData.state} onChange={handleChange} />
                 <FormField label="Cidade" name="city" value={formData.city} onChange={handleChange} />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <SelectField
+                  label="Tipo de Interesse"
+                  name="interest"
+                  value={formData.interest}
+                  onChange={handleChange}
+                  options={[
+                    "Compra de Empilhadeira",
+                    "Locação de Equipamento",
+                    "Assistência Técnica",
+                    "Peças e Acessórios",
+                    "Outro",
+                  ]}
+                />
+                <SelectField
+                  label="Produto de Interesse"
+                  name="productInterest"
+                  value={formData.productInterest}
+                  onChange={handleChange}
+                  options={[
+                    "Empilhadeiras Elétricas",
+                    "Empilhadeiras a Combustão",
+                    "Transpaleteiras",
+                    "Não sei ainda",
+                  ]}
+                />
               </div>
               <div>
                 <label className="block font-semibold text-[11px] text-dark uppercase tracking-[0.8px] mb-2">
@@ -141,6 +169,37 @@ const FormField = ({
       onChange={onChange}
       className="w-full border border-[hsl(0,0%,82%)] rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
     />
+  </div>
+);
+
+const SelectField = ({
+  label,
+  name,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  options: string[];
+}) => (
+  <div>
+    <label className="block font-semibold text-[11px] text-dark uppercase tracking-[0.8px] mb-2">
+      {label}
+    </label>
+    <select
+      name={name}
+      value={value}
+      onChange={onChange}
+      className="w-full border border-[hsl(0,0%,82%)] rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors appearance-none"
+    >
+      <option value="">Selecione...</option>
+      {options.map(opt => (
+        <option key={opt} value={opt}>{opt}</option>
+      ))}
+    </select>
   </div>
 );
 

@@ -1,34 +1,32 @@
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 
 const footerLinks = {
   Produtos: [
-    "Empilhadeiras Elétricas",
-    "Empilhadeiras a Combustão",
-    "Transpaleteiras",
-    "Peças e Acessórios",
+    { label: "Empilhadeiras Elétricas", href: "/produtos?cat=Empilhadeiras+Elétricas" },
+    { label: "Empilhadeiras a Combustão", href: "/produtos?cat=Empilhadeiras+a+Combustão" },
+    { label: "Transpaleteiras", href: "/produtos?cat=Transpaleteiras" },
+    { label: "Peças e Acessórios", href: "#" },
   ],
   Serviços: [
-    "Vendas",
-    "Locação",
-    "Assistência Técnica",
-    "Treinamento",
+    { label: "Vendas", href: "#" },
+    { label: "Locação", href: "#" },
+    { label: "Assistência Técnica", href: "#" },
+    { label: "Treinamento", href: "#" },
   ],
   Institucional: [
-    "Sobre Nós",
-    "Blog",
-    "Trabalhe Conosco",
-    "Política de Privacidade",
+    { label: "Sobre Nós", href: "/#sobre" },
+    { label: "Trabalhe Conosco", href: "#" },
+    { label: "Política de Privacidade", href: "#" },
   ],
 };
 
 const Footer = () => {
   return (
     <footer>
-      {/* Main footer */}
       <div className="bg-dark py-16 pb-10">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {/* Column 1 - Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-yellow font-bold text-xl">JCL</span>
@@ -45,7 +43,6 @@ const Footer = () => {
               </a>
             </div>
 
-            {/* Link columns */}
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
                 <h4 className="text-background font-bold text-[13px] uppercase mb-4 relative">
@@ -54,13 +51,13 @@ const Footer = () => {
                 </h4>
                 <ul className="space-y-2.5">
                   {links.map((link) => (
-                    <li key={link}>
-                      <a
-                        href="#"
+                    <li key={link.label}>
+                      <Link
+                        to={link.href}
                         className="text-background/70 text-[13px] hover:text-yellow transition-colors duration-200"
                       >
-                        {link}
-                      </a>
+                        {link.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -70,7 +67,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright bar */}
       <div className="bg-yellow h-12 flex items-center">
         <div className="container flex items-center justify-between">
           <p className="text-dark text-[13px]">

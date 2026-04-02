@@ -5,10 +5,11 @@ import StatsStrip from "@/components/StatsStrip";
 import CategoriesSection from "@/components/CategoriesSection";
 import InstitutionalSection from "@/components/InstitutionalSection";
 import DifferentialsSection from "@/components/DifferentialsSection";
+import TrustSection from "@/components/TrustSection";
 import CTABanner from "@/components/CTABanner";
-import BlogSection from "@/components/BlogSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -20,10 +21,11 @@ const Index = () => {
       <CategoriesSection />
       <InstitutionalSection />
       <DifferentialsSection />
+      <TrustSection />
       <CTABanner />
-      <BlogSection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
