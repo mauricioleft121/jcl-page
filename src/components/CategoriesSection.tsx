@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import forkliftElectric from "@/assets/forklift-electric.jpg";
 import forkliftCombustion from "@/assets/forklift-combustion.jpg";
 import forkliftPallet from "@/assets/forklift-pallet.jpg";
@@ -55,17 +56,23 @@ const CategoriesSection = () => {
               <p className="text-gray-medium text-sm leading-[1.8] flex-1">
                 {cat.description}
               </p>
-              <button className="mt-6 w-full bg-yellow text-dark font-bold text-[13px] uppercase py-3 rounded-md hover:opacity-90 transition-opacity">
+              <Link
+                to={`/produtos?cat=${encodeURIComponent(cat.title)}`}
+                className="mt-6 w-full bg-yellow text-dark font-bold text-[13px] uppercase py-3 rounded-md hover:opacity-90 transition-opacity text-center block"
+              >
                 Saiba Mais
-              </button>
+              </Link>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-10">
-          <button className="bg-yellow text-dark font-bold text-[13px] uppercase py-3 px-10 rounded-md hover:opacity-90 transition-opacity">
+          <Link
+            to="/produtos"
+            className="inline-block bg-yellow text-dark font-bold text-[13px] uppercase py-3 px-10 rounded-md hover:opacity-90 transition-opacity"
+          >
             Ver Todos
-          </button>
+          </Link>
         </div>
       </div>
     </section>
