@@ -7,10 +7,10 @@ const TopBar = () => {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <span className="text-yellow font-bold text-2xl tracking-tight">JCL</span>
-          <span className="text-white font-bold text-2xl tracking-tight">Empilhadeiras</span>
+          <span className="text-background font-bold text-2xl tracking-tight">Empilhadeiras</span>
         </div>
 
-        {/* Info groups */}
+        {/* Info groups - hidden on mobile */}
         <div className="hidden md:flex items-center gap-10">
           <InfoGroup
             icon={<Phone className="text-yellow" size={22} />}
@@ -20,7 +20,7 @@ const TopBar = () => {
           <InfoGroup
             icon={<Mail className="text-yellow" size={22} />}
             title="E-MAIL"
-            subtitle="contato@liftpro.com.br"
+            subtitle="contato@jclempilhadeiras.com.br"
           />
           <InfoGroup
             icon={<Clock className="text-yellow" size={22} />}
@@ -45,8 +45,8 @@ const InfoGroup = ({
   <div className="flex items-center gap-3">
     {icon}
     <div>
-      <p className="text-white font-semibold text-[11px] uppercase tracking-[0.5px]">{title}</p>
-      <p className="text-white/70 text-xs">{subtitle}</p>
+      <p className="text-background font-semibold text-[11px] uppercase tracking-[0.5px]">{title}</p>
+      <p className="text-background/70 text-xs">{subtitle}</p>
     </div>
   </div>
 );

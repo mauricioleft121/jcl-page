@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import StatsStrip from "@/components/StatsStrip";
 import CategoriesSection from "@/components/CategoriesSection";
+import ServicesSection from "@/components/ServicesSection";
 import InstitutionalSection from "@/components/InstitutionalSection";
 import DifferentialsSection from "@/components/DifferentialsSection";
 import TrustSection from "@/components/TrustSection";
@@ -12,6 +14,14 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
+  useEffect(() => {
+    document.title = "JCL Empilhadeiras | Venda, Locação e Assistência Técnica em São Paulo";
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) {
+      meta.setAttribute("content", "Empilhadeiras elétricas, a combustão e transpaleteiras. Venda, locação e assistência técnica em São Paulo. Solicite um orçamento.");
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       <TopBar />
@@ -19,6 +29,7 @@ const Index = () => {
       <Hero />
       <StatsStrip />
       <CategoriesSection />
+      <ServicesSection />
       <InstitutionalSection />
       <DifferentialsSection />
       <TrustSection />

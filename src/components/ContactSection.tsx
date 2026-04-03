@@ -64,11 +64,16 @@ const ContactSection = () => {
             </div>
 
             <div className="flex gap-3 mt-6">
-              {[Facebook, Instagram, Linkedin].map((Icon, i) => (
+              {[
+                { Icon: Facebook, label: "Facebook" },
+                { Icon: Instagram, label: "Instagram" },
+                { Icon: Linkedin, label: "LinkedIn" },
+              ].map(({ Icon, label }) => (
                 <a
-                  key={i}
+                  key={label}
                   href="#"
-                  className="w-10 h-10 border border-dark rounded flex items-center justify-center text-dark hover:bg-dark hover:text-background transition-colors"
+                  className="w-10 h-10 border border-dark rounded flex items-center justify-center text-dark hover:bg-dark hover:text-background transition-colors min-h-[44px]"
+                  aria-label={`JCL no ${label}`}
                 >
                   <Icon size={18} />
                 </a>
@@ -84,15 +89,15 @@ const ContactSection = () => {
             <form className="space-y-4">
               <FormField label="Nome Completo" name="name" value={formData.name} onChange={handleChange} />
               <FormField label="E-mail" name="email" type="email" value={formData.email} onChange={handleChange} />
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FormField label="Telefone" name="phone" value={formData.phone} onChange={handleChange} />
                 <FormField label="WhatsApp" name="whatsapp" value={formData.whatsapp} onChange={handleChange} />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <FormField label="Estado" name="state" value={formData.state} onChange={handleChange} />
                 <FormField label="Cidade" name="city" value={formData.city} onChange={handleChange} />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <SelectField
                   label="Tipo de Interesse"
                   name="interest"
@@ -128,12 +133,14 @@ const ContactSection = () => {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full border border-[hsl(0,0%,82%)] rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
+                  className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
+                  aria-label="Mensagem"
                 />
               </div>
               <button
                 type="submit"
-                className="bg-yellow text-dark font-bold text-sm uppercase py-3.5 px-12 rounded-md hover:opacity-90 transition-opacity"
+                className="bg-yellow text-dark font-bold text-sm uppercase py-3.5 px-12 rounded-md hover:opacity-90 transition-opacity min-h-[44px]"
+                aria-label="Enviar formulário de contato"
               >
                 Enviar
               </button>
@@ -167,7 +174,8 @@ const FormField = ({
       name={name}
       value={value}
       onChange={onChange}
-      className="w-full border border-[hsl(0,0%,82%)] rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
+      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors min-h-[44px]"
+      aria-label={label}
     />
   </div>
 );
@@ -193,7 +201,8 @@ const SelectField = ({
       name={name}
       value={value}
       onChange={onChange}
-      className="w-full border border-[hsl(0,0%,82%)] rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors appearance-none"
+      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors appearance-none min-h-[44px]"
+      aria-label={label}
     >
       <option value="">Selecione...</option>
       {options.map(opt => (

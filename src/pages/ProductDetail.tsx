@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
@@ -19,6 +19,12 @@ const ProductDetail = () => {
   const product = getProductBySlug(slug || "");
   const [activeImage, setActiveImage] = useState(0);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+
+  useEffect(() => {
+    if (product) {
+      document.title = `${product.name} — Ficha Técnica | JCL Empilhadeiras`;
+    }
+  }, [product]);
 
   if (!product) {
     return (
@@ -64,6 +70,21 @@ const ProductDetail = () => {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
+          {/* JSON-LD breadcrumb */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Início", item: window.location.origin + "/" },
+                  { "@type": "ListItem", position: 2, name: "Produtos", item: window.location.origin + "/produtos" },
+                  { "@type": "ListItem", position: 3, name: product.name },
+                ],
+              }),
+            }}
+          />
         </div>
       </section>
 
@@ -90,6 +111,7 @@ const ProductDetail = () => {
                       className={`w-24 h-24 rounded-lg overflow-hidden border-2 transition-colors ${
                         i === activeImage ? "border-yellow" : "border-border"
                       }`}
+                      aria-label={`Ver imagem ${i + 1}`}
                     >
                       <img src={img} alt="" className="w-full h-full object-contain p-2" />
                     </button>
@@ -113,7 +135,7 @@ const ProductDetail = () => {
                 </span>
               </div>
 
-              <h1 className="font-extrabold text-4xl text-dark mb-6">{product.name}</h1>
+              <h1 className="font-extrabold text-3xl md:text-4xl text-dark mb-6">{product.name}</h1>
 
               {/* Description */}
               <div className="space-y-4 mb-12">
@@ -125,7 +147,7 @@ const ProductDetail = () => {
               {/* Specs table */}
               <div className="mb-12">
                 <h2 className="font-bold text-2xl text-dark mb-6">Especificações Técnicas</h2>
-                <div className="rounded-[14px] border border-[hsl(0,0%,91%)] overflow-hidden">
+                <div className="rounded-[14px] border border-border overflow-hidden">
                   {Object.entries(product.specs).map(([key, value], i) => (
                     <div
                       key={key}
@@ -172,7 +194,8 @@ const ProductDetail = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full border border-[hsl(0,0%,82%)] rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
+                      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors min-h-[44px]"
+                      aria-label="Nome"
                     />
                   </div>
                   <div>
@@ -182,7 +205,8 @@ const ProductDetail = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full border border-[hsl(0,0%,82%)] rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
+                      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors min-h-[44px]"
+                      aria-label="E-mail"
                     />
                   </div>
                   <div>
@@ -192,7 +216,8 @@ const ProductDetail = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full border border-[hsl(0,0%,82%)] rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
+                      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors min-h-[44px]"
+                      aria-label="Telefone"
                     />
                   </div>
                   <div>
@@ -203,13 +228,15 @@ const ProductDetail = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder={`Tenho interesse no modelo ${product.name}`}
-                      className="w-full border border-[hsl(0,0%,82%)] rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
+                      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
+                      aria-label="Mensagem"
                     />
                   </div>
                   <input type="hidden" name="product" value={product.name} />
                   <button
                     type="submit"
-                    className="w-full bg-yellow text-dark font-bold text-sm uppercase py-3.5 rounded-md hover:opacity-90 transition-opacity"
+                    className="w-full bg-yellow text-dark font-bold text-sm uppercase py-3.5 rounded-md hover:opacity-90 transition-opacity min-h-[44px]"
+                    aria-label={`Solicitar orçamento do ${product.name}`}
                   >
                     Solicitar Orçamento
                   </button>
@@ -221,11 +248,11 @@ const ProductDetail = () => {
           {/* Related products */}
           <div className="mt-20">
             <h2 className="font-bold text-[34px] text-dark text-center mb-10">Produtos Relacionados</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {related.map(p => (
                 <div
                   key={p.slug}
-                  className="bg-background rounded-[14px] border border-[hsl(0,0%,91%)] p-8 flex flex-col items-center text-center"
+                  className="bg-background rounded-[14px] border border-border p-8 flex flex-col items-center text-center"
                 >
                   <img src={p.image} alt={p.name} className="h-40 object-contain mb-4" loading="lazy" />
                   <span
@@ -238,7 +265,8 @@ const ProductDetail = () => {
                   <p className="text-gray-medium text-sm mb-4">{p.shortDescription.slice(0, 80)}…</p>
                   <Link
                     to={`/produtos/${p.slug}`}
-                    className="mt-auto w-full bg-yellow text-dark font-bold text-[13px] uppercase py-3 rounded-md hover:opacity-90 transition-opacity text-center block"
+                    className="mt-auto w-full bg-yellow text-dark font-bold text-[13px] uppercase py-3 rounded-md hover:opacity-90 transition-opacity text-center block min-h-[44px] flex items-center justify-center"
+                    aria-label={`Ver detalhes do ${p.name}`}
                   >
                     Ver Detalhes
                   </Link>
