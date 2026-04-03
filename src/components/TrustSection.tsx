@@ -41,7 +41,7 @@ const TrustSection = () => {
 
         {/* Infinite scrolling logos */}
         <div className="relative overflow-hidden mb-16">
-          <div className="flex animate-scroll gap-16 w-max">
+          <div className="flex animate-scroll sm:animate-scroll-slow gap-16 w-max">
             {[...clients, ...clients].map((name, i) => (
               <div
                 key={i}

@@ -8,7 +8,7 @@ const navItems = [
     label: "Produtos",
     href: "/produtos",
     sub: [
-      { label: "Ver Catálogo Completo", href: "/produtos" },
+      { label: "Catálogo Completo", href: "/produtos" },
       { label: "Empilhadeiras Elétricas", href: "/produtos?cat=Empilhadeiras+Elétricas" },
       { label: "Empilhadeiras a Combustão", href: "/produtos?cat=Empilhadeiras+a+Combustão" },
       { label: "Transpaleteiras", href: "/produtos?cat=Transpaleteiras" },
@@ -24,7 +24,7 @@ const NavBar = () => {
   const [openSub, setOpenSub] = useState<string | null>(null);
 
   return (
-    <nav className="sticky top-0 z-50 bg-dark-nav h-[60px] flex items-center">
+    <nav className="sticky top-0 z-50 bg-dark-nav h-[60px] flex items-center" aria-label="Navegação principal">
       <div className="container flex items-center justify-between">
         {/* Desktop links */}
         <ul className="hidden lg:flex items-center gap-8">
@@ -72,13 +72,15 @@ const NavBar = () => {
         <div className="flex items-center gap-4 ml-auto lg:ml-0">
           <a
             href="/#contato"
-            className="bg-yellow text-dark font-bold text-xs uppercase px-5 py-2.5 rounded-md tracking-[0.5px] hover:opacity-90 transition-opacity"
+            className="bg-yellow text-dark font-bold text-xs uppercase px-5 py-2.5 rounded-md tracking-[0.5px] hover:opacity-90 transition-opacity min-h-[44px] flex items-center"
+            aria-label="Solicitar orçamento"
           >
             Solicite um Orçamento
           </a>
           <button
             className="lg:hidden text-background"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           >
             {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>

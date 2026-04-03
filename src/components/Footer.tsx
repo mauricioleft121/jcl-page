@@ -16,18 +16,19 @@ const footerLinks = {
   ],
   Institucional: [
     { label: "Sobre Nós", href: "/#sobre" },
-    { label: "Trabalhe Conosco", href: "#" },
     { label: "Política de Privacidade", href: "#" },
   ],
 };
+
+const states = ["SP", "RJ", "MG", "PR", "SC", "RS", "BA", "PE", "CE", "GO", "DF", "ES"];
 
 const Footer = () => {
   return (
     <footer>
       <div className="bg-dark py-16 pb-10">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+            <div className="lg:col-span-2">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-yellow font-bold text-xl">JCL</span>
                 <span className="text-background font-bold text-xl">Empilhadeiras</span>
@@ -41,6 +42,14 @@ const Footer = () => {
               <a href="mailto:contato@jclempilhadeiras.com.br" className="text-yellow font-semibold text-[13px] hover:underline">
                 contato@jclempilhadeiras.com.br
               </a>
+
+              {/* Atendemos todo o Brasil */}
+              <div className="mt-6 pt-5 border-t border-background/10">
+                <p className="text-background font-bold text-[13px] uppercase mb-2">Atendemos todo o Brasil</p>
+                <p className="text-background/50 text-[13px]">
+                  {states.join(" · ")}
+                </p>
+              </div>
             </div>
 
             {Object.entries(footerLinks).map(([title, links]) => (
@@ -73,8 +82,13 @@ const Footer = () => {
             © 2026 JCL Empilhadeiras. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-3">
-            {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
-              <a key={i} href="#" className="text-dark hover:opacity-70 transition-opacity">
+            {[
+              { Icon: Facebook, label: "Facebook" },
+              { Icon: Instagram, label: "Instagram" },
+              { Icon: Linkedin, label: "LinkedIn" },
+              { Icon: Youtube, label: "YouTube" },
+            ].map(({ Icon, label }) => (
+              <a key={label} href="#" className="text-dark hover:opacity-70 transition-opacity" aria-label={`JCL no ${label}`}>
                 <Icon size={18} />
               </a>
             ))}

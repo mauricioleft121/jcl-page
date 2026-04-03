@@ -1,28 +1,10 @@
 import { Link } from "react-router-dom";
-import forkliftElectric from "@/assets/forklift-electric.jpg";
-import forkliftCombustion from "@/assets/forklift-combustion.jpg";
-import forkliftPallet from "@/assets/forklift-pallet.jpg";
+import { products } from "@/data/products";
 
-const categories = [
-  {
-    image: forkliftElectric,
-    title: "Empilhadeiras Elétricas",
-    description:
-      "Soluções silenciosas e sustentáveis para operações internas. Ideais para armazéns e centros de distribuição com alta demanda de movimentação.",
-  },
-  {
-    image: forkliftCombustion,
-    title: "Empilhadeiras a Combustão",
-    description:
-      "Potência e robustez para operações externas e cargas pesadas. Modelos a diesel e GLP com alta capacidade de elevação e durabilidade.",
-  },
-  {
-    image: forkliftPallet,
-    title: "Transpaleteiras",
-    description:
-      "Agilidade e praticidade para movimentação horizontal de paletes. Modelos manuais e elétricos para otimizar sua operação logística.",
-  },
-];
+const featuredSlugs = ["jcl-e15", "jcl-e20", "jcl-glp25", "jcl-tp20e"];
+const featured = featuredSlugs.map(s => products.find(p => p.slug === s)!);
+
+const brands = ["Toyota", "Hyster", "Yale", "Crown", "Linde"];
 
 const CategoriesSection = () => {
   return (
@@ -36,32 +18,51 @@ const CategoriesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {categories.map((cat) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {featured.map((product) => (
             <div
-              key={cat.title}
-              className="bg-background rounded-[14px] border border-[hsl(0,0%,91%)] p-8 flex flex-col items-center text-center"
+              key={product.slug}
+              className="bg-background rounded-[14px] border border-border p-6 flex flex-col items-center text-center"
             >
               <img
-                src={cat.image}
-                alt={cat.title}
-                className="h-48 object-contain mb-6"
+                src={product.image}
+                alt={product.name}
+                className="h-44 object-contain mb-4"
                 loading="lazy"
                 width={640}
                 height={512}
               />
-              <h3 className="font-semibold text-[15px] text-dark uppercase mb-3">
-                {cat.title}
-              </h3>
-              <p className="text-gray-medium text-sm leading-[1.8] flex-1">
-                {cat.description}
-              </p>
-              <Link
-                to={`/produtos?cat=${encodeURIComponent(cat.title)}`}
-                className="mt-6 w-full bg-yellow text-dark font-bold text-[13px] uppercase py-3 rounded-md hover:opacity-90 transition-opacity text-center block"
+              <span
+                className="inline-block text-[11px] font-bold uppercase tracking-wide px-3 py-1 rounded-full text-background mb-3"
+                style={{ backgroundColor: product.categoryColor }}
               >
-                Saiba Mais
-              </Link>
+                {product.category}
+              </span>
+              <h3 className="font-semibold text-[15px] text-dark uppercase mb-1">
+                {product.name}
+              </h3>
+              <p className="text-yellow font-bold text-lg mb-3">
+                {product.specs["Capacidade de Carga"]}
+              </p>
+              <p className="text-gray-medium text-sm leading-[1.7] flex-1 mb-4 line-clamp-3">
+                {product.shortDescription}
+              </p>
+              <div className="mt-auto w-full space-y-2">
+                <Link
+                  to={`/produtos/${product.slug}`}
+                  className="block w-full bg-yellow text-dark font-bold text-[13px] uppercase py-3 rounded-md hover:opacity-90 transition-opacity text-center min-h-[44px] flex items-center justify-center"
+                  aria-label={`Ver detalhes do ${product.name}`}
+                >
+                  Ver Detalhes
+                </Link>
+                <a
+                  href="#contato"
+                  className="block w-full border-2 border-dark text-dark font-bold text-[13px] uppercase py-3 rounded-md hover:bg-dark hover:text-background transition-colors text-center min-h-[44px] flex items-center justify-center"
+                  aria-label={`Solicitar orçamento do ${product.name}`}
+                >
+                  Pedir Orçamento
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -69,10 +70,28 @@ const CategoriesSection = () => {
         <div className="text-center mt-10">
           <Link
             to="/produtos"
-            className="inline-block bg-yellow text-dark font-bold text-[13px] uppercase py-3 px-10 rounded-md hover:opacity-90 transition-opacity"
+            className="inline-block bg-yellow text-dark font-bold text-[13px] uppercase py-3 px-10 rounded-md hover:opacity-90 transition-opacity min-h-[44px]"
+            aria-label="Ver catálogo completo de produtos"
           >
             Ver Todos
           </Link>
+        </div>
+
+        {/* Partner brands strip */}
+        <div className="mt-16 pt-12 border-t border-border">
+          <p className="text-center text-gray-medium font-semibold text-sm uppercase tracking-wide mb-8">
+            Trabalhamos com as melhores marcas
+          </p>
+          <div className="flex items-center justify-center flex-wrap gap-10 md:gap-16">
+            {brands.map((brand) => (
+              <span
+                key={brand}
+                className="text-gray-medium font-bold text-xl tracking-tight grayscale opacity-50 hover:opacity-80 transition-opacity"
+              >
+                {brand}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
