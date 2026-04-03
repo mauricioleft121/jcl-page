@@ -54,6 +54,10 @@ const Catalog = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   useEffect(() => {
+    document.title = "Catálogo de Empilhadeiras | JCL Empilhadeiras";
+  }, []);
+
+  useEffect(() => {
     if (catParam) {
       setActiveCategory(catParam);
     }
