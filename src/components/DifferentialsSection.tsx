@@ -1,4 +1,4 @@
-import { Wrench, Shield, Truck, Clock, Headphones, Award } from "lucide-react";
+import { Wrench, Shield, Truck, Headphones, Award, Settings } from "lucide-react";
 
 const differentials = [
   {
@@ -17,9 +17,9 @@ const differentials = [
     description: "Logística própria para entrega ágil dos equipamentos diretamente na sua operação.",
   },
   {
-    icon: Clock,
-    title: "Locação Flexível",
-    description: "Planos de locação sob medida para atender demandas sazonais ou projetos de curto prazo.",
+    icon: Settings,
+    title: "Tecnologia Própria",
+    description: "Equipamentos desenvolvidos com tecnologia JCL, projetados para máxima eficiência e durabilidade.",
   },
   {
     icon: Headphones,
@@ -28,8 +28,8 @@ const differentials = [
   },
   {
     icon: Award,
-    title: "Marcas Premium",
-    description: "Representante autorizada das marcas líderes do mercado mundial de empilhadeiras.",
+    title: "Qualidade JCL",
+    description: "Marca reconhecida no mercado pela confiabilidade, desempenho e custo-benefício dos equipamentos.",
   },
 ];
 

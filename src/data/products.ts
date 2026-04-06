@@ -12,7 +12,7 @@ export interface Product {
   shortDescription: string;
   description: string[];
   specs: Record<string, string>;
-  availability: "Disponível" | "Sob Consulta" | "Locação disponível";
+  availability: "Disponível" | "Sob Consulta" | "Pronta Entrega";
   applications: string[];
 }
 
@@ -146,7 +146,7 @@ export const products: Product[] = [
       "Capacidade do Tanque": "18 kg",
       "Velocidade de Deslocamento": "24 km/h"
     },
-    availability: "Locação disponível",
+    availability: "Disponível",
     applications: ["Indústria de transformação", "Centros de distribuição", "Carga e descarga", "Siderúrgica", "Operações externas"]
   },
   {
@@ -224,7 +224,7 @@ export const products: Product[] = [
       "Tensão": "24V / 210Ah (Lítio)",
       "Velocidade de Deslocamento": "6 km/h"
     },
-    availability: "Locação disponível",
+    availability: "Pronta Entrega",
     applications: ["Centros de distribuição", "E-commerce", "Supermercados", "Indústria alimentícia", "Operações de cross-docking"]
   }
 ];

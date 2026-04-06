@@ -4,7 +4,7 @@ import { products } from "@/data/products";
 const featuredSlugs = ["jcl-e15", "jcl-e20", "jcl-glp25", "jcl-tp20e"];
 const featured = featuredSlugs.map(s => products.find(p => p.slug === s)!);
 
-const brands = ["Toyota", "Hyster", "Yale", "Crown", "Linde"];
+
 
 const CategoriesSection = () => {
   return (
@@ -77,22 +77,6 @@ const CategoriesSection = () => {
           </Link>
         </div>
 
-        {/* Partner brands strip */}
-        <div className="mt-16 pt-12 border-t border-border">
-          <p className="text-center text-gray-medium font-semibold text-sm uppercase tracking-wide mb-8">
-            Trabalhamos com as melhores marcas
-          </p>
-          <div className="flex items-center justify-center flex-wrap gap-10 md:gap-16">
-            {brands.map((brand) => (
-              <span
-                key={brand}
-                className="text-gray-medium font-bold text-xl tracking-tight grayscale opacity-50 hover:opacity-80 transition-opacity"
-              >
-                {brand}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
