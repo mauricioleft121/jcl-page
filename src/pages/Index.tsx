@@ -15,10 +15,10 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "JCL Empilhadeiras | Venda, Locação e Assistência Técnica em São Paulo";
+    document.title = "JCL Empilhadeiras | Venda e Assistência Técnica em São Paulo";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
-      meta.setAttribute("content", "Empilhadeiras elétricas, a combustão e transpaleteiras. Venda, locação e assistência técnica em São Paulo. Solicite um orçamento.");
+      meta.setAttribute("content", "Empilhadeiras elétricas, a combustão e transpaleteiras JCL. Venda e assistência técnica em São Paulo. Solicite um orçamento.");
     }
   }, []);
 

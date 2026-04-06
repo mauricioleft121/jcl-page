@@ -19,8 +19,8 @@ const InstitutionalSection = () => {
             <p className="text-gray-medium text-[15px] leading-[1.9] mb-5">
               A JCL Empilhadeiras atua há mais de 15 anos no mercado de equipamentos para
               movimentação e armazenagem. Com uma equipe técnica altamente qualificada e
-              parcerias com as principais marcas do segmento, oferecemos soluções completas
-              em vendas, locação e assistência técnica.
+              tecnologia própria, oferecemos soluções completas em vendas e assistência
+              técnica com equipamentos de fabricação JCL.
             </p>
             <p className="text-gray-medium text-[15px] leading-[1.9]">
               Nossa missão é garantir que cada cliente tenha acesso ao equipamento ideal

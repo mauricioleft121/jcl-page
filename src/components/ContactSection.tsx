@@ -105,9 +105,9 @@ const ContactSection = () => {
                   onChange={handleChange}
                   options={[
                     "Compra de Empilhadeira",
-                    "Locação de Equipamento",
                     "Assistência Técnica",
                     "Peças e Acessórios",
+                    "Treinamento",
                     "Outro",
                   ]}
                 />

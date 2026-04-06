@@ -11,7 +11,7 @@ import { CheckCircle, Tag } from "lucide-react";
 const availabilityColors: Record<string, string> = {
   "Disponível": "hsl(142, 60%, 40%)",
   "Sob Consulta": "hsl(40, 90%, 50%)",
-  "Locação disponível": "hsl(210, 70%, 50%)",
+  "Pronta Entrega": "hsl(210, 70%, 50%)",
 };
 
 const ProductDetail = () => {

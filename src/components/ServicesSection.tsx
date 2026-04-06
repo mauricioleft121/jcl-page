@@ -1,17 +1,11 @@
-import { ShoppingCart, Key, Wrench, GraduationCap } from "lucide-react";
+import { ShoppingCart, Wrench, GraduationCap } from "lucide-react";
 
 const services = [
   {
     icon: ShoppingCart,
     title: "Venda",
-    description: "Empilhadeiras novas e seminovas das melhores marcas do mercado. Condições especiais de pagamento e financiamento facilitado.",
+    description: "Empilhadeiras novas e seminovas da marca JCL. Condições especiais de pagamento e financiamento facilitado.",
     slug: "venda",
-  },
-  {
-    icon: Key,
-    title: "Locação",
-    description: "Planos flexíveis de locação para demandas sazonais ou contínuas. Equipamentos revisados e prontos para operar.",
-    slug: "locacao",
   },
   {
     icon: Wrench,
@@ -38,7 +32,7 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((svc) => (
             <div
               key={svc.slug}

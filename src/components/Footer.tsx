@@ -10,7 +10,6 @@ const footerLinks = {
   ],
   Serviços: [
     { label: "Vendas", href: "#" },
-    { label: "Locação", href: "#" },
     { label: "Assistência Técnica", href: "#" },
     { label: "Treinamento", href: "#" },
   ],
@@ -34,8 +33,8 @@ const Footer = () => {
                 <span className="text-background font-bold text-xl">Empilhadeiras</span>
               </div>
               <p className="text-background/65 text-sm leading-[1.9] mb-4">
-                Representante autorizada das melhores marcas de empilhadeiras.
-                Soluções completas em vendas, locação e assistência técnica
+                Fabricante de empilhadeiras com tecnologia própria.
+                Soluções completas em vendas e assistência técnica
                 para sua operação logística.
               </p>
               <p className="text-background font-bold text-[13px]">(11) 9999-8888</p>
