@@ -1,12 +1,6 @@
-import { ShoppingCart, Wrench, GraduationCap } from "lucide-react";
+import { Wrench, GraduationCap, Settings } from "lucide-react";
 
 const services = [
-  {
-    icon: ShoppingCart,
-    title: "Venda",
-    description: "Empilhadeiras novas e seminovas da marca JCL. Condições especiais de pagamento e financiamento facilitado.",
-    slug: "venda",
-  },
   {
     icon: Wrench,
     title: "Assistência Técnica",
@@ -18,6 +12,12 @@ const services = [
     title: "Treinamento",
     description: "Capacitação de operadores conforme NR-11. Treinamentos teóricos e práticos com certificação reconhecida.",
     slug: "treinamento",
+  },
+  {
+    icon: Settings,
+    title: "Peças e Acessórios",
+    description: "Peças originais JCL e acessórios para todos os modelos. Estoque próprio com pronta entrega para manutenções urgentes.",
+    slug: "pecas-acessorios",
   },
 ];
 

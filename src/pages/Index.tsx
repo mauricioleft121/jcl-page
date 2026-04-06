@@ -4,9 +4,9 @@ import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import StatsStrip from "@/components/StatsStrip";
 import CategoriesSection from "@/components/CategoriesSection";
-import ServicesSection from "@/components/ServicesSection";
 import InstitutionalSection from "@/components/InstitutionalSection";
 import DifferentialsSection from "@/components/DifferentialsSection";
+import ServicesSection from "@/components/ServicesSection";
 import TrustSection from "@/components/TrustSection";
 import CTABanner from "@/components/CTABanner";
 import ContactSection from "@/components/ContactSection";
@@ -29,9 +29,9 @@ const Index = () => {
       <Hero />
       <StatsStrip />
       <CategoriesSection />
-      <ServicesSection />
       <InstitutionalSection />
       <DifferentialsSection />
+      <ServicesSection />
       <TrustSection />
       <CTABanner />
       <ContactSection />

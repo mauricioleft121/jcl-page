@@ -1,8 +1,12 @@
 import { User } from "lucide-react";
 
-const clients = [
-  "LogBrasil", "FrigoSul", "DistribExpress", "IndMetal SP", "ArmoCentro",
-  "TransLog", "FrioNorte", "PackCenter", "AutoParts BR", "StockMax"
+const sectors = [
+  { name: "Indústria Alimentícia", count: "120+" },
+  { name: "Logística & E-commerce", count: "95+" },
+  { name: "Automotivo", count: "80+" },
+  { name: "Varejo & Distribuição", count: "110+" },
+  { name: "Metalurgia & Siderurgia", count: "60+" },
+  { name: "Construção Civil", count: "45+" },
 ];
 
 const testimonials = [
@@ -10,19 +14,19 @@ const testimonials = [
     text: "A JCL nos atendeu em menos de 48h e entregou a empilhadeira exatamente dentro do que precisávamos. Parceiro de confiança.",
     name: "Carlos M.",
     role: "Gerente de Logística",
-    company: "DistribExpress",
+    company: "Setor de Distribuição",
   },
   {
-    text: "Trabalhamos com a JCL há 3 anos. Suporte técnico rápido e equipamentos de primeira.",
+    text: "Trabalhamos com a JCL há 3 anos. Suporte técnico rápido e equipamentos de primeira qualidade.",
     name: "Ana P.",
     role: "Diretora de Operações",
-    company: "FrigoSul",
+    company: "Indústria Alimentícia",
   },
   {
-    text: "Locação flexível que se adaptou ao nosso pico de demanda. Recomendo sem hesitar.",
+    text: "Compramos 5 empilhadeiras JCL e a assistência técnica nunca nos deixou na mão. Atendimento exemplar.",
     name: "Roberto L.",
     role: "Coord. de Armazém",
-    company: "LogBrasil",
+    company: "Setor de Logística",
   },
 ];
 
@@ -32,27 +36,24 @@ const TrustSection = () => {
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="font-bold text-[40px] text-background">
-            Empresas que Confiam na JCL Empilhadeiras
+            Quem Confia na JCL Empilhadeiras
           </h2>
           <p className="text-background/70 text-base mt-4">
             +500 operações atendidas em todo o Brasil
           </p>
         </div>
 
-        {/* Infinite scrolling logos */}
-        <div className="relative overflow-hidden mb-16">
-          <div className="flex animate-scroll sm:animate-scroll-slow gap-16 w-max">
-            {[...clients, ...clients].map((name, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 flex items-center justify-center h-16 px-6 grayscale opacity-60"
-              >
-                <span className="text-background font-bold text-xl tracking-tight whitespace-nowrap">
-                  {name}
-                </span>
-              </div>
-            ))}
-          </div>
+        {/* Sectors grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+          {sectors.map((sector) => (
+            <div
+              key={sector.name}
+              className="bg-background/5 border border-background/10 rounded-[14px] p-5 text-center"
+            >
+              <p className="text-yellow font-bold text-2xl">{sector.count}</p>
+              <p className="text-background/70 text-xs mt-1 leading-tight">{sector.name}</p>
+            </div>
+          ))}
         </div>
 
         {/* Testimonials */}
