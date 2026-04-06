@@ -24,8 +24,8 @@ const Hero = () => {
           Cada Operação
         </h1>
         <p className="text-background/85 text-base md:text-[17px] leading-[1.7] mt-6 max-w-[560px]">
-          Representante autorizada das melhores marcas de empilhadeiras do mercado.
-          Soluções completas em vendas, locação e assistência técnica para sua operação logística.
+          Fabricante de empilhadeiras com tecnologia própria e qualidade comprovada.
+          Soluções completas em vendas e assistência técnica para sua operação logística.
         </p>
 
         {/* CTA Buttons */}
