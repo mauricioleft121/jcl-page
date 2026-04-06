@@ -13,8 +13,8 @@ const CategoriesSection = () => {
         <div className="text-center mb-12">
           <h2 className="font-bold text-[40px] text-dark">Nossos Produtos</h2>
           <p className="text-gray-medium text-base mt-4 max-w-[640px] mx-auto leading-[1.8]">
-            Oferecemos uma linha completa de equipamentos para movimentação de cargas,
-            com as melhores marcas e condições do mercado.
+            Linha completa de empilhadeiras e transpaleteiras com tecnologia própria JCL,
+            projetadas para máxima eficiência e durabilidade.
           </p>
         </div>
 

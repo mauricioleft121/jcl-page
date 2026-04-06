@@ -1,4 +1,3 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-forklift.jpg";
 
@@ -46,13 +45,6 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-
-      <button className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/30 flex items-center justify-center hover:bg-background/50 transition-colors" aria-label="Slide anterior">
-        <ChevronLeft className="text-background" size={24} />
-      </button>
-      <button className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/30 flex items-center justify-center hover:bg-background/50 transition-colors" aria-label="Próximo slide">
-        <ChevronRight className="text-background" size={24} />
-      </button>
     </section>
   );
 };
