@@ -169,7 +169,7 @@ const Catalog = () => {
           />
           <h1 className="font-extrabold text-4xl md:text-5xl text-background mt-4">Catálogo de Produtos</h1>
           <p className="text-background/70 text-base mt-3 max-w-[560px]">
-            Conheça nossa linha completa de empilhadeiras e transpaleteiras para sua operação logística.
+            Conheça nossa linha completa de empilhadeiras elétricas e a diesel para sua operação logística.
           </p>
         </div>
       </section>

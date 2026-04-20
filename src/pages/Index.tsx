@@ -18,7 +18,7 @@ const Index = () => {
     document.title = "JCL Empilhadeiras | Venda e Assistência Técnica em São Paulo";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) {
-      meta.setAttribute("content", "Empilhadeiras elétricas, a combustão e transpaleteiras JCL. Venda e assistência técnica em São Paulo. Solicite um orçamento.");
+      meta.setAttribute("content", "Empilhadeiras elétricas e a diesel JCL. Venda e assistência técnica em São Paulo. Solicite um orçamento.");
     }
   }, []);
 

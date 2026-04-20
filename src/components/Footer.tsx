@@ -5,7 +5,6 @@ const footerLinks = {
   Produtos: [
     { label: "Empilhadeiras Elétricas", href: "/produtos?cat=Empilhadeiras+Elétricas" },
     { label: "Empilhadeiras a Combustão", href: "/produtos?cat=Empilhadeiras+a+Combustão" },
-    { label: "Transpaleteiras", href: "/produtos?cat=Transpaleteiras" },
     { label: "Peças e Acessórios", href: "#" },
   ],
   Serviços: [
