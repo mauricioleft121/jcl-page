@@ -11,7 +11,6 @@ const navItems = [
       { label: "Catálogo Completo", href: "/produtos" },
       { label: "Empilhadeiras Elétricas", href: "/produtos?cat=Empilhadeiras+Elétricas" },
       { label: "Empilhadeiras a Combustão", href: "/produtos?cat=Empilhadeiras+a+Combustão" },
-      { label: "Transpaleteiras", href: "/produtos?cat=Transpaleteiras" },
     ],
   },
   { label: "Serviços", href: "/#servicos", isAnchor: true },

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { products } from "@/data/products";
 
-const featuredSlugs = ["jcl-e15", "jcl-e20", "jcl-glp25", "jcl-tp20e"];
-const featured = featuredSlugs.map(s => products.find(p => p.slug === s)!);
+const featuredSlugs = ["jcl-eletrica-3ton", "jcl-eletrica-5ton", "jcl-diesel-4ton", "jcl-diesel-7ton"];
+const featured = featuredSlugs.map(s => products.find(p => p.slug === s)!).filter(Boolean);
 
 
 
@@ -13,7 +13,7 @@ const CategoriesSection = () => {
         <div className="text-center mb-12">
           <h2 className="font-bold text-[40px] text-dark">Nossos Produtos</h2>
           <p className="text-gray-medium text-base mt-4 max-w-[640px] mx-auto leading-[1.8]">
-            Linha completa de empilhadeiras e transpaleteiras com tecnologia própria JCL,
+            Linha completa de empilhadeiras elétricas e a diesel com tecnologia própria JCL,
             projetadas para máxima eficiência e durabilidade.
           </p>
         </div>

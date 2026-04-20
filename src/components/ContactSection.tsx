@@ -119,7 +119,6 @@ const ContactSection = () => {
                   options={[
                     "Empilhadeiras Elétricas",
                     "Empilhadeiras a Combustão",
-                    "Transpaleteiras",
                     "Não sei ainda",
                   ]}
                 />
