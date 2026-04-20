@@ -10,9 +10,12 @@ import { Search, SlidersHorizontal, X } from "lucide-react";
 
 const capacityRanges = [
   { label: "Todas", value: "all" },
-  { label: "Até 1,5T", value: "0-1500" },
-  { label: "1,5T a 3T", value: "1500-3000" },
-  { label: "Acima de 3T", value: "3000-99999" },
+  { label: "3 Toneladas", value: "3000-3000" },
+  { label: "4 Toneladas", value: "4000-4000" },
+  { label: "5 Toneladas", value: "5000-5000" },
+  { label: "7 Toneladas", value: "7000-7000" },
+  { label: "Até 4T", value: "0-4000" },
+  { label: "Acima de 5T", value: "5000-99999" },
 ];
 
 const purposes = [
