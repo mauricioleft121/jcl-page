@@ -1,11 +1,48 @@
-import forkliftElectric from "@/assets/forklift-electric.jpg";
-import forkliftCombustion from "@/assets/forklift-combustion.jpg";
-import forkliftPallet from "@/assets/forklift-pallet.jpg";
+// Diesel
+import diesel3_1 from "@/assets/diesel/3ton/20.png";
+import diesel3_2 from "@/assets/diesel/3ton/21.png";
+import diesel3_3 from "@/assets/diesel/3ton/22.png";
+import diesel3_4 from "@/assets/diesel/3ton/23.png";
+
+import diesel4_1 from "@/assets/diesel/4ton/25.png";
+import diesel4_2 from "@/assets/diesel/4ton/26.png";
+import diesel4_3 from "@/assets/diesel/4ton/27.png";
+import diesel4_4 from "@/assets/diesel/4ton/28.png";
+
+import diesel5_1 from "@/assets/diesel/5ton/25.png";
+import diesel5_2 from "@/assets/diesel/5ton/26.png";
+import diesel5_3 from "@/assets/diesel/5ton/27.png";
+import diesel5_4 from "@/assets/diesel/5ton/28.png";
+
+import diesel7_1 from "@/assets/diesel/7ton/30.png";
+import diesel7_2 from "@/assets/diesel/7ton/31.png";
+import diesel7_3 from "@/assets/diesel/7ton/32.png";
+import diesel7_4 from "@/assets/diesel/7ton/33.png";
+
+// Elétricas
+import eletrica3_main from "@/assets/eletricas/3ton/3ton-main.png";
+import eletrica3_2 from "@/assets/eletricas/3ton/2.png";
+import eletrica3_3 from "@/assets/eletricas/3ton/3.png";
+import eletrica3_4 from "@/assets/eletricas/3ton/4.png";
+
+import eletrica4_1 from "@/assets/eletricas/4ton/12.png";
+import eletrica4_2 from "@/assets/eletricas/4ton/edit-1776447736369.png";
+import eletrica4_3 from "@/assets/eletricas/4ton/edit-1776447784009.png";
+import eletrica4_4 from "@/assets/eletricas/4ton/edit-1776447861374.png";
+
+import eletrica5_main from "@/assets/eletricas/5ton/5ton-main.png";
+import eletrica5_2 from "@/assets/eletricas/5ton/17.png";
+import eletrica5_3 from "@/assets/eletricas/5ton/18.png";
+import eletrica5_4 from "@/assets/eletricas/5ton/19.png";
+
+import eletrica7_1 from "@/assets/eletricas/7ton/26.png";
+import eletrica7_2 from "@/assets/eletricas/7ton/edit-1776447604943.png";
+import eletrica7_3 from "@/assets/eletricas/7ton/edit-1776447652669.png";
 
 export interface Product {
   slug: string;
   name: string;
-  category: "Empilhadeiras Elétricas" | "Empilhadeiras a Combustão" | "Transpaleteiras";
+  category: "Empilhadeiras Elétricas" | "Empilhadeiras a Combustão";
   categoryColor: string;
   image: string;
   images: string[];
@@ -16,216 +53,220 @@ export interface Product {
   applications: string[];
 }
 
+const ELETRICA_COLOR = "hsl(142, 60%, 40%)";
+const DIESEL_COLOR = "hsl(25, 90%, 50%)";
+
 export const products: Product[] = [
-  // Elétricas
+  // ============ ELÉTRICAS ============
   {
-    slug: "jcl-e15",
-    name: "JCL E15",
+    slug: "jcl-eletrica-3ton",
+    name: "JCL Elétrica 3 Toneladas",
     category: "Empilhadeiras Elétricas",
-    categoryColor: "hsl(142, 60%, 40%)",
-    image: forkliftElectric,
-    images: [forkliftElectric, forkliftElectric, forkliftElectric],
-    shortDescription: "Empilhadeira elétrica compacta com capacidade de 1.500 kg, ideal para operações internas em armazéns e centros de distribuição.",
+    categoryColor: ELETRICA_COLOR,
+    image: eletrica3_main,
+    images: [eletrica3_main, eletrica3_2, eletrica3_3, eletrica3_4],
+    shortDescription: "Empilhadeira elétrica JCL com capacidade de 3.000 kg, zero emissão e operação silenciosa para ambientes internos exigentes.",
     description: [
-      "A JCL E15 é a empilhadeira elétrica mais compacta da linha JCL, projetada para operações em corredores estreitos e ambientes internos com exigência de zero emissão de gases. Com capacidade de carga de 1.500 kg, é a escolha ideal para armazéns de pequeno e médio porte, centros de distribuição e indústrias alimentícias.",
-      "Equipada com motor elétrico AC de alta eficiência e bateria de 48V, a JCL E15 oferece autonomia para até 8 horas contínuas de operação. Seu sistema de frenagem regenerativa recupera energia durante as desacelerações, aumentando a eficiência energética em até 15%.",
-      "O design ergonômico do cockpit proporciona conforto ao operador durante longas jornadas. Os controles intuitivos e o display digital permitem monitoramento em tempo real da carga da bateria, horas de operação e diagnósticos do equipamento."
-    ],
-    specs: {
-      "Capacidade de Carga": "1.500 kg",
-      "Altura Máxima de Elevação": "4.500 mm",
-      "Comprimento do Mastro": "2.100 mm",
-      "Largura Total": "1.060 mm",
-      "Peso do Equipamento": "3.200 kg",
-      "Tipo de Motor": "Elétrico AC",
-      "Tensão": "48V / 560Ah",
-      "Velocidade de Deslocamento": "16 km/h"
-    },
-    availability: "Disponível",
-    applications: ["Armazéns internos", "Centros de distribuição", "Indústria alimentícia", "Câmaras frias", "Farmacêutica"]
-  },
-  {
-    slug: "jcl-e20",
-    name: "JCL E20",
-    category: "Empilhadeiras Elétricas",
-    categoryColor: "hsl(142, 60%, 40%)",
-    image: forkliftElectric,
-    images: [forkliftElectric, forkliftElectric, forkliftElectric],
-    shortDescription: "Empilhadeira elétrica versátil com capacidade de 2.000 kg, equilíbrio perfeito entre potência e eficiência.",
-    description: [
-      "A JCL E20 combina potência e eficiência em uma empilhadeira elétrica projetada para operações de média intensidade. Com capacidade de 2.000 kg, ela atende perfeitamente às necessidades de armazéns, indústrias e operações logísticas que demandam versatilidade.",
-      "Seu motor elétrico AC de alto torque garante desempenho superior em rampas e superfícies irregulares. A bateria de 80V oferece autonomia estendida e recarga rápida, minimizando o tempo de inatividade e maximizando a produtividade.",
-      "A JCL E20 conta com sistema de direção assistida, cabine com proteção superior e múltiplos sensores de segurança. O mastro triplex permite elevação de até 5.500 mm, atendendo às necessidades de empilhamento em prateleiras altas."
-    ],
-    specs: {
-      "Capacidade de Carga": "2.000 kg",
-      "Altura Máxima de Elevação": "5.500 mm",
-      "Comprimento do Mastro": "2.350 mm",
-      "Largura Total": "1.120 mm",
-      "Peso do Equipamento": "3.800 kg",
-      "Tipo de Motor": "Elétrico AC",
-      "Tensão": "80V / 620Ah",
-      "Velocidade de Deslocamento": "18 km/h"
-    },
-    availability: "Disponível",
-    applications: ["Armazéns logísticos", "Indústria automotiva", "Centros de distribuição", "E-commerce", "Varejo atacadista"]
-  },
-  {
-    slug: "jcl-e30",
-    name: "JCL E30",
-    category: "Empilhadeiras Elétricas",
-    categoryColor: "hsl(142, 60%, 40%)",
-    image: forkliftElectric,
-    images: [forkliftElectric, forkliftElectric, forkliftElectric],
-    shortDescription: "Empilhadeira elétrica de alta capacidade com 3.000 kg, para operações pesadas em ambientes internos.",
-    description: [
-      "A JCL E30 é a mais robusta da linha elétrica JCL, projetada para operações pesadas que exigem alta capacidade de carga sem abrir mão dos benefícios da tração elétrica. Com 3.000 kg de capacidade, ela é ideal para indústrias pesadas e operações logísticas de grande porte.",
-      "O sistema dual-motor proporciona tração e elevação simultâneas com máxima eficiência. A tecnologia de gerenciamento inteligente de energia otimiza o consumo da bateria de acordo com a carga e o perfil de operação, garantindo autonomia de até 10 horas.",
-      "Equipada com sistema avançado de estabilidade eletrônica, a JCL E30 ajusta automaticamente a velocidade em curvas e controla a inclinação do mastro para prevenir tombamento. O painel digital completo fornece informações em tempo real sobre todos os parâmetros operacionais."
+      "A Empilhadeira Elétrica JCL de 3 Toneladas combina robustez e sustentabilidade em um equipamento projetado para operações intensivas em armazéns, centros de distribuição e indústrias que exigem zero emissão de gases. Movida a bateria, é a solução ideal para ambientes internos, câmaras frias e operações próximas a alimentos e produtos farmacêuticos.",
+      "Equipada com motor elétrico AC de alto rendimento, oferece torque constante, aceleração suave e frenagem regenerativa que prolonga a autonomia da bateria. O sistema de gerenciamento eletrônico monitora consumo, temperatura e desempenho em tempo real, garantindo máxima eficiência operacional.",
+      "Com mastro duplex de série e opção triplex, cabine ergonômica e excelente visibilidade em 360°, a empilhadeira elétrica JCL 3T proporciona conforto ao operador e produtividade superior em jornadas de até 8 horas contínuas."
     ],
     specs: {
       "Capacidade de Carga": "3.000 kg",
-      "Altura Máxima de Elevação": "6.000 mm",
-      "Comprimento do Mastro": "2.600 mm",
-      "Largura Total": "1.250 mm",
-      "Peso do Equipamento": "4.800 kg",
-      "Tipo de Motor": "Elétrico AC Dual",
-      "Tensão": "80V / 775Ah",
-      "Velocidade de Deslocamento": "20 km/h"
+      "Altura Máxima de Elevação": "4.500 mm",
+      "Centro de Carga": "500 mm",
+      "Largura Total": "1.230 mm",
+      "Peso do Equipamento": "4.650 kg",
+      "Tipo de Motor": "Elétrico AC",
+      "Tensão / Bateria": "80V",
+      "Velocidade de Deslocamento": "18 km/h"
     },
-    availability: "Sob Consulta",
-    applications: ["Indústria pesada", "Siderúrgica", "Logística de grande porte", "Portos secos", "Centros de distribuição"]
-  },
-  // Combustão
-  {
-    slug: "jcl-glp25",
-    name: "JCL GLP25",
-    category: "Empilhadeiras a Combustão",
-    categoryColor: "hsl(25, 90%, 50%)",
-    image: forkliftCombustion,
-    images: [forkliftCombustion, forkliftCombustion, forkliftCombustion],
-    shortDescription: "Empilhadeira a GLP com capacidade de 2.500 kg, robusta e versátil para operações internas e externas.",
-    description: [
-      "A JCL GLP25 é uma empilhadeira a gás liquefeito de petróleo (GLP) projetada para oferecer a versatilidade necessária em operações que transitam entre ambientes internos e externos. Com capacidade de 2.500 kg, ela é a escolha ideal para indústrias, depósitos e centros logísticos.",
-      "Seu motor a GLP de 4 cilindros oferece potência consistente e emissões reduzidas comparado ao diesel, tornando-a adequada para ambientes semi-fechados. O sistema de combustão otimizado garante consumo eficiente e intervalos de manutenção estendidos.",
-      "O design robusto do chassi e os pneus pneumáticos de alta performance garantem estabilidade em terrenos irregulares e pisos industriais. A cabine ergonômica com suspensão no assento proporciona conforto durante operações prolongadas."
-    ],
-    specs: {
-      "Capacidade de Carga": "2.500 kg",
-      "Altura Máxima de Elevação": "5.000 mm",
-      "Comprimento do Mastro": "2.400 mm",
-      "Largura Total": "1.150 mm",
-      "Peso do Equipamento": "4.200 kg",
-      "Tipo de Motor": "GLP 4 cilindros",
-      "Capacidade do Tanque": "15 kg",
-      "Velocidade de Deslocamento": "22 km/h"
-    },
-    availability: "Disponível",
-    applications: ["Pátios externos", "Indústria metalúrgica", "Depósitos de materiais", "Construção civil", "Operações mistas"]
+    availability: "Pronta Entrega",
+    applications: ["Armazéns internos", "Centros de distribuição", "Indústria alimentícia", "Câmaras frias", "Farmacêutica", "E-commerce"]
   },
   {
-    slug: "jcl-glp35",
-    name: "JCL GLP35",
-    category: "Empilhadeiras a Combustão",
-    categoryColor: "hsl(25, 90%, 50%)",
-    image: forkliftCombustion,
-    images: [forkliftCombustion, forkliftCombustion, forkliftCombustion],
-    shortDescription: "Empilhadeira a GLP de alta capacidade com 3.500 kg, ideal para cargas pesadas em operações industriais.",
+    slug: "jcl-eletrica-4ton",
+    name: "JCL Elétrica 4 Toneladas",
+    category: "Empilhadeiras Elétricas",
+    categoryColor: ELETRICA_COLOR,
+    image: eletrica4_1,
+    images: [eletrica4_1, eletrica4_2, eletrica4_3, eletrica4_4],
+    shortDescription: "Empilhadeira elétrica JCL de 4.000 kg, alta autonomia e desempenho para movimentação de cargas pesadas em ambientes internos.",
     description: [
-      "A JCL GLP35 é uma empilhadeira de alto desempenho a GLP, desenvolvida para operações industriais que exigem movimentação de cargas pesadas com agilidade. Sua capacidade de 3.500 kg a torna ideal para indústrias de transformação, centros de distribuição e operações de carga e descarga.",
-      "O motor turbo a GLP entrega torque superior para elevação de cargas pesadas e deslocamento em rampas. O sistema de transmissão powershift permite mudanças suaves de direção sem perda de velocidade, aumentando a produtividade operacional.",
-      "A JCL GLP35 incorpora tecnologias de segurança avançadas, incluindo sistema de controle de velocidade em curvas, limitador de carga e câmera de ré com display integrado. O sistema OBD II facilita diagnósticos rápidos e manutenção preditiva."
-    ],
-    specs: {
-      "Capacidade de Carga": "3.500 kg",
-      "Altura Máxima de Elevação": "5.500 mm",
-      "Comprimento do Mastro": "2.600 mm",
-      "Largura Total": "1.280 mm",
-      "Peso do Equipamento": "5.100 kg",
-      "Tipo de Motor": "GLP Turbo 4 cilindros",
-      "Capacidade do Tanque": "18 kg",
-      "Velocidade de Deslocamento": "24 km/h"
-    },
-    availability: "Disponível",
-    applications: ["Indústria de transformação", "Centros de distribuição", "Carga e descarga", "Siderúrgica", "Operações externas"]
-  },
-  {
-    slug: "jcl-diesel40",
-    name: "JCL Diesel40",
-    category: "Empilhadeiras a Combustão",
-    categoryColor: "hsl(25, 90%, 50%)",
-    image: forkliftCombustion,
-    images: [forkliftCombustion, forkliftCombustion, forkliftCombustion],
-    shortDescription: "Empilhadeira diesel robusta com 4.000 kg de capacidade, máxima potência para operações externas pesadas.",
-    description: [
-      "A JCL Diesel40 é a empilhadeira mais poderosa da linha JCL, equipada com motor diesel de 4 cilindros turbo que entrega performance excepcional para as operações mais exigentes. Com capacidade de 4.000 kg, ela é a solução definitiva para pátios industriais, estaleiros e operações de carga pesada.",
-      "O motor diesel turbo de última geração atende às normas de emissão vigentes e oferece consumo otimizado de combustível. O tanque de 65 litros garante autonomia para jornadas completas de trabalho, enquanto o sistema de arrefecimento reforçado mantém a temperatura operacional ideal mesmo em condições extremas.",
-      "Projetada para resistir às condições mais adversas, a JCL Diesel40 conta com chassi reforçado, proteção inferior do motor, pneus maciços opcionais e sistema elétrico selado contra poeira e umidade. Ideal para operações em pátios abertos, indústrias pesadas e ambientes com alto nível de exigência."
+      "A Empilhadeira Elétrica JCL 4 Toneladas é a escolha certa para operações de média a alta intensidade que exigem capacidade elevada sem abrir mão dos benefícios da tração elétrica. Indicada para indústrias automotivas, metalúrgicas leves e centros logísticos que operam em múltiplos turnos.",
+      "Seu sistema dual-motor proporciona tração e elevação simultâneas com máxima eficiência, enquanto a tecnologia de gerenciamento inteligente de energia adapta o consumo conforme o perfil de uso. A bateria de alta capacidade permite jornadas extensas com recarga rápida.",
+      "Com chassi reforçado, contrapeso otimizado e sistema avançado de estabilidade eletrônica, a JCL Elétrica 4T entrega performance equivalente a uma empilhadeira a combustão, mas com custo operacional até 60% menor e zero emissão de poluentes."
     ],
     specs: {
       "Capacidade de Carga": "4.000 kg",
-      "Altura Máxima de Elevação": "6.500 mm",
-      "Comprimento do Mastro": "2.800 mm",
-      "Largura Total": "1.380 mm",
-      "Peso do Equipamento": "5.900 kg",
-      "Tipo de Motor": "Diesel Turbo 4 cilindros",
-      "Capacidade do Tanque": "65 litros",
-      "Velocidade de Deslocamento": "25 km/h"
-    },
-    availability: "Sob Consulta",
-    applications: ["Pátios industriais", "Estaleiros", "Portos", "Mineração", "Construção pesada"]
-  },
-  // Transpaleteiras
-  {
-    slug: "jcl-tp15-manual",
-    name: "JCL TP15 Manual",
-    category: "Transpaleteiras",
-    categoryColor: "hsl(210, 70%, 50%)",
-    image: forkliftPallet,
-    images: [forkliftPallet, forkliftPallet, forkliftPallet],
-    shortDescription: "Transpaleteira manual com capacidade de 1.500 kg, solução econômica para movimentação horizontal de paletes.",
-    description: [
-      "A JCL TP15 Manual é a solução mais econômica e prática para movimentação horizontal de paletes em armazéns, estoques e áreas de expedição. Com capacidade de 1.500 kg, ela é ideal para operações que não exigem elevação vertical, mas necessitam de agilidade no transporte de cargas paletizadas.",
-      "Construída com aço reforçado e componentes hidráulicos de alta qualidade, a JCL TP15 Manual oferece durabilidade excepcional e baixíssimo custo de manutenção. O sistema hidráulico de acionamento manual permite elevação suave dos garfos com esforço mínimo do operador.",
-      "O design compacto e os rodízios de poliuretano de alta resistência garantem manobrabilidade em espaços reduzidos e operação silenciosa. Ideal para varejo, pequenos armazéns e operações de picking."
-    ],
-    specs: {
-      "Capacidade de Carga": "1.500 kg",
-      "Altura Máxima de Elevação": "200 mm",
-      "Comprimento dos Garfos": "1.150 mm",
-      "Largura Total": "550 mm",
-      "Peso do Equipamento": "72 kg",
-      "Tipo de Motor": "Manual (hidráulico)",
-      "Velocidade de Deslocamento": "Operador"
-    },
-    availability: "Disponível",
-    applications: ["Varejo", "Pequenos armazéns", "Expedição", "Área de picking", "Estoque"]
-  },
-  {
-    slug: "jcl-tp20e",
-    name: "JCL TP20E Elétrica",
-    category: "Transpaleteiras",
-    categoryColor: "hsl(210, 70%, 50%)",
-    image: forkliftPallet,
-    images: [forkliftPallet, forkliftPallet, forkliftPallet],
-    shortDescription: "Transpaleteira elétrica com capacidade de 2.000 kg, operação ágil com mínimo esforço do operador.",
-    description: [
-      "A JCL TP20E é uma transpaleteira elétrica projetada para operações de média e alta intensidade que exigem agilidade e conforto do operador. Com capacidade de 2.000 kg e tração elétrica, ela elimina o esforço físico da movimentação de paletes, aumentando significativamente a produtividade.",
-      "O motor elétrico silencioso e a bateria de lítio de 24V garantem autonomia de até 6 horas de operação contínua. O carregamento rápido em apenas 3 horas permite utilização em múltiplos turnos com bateria reserva.",
-      "Equipada com acelerador proporcional no timão, freio eletromagnético e sistema de proteção contra sobrecarga. O display LED indica nível de carga da bateria e horas de operação. Ideal para centros de distribuição, e-commerce e operações logísticas modernas."
-    ],
-    specs: {
-      "Capacidade de Carga": "2.000 kg",
-      "Altura Máxima de Elevação": "210 mm",
-      "Comprimento dos Garfos": "1.150 mm",
-      "Largura Total": "580 mm",
-      "Peso do Equipamento": "165 kg",
-      "Tipo de Motor": "Elétrico 24V",
-      "Tensão": "24V / 210Ah (Lítio)",
-      "Velocidade de Deslocamento": "6 km/h"
+      "Altura Máxima de Elevação": "5.000 mm",
+      "Centro de Carga": "500 mm",
+      "Largura Total": "1.300 mm",
+      "Peso do Equipamento": "5.800 kg",
+      "Tipo de Motor": "Elétrico AC Dual",
+      "Tensão / Bateria": "80V",
+      "Velocidade de Deslocamento": "20 km/h"
     },
     availability: "Pronta Entrega",
-    applications: ["Centros de distribuição", "E-commerce", "Supermercados", "Indústria alimentícia", "Operações de cross-docking"]
+    applications: ["Indústria automotiva", "Centros de distribuição", "Logística pesada", "Metalúrgica leve", "Operações multi-turno"]
+  },
+  {
+    slug: "jcl-eletrica-5ton",
+    name: "JCL Elétrica 5 Toneladas",
+    category: "Empilhadeiras Elétricas",
+    categoryColor: ELETRICA_COLOR,
+    image: eletrica5_main,
+    images: [eletrica5_main, eletrica5_2, eletrica5_3, eletrica5_4],
+    shortDescription: "Empilhadeira elétrica JCL de 5.000 kg, robustez industrial com a eficiência energética da tração elétrica.",
+    description: [
+      "A Empilhadeira Elétrica JCL 5 Toneladas é projetada para operações industriais pesadas que demandam alta capacidade de carga em ambientes onde a emissão de gases não é permitida. É a solução ideal para indústrias de bebidas, papel e celulose, e centros logísticos de grande porte.",
+      "Equipada com motor elétrico AC de alto torque e bateria industrial de longa duração, oferece desempenho consistente mesmo em rampas e superfícies irregulares. O sistema de recuperação de energia na frenagem aumenta significativamente a autonomia operacional.",
+      "Conta com cabine espaçosa, ar condicionado opcional, controles ergonômicos e múltiplos sensores de segurança. O painel digital completo fornece informações em tempo real sobre carga da bateria, horas de operação, alertas de manutenção e diagnósticos do equipamento."
+    ],
+    specs: {
+      "Capacidade de Carga": "5.000 kg",
+      "Altura Máxima de Elevação": "5.500 mm",
+      "Centro de Carga": "500 mm",
+      "Largura Total": "1.380 mm",
+      "Peso do Equipamento": "7.200 kg",
+      "Tipo de Motor": "Elétrico AC",
+      "Tensão / Bateria": "80V",
+      "Velocidade de Deslocamento": "20 km/h"
+    },
+    availability: "Disponível",
+    applications: ["Indústria de bebidas", "Papel e celulose", "Logística de grande porte", "Indústria pesada interna", "Operações 24/7"]
+  },
+  {
+    slug: "jcl-eletrica-7ton",
+    name: "JCL Elétrica 7 Toneladas",
+    category: "Empilhadeiras Elétricas",
+    categoryColor: ELETRICA_COLOR,
+    image: eletrica7_1,
+    images: [eletrica7_1, eletrica7_2, eletrica7_3],
+    shortDescription: "Empilhadeira elétrica JCL de 7.000 kg, máxima capacidade da linha elétrica, desenvolvida para cargas extremas com zero emissão.",
+    description: [
+      "A Empilhadeira Elétrica JCL 7 Toneladas representa o ápice da engenharia elétrica da JCL. Desenvolvida para movimentar cargas extremas em ambientes industriais que exigem zero emissão, é uma alternativa moderna às tradicionais empilhadeiras a diesel de mesma capacidade.",
+      "Seu poderoso sistema elétrico de alta tensão entrega torque excepcional para elevação rápida de cargas pesadas e deslocamento ágil mesmo em rampas. A bateria industrial reforçada garante jornadas completas de trabalho sem perda de desempenho.",
+      "Com chassi superdimensionado, eixo motriz reforçado e pneus maciços de alta resistência, a JCL Elétrica 7T é indicada para siderúrgicas internas, indústria de aço, fundições e operações portuárias internas onde o controle de emissões é crítico."
+    ],
+    specs: {
+      "Capacidade de Carga": "7.000 kg",
+      "Altura Máxima de Elevação": "5.000 mm",
+      "Centro de Carga": "600 mm",
+      "Largura Total": "1.580 mm",
+      "Peso do Equipamento": "10.500 kg",
+      "Tipo de Motor": "Elétrico AC Alta Tensão",
+      "Tensão / Bateria": "96V",
+      "Velocidade de Deslocamento": "22 km/h"
+    },
+    availability: "Sob Consulta",
+    applications: ["Siderúrgica interna", "Indústria do aço", "Fundições", "Operações portuárias internas", "Containers"]
+  },
+
+  // ============ DIESEL ============
+  {
+    slug: "jcl-diesel-3ton",
+    name: "JCL Diesel 3 Toneladas",
+    category: "Empilhadeiras a Combustão",
+    categoryColor: DIESEL_COLOR,
+    image: diesel3_1,
+    images: [diesel3_1, diesel3_2, diesel3_3, diesel3_4],
+    shortDescription: "Empilhadeira diesel JCL de 3.000 kg, robustez e versatilidade para operações em pátios e ambientes externos.",
+    description: [
+      "A Empilhadeira Diesel JCL 3 Toneladas é a porta de entrada da linha a combustão JCL, oferecendo o equilíbrio perfeito entre potência e economia. Projetada para operações em pátios, depósitos abertos e indústrias que demandam mobilidade entre ambientes internos e externos.",
+      "Movida por motor diesel de 4 cilindros com baixo consumo e alto torque, atende às normas de emissão vigentes e oferece intervalos estendidos de manutenção. O sistema de transmissão automática garante mudanças suaves e produtividade superior.",
+      "Com chassi robusto, pneus pneumáticos de alta resistência e cabine ergonômica com excelente visibilidade, a JCL Diesel 3T é a escolha certa para construção civil, depósitos de materiais, indústrias metalúrgicas e operações logísticas externas."
+    ],
+    specs: {
+      "Capacidade de Carga": "3.000 kg",
+      "Altura Máxima de Elevação": "4.500 mm",
+      "Centro de Carga": "500 mm",
+      "Largura Total": "1.225 mm",
+      "Peso do Equipamento": "4.300 kg",
+      "Tipo de Motor": "Diesel 4 cilindros",
+      "Capacidade do Tanque": "60 litros",
+      "Velocidade de Deslocamento": "22 km/h"
+    },
+    availability: "Pronta Entrega",
+    applications: ["Pátios externos", "Construção civil", "Depósitos de materiais", "Metalúrgica", "Operações mistas"]
+  },
+  {
+    slug: "jcl-diesel-4ton",
+    name: "JCL Diesel 4 Toneladas",
+    category: "Empilhadeiras a Combustão",
+    categoryColor: DIESEL_COLOR,
+    image: diesel4_1,
+    images: [diesel4_1, diesel4_2, diesel4_3, diesel4_4],
+    shortDescription: "Empilhadeira diesel JCL de 4.000 kg, alta produtividade para operações industriais e logísticas pesadas.",
+    description: [
+      "A Empilhadeira Diesel JCL 4 Toneladas combina potência e durabilidade em um equipamento desenvolvido para operações industriais que exigem movimentação contínua de cargas pesadas. Indicada para indústrias de transformação, distribuidoras e operações de carga e descarga.",
+      "Seu motor diesel turbo de última geração entrega torque elevado em baixas rotações, otimizando o consumo de combustível e prolongando a vida útil do equipamento. A transmissão powershift permite inversões de marcha sem perda de velocidade, elevando a produtividade.",
+      "A JCL Diesel 4T conta com sistemas avançados de segurança, incluindo controle de velocidade em curvas, limitador eletrônico de carga, cinto de segurança retrátil e câmera de ré opcional. O sistema de diagnóstico OBD facilita manutenções preventivas e preditivas."
+    ],
+    specs: {
+      "Capacidade de Carga": "4.000 kg",
+      "Altura Máxima de Elevação": "5.000 mm",
+      "Centro de Carga": "500 mm",
+      "Largura Total": "1.300 mm",
+      "Peso do Equipamento": "5.400 kg",
+      "Tipo de Motor": "Diesel Turbo 4 cilindros",
+      "Capacidade do Tanque": "70 litros",
+      "Velocidade de Deslocamento": "24 km/h"
+    },
+    availability: "Pronta Entrega",
+    applications: ["Indústria de transformação", "Centros de distribuição", "Carga e descarga", "Operações externas", "Logística pesada"]
+  },
+  {
+    slug: "jcl-diesel-5ton",
+    name: "JCL Diesel 5 Toneladas",
+    category: "Empilhadeiras a Combustão",
+    categoryColor: DIESEL_COLOR,
+    image: diesel5_1,
+    images: [diesel5_1, diesel5_2, diesel5_3, diesel5_4],
+    shortDescription: "Empilhadeira diesel JCL de 5.000 kg, alto desempenho para cargas pesadas em pátios industriais e estaleiros.",
+    description: [
+      "A Empilhadeira Diesel JCL 5 Toneladas é desenvolvida para operações exigentes que demandam capacidade elevada e desempenho consistente. Ideal para pátios industriais, estaleiros, indústrias de bebidas em paletes pesados e operações portuárias.",
+      "Equipada com motor diesel turbo intercooler, oferece potência superior em qualquer condição operacional, mantendo eficiência energética e baixo nível de emissões. O sistema hidráulico de alta vazão proporciona elevação rápida mesmo com carga máxima.",
+      "Possui chassi reforçado, contrapeso fundido em peça única, mastro de alta resistência e proteção integral do operador. Os pneus pneumáticos ou maciços (opcionais) garantem aderência e durabilidade em qualquer terreno, inclusive em condições adversas."
+    ],
+    specs: {
+      "Capacidade de Carga": "5.000 kg",
+      "Altura Máxima de Elevação": "5.500 mm",
+      "Centro de Carga": "500 mm",
+      "Largura Total": "1.380 mm",
+      "Peso do Equipamento": "6.800 kg",
+      "Tipo de Motor": "Diesel Turbo Intercooler",
+      "Capacidade do Tanque": "85 litros",
+      "Velocidade de Deslocamento": "25 km/h"
+    },
+    availability: "Disponível",
+    applications: ["Pátios industriais", "Estaleiros", "Indústria de bebidas", "Operações portuárias", "Indústria pesada"]
+  },
+  {
+    slug: "jcl-diesel-7ton",
+    name: "JCL Diesel 7 Toneladas",
+    category: "Empilhadeiras a Combustão",
+    categoryColor: DIESEL_COLOR,
+    image: diesel7_1,
+    images: [diesel7_1, diesel7_2, diesel7_3, diesel7_4],
+    shortDescription: "Empilhadeira diesel JCL de 7.000 kg, máxima potência para movimentação de containers, bobinas e cargas extremas.",
+    description: [
+      "A Empilhadeira Diesel JCL 7 Toneladas é a mais robusta da linha JCL, projetada para enfrentar as operações mais severas da indústria pesada. Indicada para movimentação de containers, bobinas de aço, blocos de pedra, madeira em toras e qualquer aplicação que exija máxima capacidade de carga.",
+      "Seu poderoso motor diesel turbo de alta cilindrada entrega torque excepcional, mesmo nas condições mais adversas. O tanque ampliado garante autonomia para jornadas completas, e o sistema de arrefecimento reforçado mantém a temperatura ideal mesmo em climas tropicais e operações intensivas.",
+      "Construída com chassi superdimensionado, eixos reforçados, transmissão de alta resistência e proteção integral contra impactos, a JCL Diesel 7T é a escolha definitiva para portos secos, mineração, siderurgia e construção pesada. Personalizações sob demanda como garfos especiais, posicionadores hidráulicos e cabines fechadas com ar condicionado estão disponíveis."
+    ],
+    specs: {
+      "Capacidade de Carga": "7.000 kg",
+      "Altura Máxima de Elevação": "6.000 mm",
+      "Centro de Carga": "600 mm",
+      "Largura Total": "1.580 mm",
+      "Peso do Equipamento": "9.800 kg",
+      "Tipo de Motor": "Diesel Turbo Alta Cilindrada",
+      "Capacidade do Tanque": "120 litros",
+      "Velocidade de Deslocamento": "26 km/h"
+    },
+    availability: "Sob Consulta",
+    applications: ["Portos secos", "Mineração", "Siderúrgica", "Construção pesada", "Movimentação de containers", "Indústria madeireira"]
   }
 ];
 
@@ -234,9 +275,10 @@ export const getProductBySlug = (slug: string) => products.find(p => p.slug === 
 export const getRelatedProducts = (slug: string, limit = 3) => {
   const product = getProductBySlug(slug);
   if (!product) return products.slice(0, limit);
-  return products.filter(p => p.slug !== slug && p.category === product.category).length > 0
-    ? products.filter(p => p.slug !== slug && p.category === product.category).slice(0, limit)
+  const sameCategory = products.filter(p => p.slug !== slug && p.category === product.category);
+  return sameCategory.length > 0
+    ? sameCategory.slice(0, limit)
     : products.filter(p => p.slug !== slug).slice(0, limit);
 };
 
-export const categories = ["Empilhadeiras Elétricas", "Empilhadeiras a Combustão", "Transpaleteiras"] as const;
+export const categories = ["Empilhadeiras Elétricas", "Empilhadeiras a Combustão"] as const;
