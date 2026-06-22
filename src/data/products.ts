@@ -282,3 +282,75 @@ export const getRelatedProducts = (slug: string, limit = 3) => {
 };
 
 export const categories = ["Empilhadeiras Elétricas", "Empilhadeiras a Combustão"] as const;
+
+/** Metadata for the 6 equipment categories shown on /produtos */
+export interface CategoryMeta {
+  slug: string;
+  name: string;
+  shortName: string;
+  description: string;
+  /** Maps to `Product.category` when products exist */
+  productCategory?: "Empilhadeiras Elétricas" | "Empilhadeiras a Combustão";
+  image: string;
+  comingSoon?: boolean;
+}
+
+export const categoriesMeta: CategoryMeta[] = [
+  {
+    slug: "empilhadeira-diesel",
+    name: "Empilhadeira à Diesel",
+    shortName: "Diesel",
+    description: "Alta potência e desempenho para operações em ambientes internos e externos. Robustez e segurança para os mais diversos setores.",
+    productCategory: "Empilhadeiras a Combustão",
+    image: diesel4_1,
+  },
+  {
+    slug: "empilhadeira-eletrica",
+    name: "Empilhadeira Elétrica",
+    shortName: "Elétrica",
+    description: "Ideal para operações internas em áreas fechadas. Silenciosa, econômica e eficiente, com alto desempenho e sustentabilidade.",
+    productCategory: "Empilhadeiras Elétricas",
+    image: eletrica4_1,
+  },
+  {
+    slug: "empilhadeira-patolada",
+    name: "Empilhadeira Patolada",
+    shortName: "Patolada",
+    description: "Compacta e segura para movimentação de cargas leves em armazéns com corredores estreitos.",
+    image: eletrica3_main,
+    comingSoon: true,
+  },
+  {
+    slug: "empilhadeira-retratil",
+    name: "Empilhadeira Retrátil",
+    shortName: "Retrátil",
+    description: "Perfeita para estocagem em alturas e corredores estreitos. Máximo aproveitamento de espaço com segurança.",
+    image: eletrica5_main,
+    comingSoon: true,
+  },
+  {
+    slug: "transpaleteira-eletrica",
+    name: "Transpaleteira Elétrica",
+    shortName: "Transpaleteira",
+    description: "Equipamento elétrico para transporte horizontal de paletes com baixo esforço operacional.",
+    image: eletrica3_2,
+    comingSoon: true,
+  },
+  {
+    slug: "paleteira-eletrica",
+    name: "Paleteira Elétrica",
+    shortName: "Paleteira",
+    description: "Solução prática e ágil para movimentação interna de paletes em pequenos e médios centros logísticos.",
+    image: eletrica3_3,
+    comingSoon: true,
+  },
+];
+
+export const getCategoryBySlug = (slug: string) =>
+  categoriesMeta.find(c => c.slug === slug);
+
+export const getProductsByCategorySlug = (slug: string): Product[] => {
+  const meta = getCategoryBySlug(slug);
+  if (!meta || !meta.productCategory) return [];
+  return products.filter(p => p.category === meta.productCategory);
+};
