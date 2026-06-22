@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
+        condensed: ["Barlow Condensed", "Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -53,6 +54,7 @@ export default {
         dark: "hsl(var(--dark))",
         "dark-nav": "hsl(var(--dark-nav))",
         yellow: "hsl(var(--yellow))",
+        "yellow-dark": "hsl(var(--yellow-dark))",
         "white-ice": "hsl(var(--white-ice))",
         "gray-dark": "hsl(var(--gray-dark))",
         "gray-medium": "hsl(var(--gray-medium))",

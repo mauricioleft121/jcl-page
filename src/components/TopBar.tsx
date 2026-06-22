@@ -1,31 +1,35 @@
-import { Phone, Mail, Clock } from "lucide-react";
+import { Phone, Clock, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const TopBar = () => {
   return (
-    <div className="h-[68px] bg-dark flex items-center">
-      <div className="container flex items-center justify-between">
+    <div className="bg-dark py-3">
+      <div className="container flex flex-wrap items-center justify-between gap-y-3">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <span className="text-yellow font-bold text-2xl tracking-tight">JCL</span>
-          <span className="text-background font-bold text-2xl tracking-tight">Empilhadeiras</span>
-        </div>
+        <Link to="/" className="flex items-baseline gap-1" aria-label="JCL Empilhadeiras — início">
+          <span className="jcl-heading text-3xl text-background">JC</span>
+          <span className="jcl-heading text-3xl text-yellow">L</span>
+          <span className="jcl-heading text-[11px] text-background/80 ml-2 tracking-[0.2em] hidden sm:inline">
+            EMPILHADEIRAS
+          </span>
+        </Link>
 
         {/* Info groups - hidden on mobile */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-8">
           <InfoGroup
-            icon={<Phone className="text-yellow" size={22} />}
-            title="LIGUE AGORA"
-            subtitle="(11) 9999-8888"
+            icon={<Clock size={20} />}
+            title="HORÁRIO DE FUNCIONAMENTO"
+            subtitle="Segunda a sexta 08:00 - 17:00"
           />
           <InfoGroup
-            icon={<Mail className="text-yellow" size={22} />}
-            title="E-MAIL"
-            subtitle="contato@jclempilhadeiras.com.br"
+            icon={<Phone size={20} />}
+            title="32 3531-5957"
+            subtitle="vendas@jclempilhadeiras.com.br"
           />
           <InfoGroup
-            icon={<Clock className="text-yellow" size={22} />}
-            title="HORÁRIO"
-            subtitle="Seg–Sex: 08h às 18h"
+            icon={<MapPin size={20} />}
+            title="R. CEL. OTAVIANO DA ROCHA, 1110"
+            subtitle="São Domingos · Ubá / MG"
           />
         </div>
       </div>
@@ -42,11 +46,13 @@ const InfoGroup = ({
   title: string;
   subtitle: string;
 }) => (
-  <div className="flex items-center gap-3">
-    {icon}
-    <div>
-      <p className="text-background font-semibold text-[11px] uppercase tracking-[0.5px]">{title}</p>
-      <p className="text-background/70 text-xs">{subtitle}</p>
+  <div className="flex items-center gap-3 max-w-[260px]">
+    <span className="w-10 h-10 rounded-full bg-yellow text-dark flex items-center justify-center flex-shrink-0">
+      {icon}
+    </span>
+    <div className="min-w-0">
+      <p className="text-background font-bold text-[11px] uppercase tracking-[0.5px] truncate">{title}</p>
+      <p className="text-background/70 text-[11px] truncate">{subtitle}</p>
     </div>
   </div>
 );

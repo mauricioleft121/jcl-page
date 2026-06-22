@@ -1,48 +1,44 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-forklift.jpg";
 
 const Hero = () => {
   return (
-    <section
-      id="hero"
-      className="relative min-h-[560px] flex items-end"
-    >
+    <section id="hero" className="relative min-h-[640px] flex items-center overflow-hidden">
       <img
         src={heroImage}
-        alt="Empilhadeira em operação"
+        alt="Fachada da JCL Empilhadeiras em Ubá - MG"
         className="absolute inset-0 w-full h-full object-cover"
         width={1920}
         height={1080}
       />
-      <div className="absolute inset-0 bg-dark/[0.65]" />
+      {/* Dark overlay heavier on the left for text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/75 to-dark/30" />
 
-      <div className="relative container pb-16 pt-32">
-        <h1 className="text-background font-extrabold text-4xl sm:text-5xl md:text-7xl lg:text-[80px] leading-[1.1] max-w-3xl">
-          Potência e<br />
-          Precisão em<br />
-          Cada Operação
-        </h1>
-        <p className="text-background/85 text-base md:text-[17px] leading-[1.7] mt-6 max-w-[560px]">
-          Fabricante de empilhadeiras com tecnologia própria e qualidade comprovada.
-          Soluções completas em vendas e assistência técnica para sua operação logística.
-        </p>
+      <div className="relative container py-20">
+        <div className="max-w-2xl">
+          <h1 className="jcl-heading text-yellow text-6xl sm:text-7xl md:text-8xl lg:text-[140px]">
+            JCL
+          </h1>
+          <h2 className="jcl-heading text-background text-4xl sm:text-5xl md:text-6xl lg:text-[72px] mt-1">
+            EMPILHADEIRAS
+          </h2>
+          <span className="block w-20 h-[5px] bg-yellow mt-6 mb-6" />
+          <p className="text-background/85 text-base md:text-[17px] leading-[1.7] max-w-[520px]">
+            Soluções completas em movimentação de cargas com eficiência,
+            segurança e tecnologia para o seu negócio.
+          </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-8">
-          <a
-            href="#contato"
-            className="inline-flex items-center justify-center bg-yellow text-dark font-bold text-[15px] uppercase py-4 px-8 rounded-md hover:opacity-90 transition-opacity text-center min-h-[44px]"
-            aria-label="Solicitar orçamento agora"
-          >
-            Solicitar Orçamento Agora
-          </a>
-          <Link
-            to="/produtos"
-            className="inline-flex items-center justify-center border-2 border-background text-background font-bold text-[15px] uppercase py-4 px-8 rounded-md hover:bg-background hover:text-dark transition-colors text-center min-h-[44px]"
-            aria-label="Ver catálogo de produtos"
-          >
-            Ver Nossos Produtos
-          </Link>
+          <div className="mt-8">
+            <Link
+              to="/contato"
+              className="btn-yellow text-[15px] px-8 py-4"
+              aria-label="Fale com um especialista JCL"
+            >
+              FALE COM UM ESPECIALISTA
+              <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -1,279 +1,220 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { MessageCircle, ArrowRight, FileText } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { getProductBySlug, getRelatedProducts } from "@/data/products";
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb";
-import { CheckCircle, Tag } from "lucide-react";
-
-const availabilityColors: Record<string, string> = {
-  "Disponível": "hsl(142, 60%, 40%)",
-  "Sob Consulta": "hsl(40, 90%, 50%)",
-  "Pronta Entrega": "hsl(210, 70%, 50%)",
-};
+import ScrollTopButton from "@/components/ScrollTopButton";
+import { getProductBySlug, getRelatedProducts, categoriesMeta } from "@/data/products";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const product = getProductBySlug(slug || "");
-  const [activeImage, setActiveImage] = useState(0);
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [active, setActive] = useState(0);
 
   useEffect(() => {
-    if (product) {
-      document.title = `${product.name} — Ficha Técnica | JCL Empilhadeiras`;
-    }
+    if (product) document.title = `${product.name} | JCL Empilhadeiras`;
+    setActive(0);
   }, [product]);
 
   if (!product) {
     return (
       <div className="min-h-screen">
         <TopBar />
-        <NavBar />
-        <div className="py-20 text-center container">
-          <h1 className="font-bold text-3xl text-dark mb-4">Produto não encontrado</h1>
-          <Link to="/produtos" className="text-yellow font-bold hover:underline">Voltar ao catálogo</Link>
+        <NavBar variant="dark" />
+        <div className="container py-20 text-center">
+          <h1 className="jcl-heading text-dark text-3xl mb-4">Produto não encontrado</h1>
+          <Link to="/produtos" className="text-yellow font-bold hover:underline">
+            ← Voltar ao catálogo
+          </Link>
         </div>
         <Footer />
       </div>
     );
   }
 
+  const catMeta = categoriesMeta.find(c => c.productCategory === product.category);
   const related = getRelatedProducts(product.slug);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const waMsg = encodeURIComponent(`Olá! Tenho interesse no modelo ${product.name}.`);
 
   return (
     <div className="min-h-screen">
       <TopBar />
-      <NavBar />
+      <NavBar variant="dark" />
       <WhatsAppButton />
+      <ScrollTopButton />
 
       {/* Breadcrumb */}
-      <section className="bg-dark py-6">
+      <section className="bg-dark py-5">
         <div className="container">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/" className="text-background/70 hover:text-yellow">Início</BreadcrumbLink>
+                <BreadcrumbLink href="/" className="text-background/70 hover:text-yellow">Home</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator className="text-background/50" />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/produtos" className="text-background/70 hover:text-yellow">Produtos</BreadcrumbLink>
+                <BreadcrumbLink href="/produtos" className="text-background/70 hover:text-yellow">Equipamentos</BreadcrumbLink>
               </BreadcrumbItem>
+              {catMeta && (
+                <>
+                  <BreadcrumbSeparator className="text-background/50" />
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href={`/produtos/categoria/${catMeta.slug}`} className="text-background/70 hover:text-yellow">
+                      {catMeta.name}
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                </>
+              )}
               <BreadcrumbSeparator className="text-background/50" />
               <BreadcrumbItem>
                 <BreadcrumbPage className="text-yellow">{product.name}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          {/* JSON-LD breadcrumb */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Início", item: window.location.origin + "/" },
-                  { "@type": "ListItem", position: 2, name: "Produtos", item: window.location.origin + "/produtos" },
-                  { "@type": "ListItem", position: 3, name: product.name },
-                ],
-              }),
-            }}
-          />
         </div>
       </section>
 
-      {/* Product main */}
-      <section className="py-20 bg-white-ice">
+      {/* Main */}
+      <section className="bg-white-ice py-16">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12">
-            {/* Left content */}
-            <div>
-              {/* Gallery */}
-              <div className="mb-10">
-                <div className="rounded-xl overflow-hidden mb-4 bg-background border border-border">
-                  <img
-                    src={product.images[activeImage]}
-                    alt={product.name}
-                    className="w-full h-[400px] object-contain p-6"
-                  />
-                </div>
-                <div className="flex gap-3">
-                  {product.images.map((img, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveImage(i)}
-                      className={`w-24 h-24 rounded-lg overflow-hidden border-2 transition-colors ${
-                        i === activeImage ? "border-yellow" : "border-border"
-                      }`}
-                      aria-label={`Ver imagem ${i + 1}`}
-                    >
-                      <img src={img} alt="" className="w-full h-full object-contain p-2" />
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Title & badges */}
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span
-                  className="inline-block text-[11px] font-bold uppercase tracking-wide px-3 py-1 rounded-full text-background"
-                  style={{ backgroundColor: product.categoryColor }}
-                >
-                  {product.category}
-                </span>
-                <span
-                  className="inline-block text-[11px] font-bold uppercase tracking-wide px-3 py-1 rounded-full text-background"
-                  style={{ backgroundColor: availabilityColors[product.availability] }}
-                >
-                  {product.availability}
-                </span>
-              </div>
-
-              <h1 className="font-extrabold text-3xl md:text-4xl text-dark mb-6">{product.name}</h1>
-
-              {/* Description */}
-              <div className="space-y-4 mb-12">
-                {product.description.map((p, i) => (
-                  <p key={i} className="text-gray-medium text-[15px] leading-[1.9]">{p}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12">
+            {/* Gallery */}
+            <div className="flex gap-4">
+              <div className="flex flex-col gap-3 w-[88px] flex-shrink-0">
+                {product.images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    className={`w-[88px] h-[88px] rounded-lg overflow-hidden border-2 bg-background transition-colors ${
+                      i === active ? "border-yellow" : "border-border hover:border-dark"
+                    }`}
+                    aria-label={`Ver imagem ${i + 1}`}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-contain p-1.5" />
+                  </button>
                 ))}
               </div>
-
-              {/* Specs table */}
-              <div className="mb-12">
-                <h2 className="font-bold text-2xl text-dark mb-6">Especificações Técnicas</h2>
-                <div className="rounded-[14px] border border-border overflow-hidden">
-                  {Object.entries(product.specs).map(([key, value], i) => (
-                    <div
-                      key={key}
-                      className={`flex justify-between px-6 py-4 text-sm ${
-                        i % 2 === 0 ? "bg-background" : "bg-white-ice"
-                      }`}
-                    >
-                      <span className="font-semibold text-dark">{key}</span>
-                      <span className="text-gray-medium">{value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Applications */}
-              <div className="mb-12">
-                <h2 className="font-bold text-2xl text-dark mb-6">Indicado Para</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {product.applications.map(app => (
-                    <div key={app} className="flex items-center gap-3 bg-background rounded-lg p-4 border border-border">
-                      <CheckCircle className="text-yellow flex-shrink-0" size={20} />
-                      <span className="text-dark text-sm font-medium">{app}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="flex-1 bg-background rounded-2xl border border-border flex items-center justify-center min-h-[420px] p-6">
+                <img
+                  src={product.images[active]}
+                  alt={product.name}
+                  className="max-h-[400px] w-full object-contain"
+                />
               </div>
             </div>
 
-            {/* Right sidebar - CTA form */}
+            {/* Info */}
             <div>
-              <div className="sticky top-[140px] bg-background rounded-[14px] border border-border p-8">
-                <div className="flex items-center gap-2 mb-2">
-                  <Tag className="text-yellow" size={18} />
-                  <span className="font-bold text-xs uppercase text-yellow tracking-wide">Solicitar Orçamento</span>
-                </div>
-                <h3 className="font-bold text-lg text-dark mb-1">{product.name}</h3>
-                <p className="text-gray-medium text-sm mb-6">Preencha o formulário e receba um orçamento personalizado.</p>
+              <h1 className="jcl-heading text-dark text-3xl md:text-4xl accent-line">
+                {product.name.toUpperCase()}
+              </h1>
+              <p className="text-gray-medium text-[15px] leading-[1.8] mt-6 mb-8">
+                {product.shortDescription}
+              </p>
 
-                <form className="space-y-4">
-                  <div>
-                    <label className="block font-semibold text-[11px] text-dark uppercase tracking-[0.8px] mb-2">Nome</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors min-h-[44px]"
-                      aria-label="Nome"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-semibold text-[11px] text-dark uppercase tracking-[0.8px] mb-2">E-mail</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors min-h-[44px]"
-                      aria-label="E-mail"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-semibold text-[11px] text-dark uppercase tracking-[0.8px] mb-2">Telefone</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors min-h-[44px]"
-                      aria-label="Telefone"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-semibold text-[11px] text-dark uppercase tracking-[0.8px] mb-2">Mensagem</label>
-                    <textarea
-                      name="message"
-                      rows={3}
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder={`Tenho interesse no modelo ${product.name}`}
-                      className="w-full border border-input rounded-md px-3.5 py-3 text-sm text-dark bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
-                      aria-label="Mensagem"
-                    />
-                  </div>
-                  <input type="hidden" name="product" value={product.name} />
-                  <button
-                    type="submit"
-                    className="w-full bg-yellow text-dark font-bold text-sm uppercase py-3.5 rounded-md hover:opacity-90 transition-opacity min-h-[44px]"
-                    aria-label={`Solicitar orçamento do ${product.name}`}
-                  >
-                    Solicitar Orçamento
-                  </button>
-                </form>
+              <div className="space-y-3">
+                <a
+                  href={`https://wa.me/553235315957?text=${waMsg}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 border-2 border-yellow text-dark font-bold uppercase rounded-full px-8 py-4 text-sm hover:bg-yellow transition-colors min-h-[56px]"
+                  aria-label={`Cotação por WhatsApp do ${product.name}`}
+                >
+                  <MessageCircle size={18} fill="currentColor" className="text-yellow-dark" />
+                  COTAÇÃO POR WHATSAPP
+                </a>
+                <Link
+                  to="/contato"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-yellow text-dark font-bold uppercase rounded-full px-8 py-4 text-sm hover:bg-yellow-dark transition-colors min-h-[56px]"
+                  aria-label={`Iniciar uma cotação do ${product.name}`}
+                >
+                  INICIE UMA COTAÇÃO
+                  <ArrowRight size={16} />
+                </Link>
               </div>
+
+              {/* Quick spec */}
+              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-10 text-sm border-t border-border pt-6">
+                <SpecRow label="Categoria" value={product.category} />
+                <SpecRow label="Modelo" value={product.name} />
+                <SpecRow label="Capacidade" value={product.specs["Capacidade de Carga"]} />
+                <SpecRow label="Elevação" value={product.specs["Altura Máxima de Elevação"]} />
+                <SpecRow label="Disponibilidade" value={product.availability} />
+                <div className="flex gap-2">
+                  <dt className="jcl-heading text-dark text-xs">Ficha Técnica:</dt>
+                  <dd>
+                    <a href="#" className="text-yellow font-semibold text-xs hover:underline inline-flex items-center gap-1">
+                      <FileText size={12} /> Ver Documentação
+                    </a>
+                  </dd>
+                </div>
+              </dl>
             </div>
           </div>
 
-          {/* Related products */}
-          <div className="mt-20">
-            <h2 className="font-bold text-[34px] text-dark text-center mb-10">Produtos Relacionados</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {related.map(p => (
+          {/* Description */}
+          <div className="mt-16">
+            <h2 className="jcl-heading text-dark text-2xl md:text-3xl accent-line mb-6">
+              DESCRIÇÃO DO PRODUTO
+            </h2>
+            <div className="space-y-4 max-w-4xl">
+              {product.description.map((p, i) => (
+                <p key={i} className="text-gray-medium text-[15px] leading-[1.9]">{p}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* Full specs */}
+          <div className="mt-16">
+            <h2 className="jcl-heading text-dark text-2xl md:text-3xl accent-line mb-6">
+              ESPECIFICAÇÕES TÉCNICAS
+            </h2>
+            <div className="bg-background rounded-2xl border border-border overflow-hidden max-w-4xl">
+              {Object.entries(product.specs).map(([k, v], i) => (
                 <div
-                  key={p.slug}
-                  className="bg-background rounded-[14px] border border-border p-8 flex flex-col items-center text-center"
+                  key={k}
+                  className={`flex justify-between px-6 py-4 text-sm ${
+                    i % 2 === 0 ? "bg-background" : "bg-white-ice"
+                  }`}
                 >
-                  <img src={p.image} alt={p.name} className="h-40 object-contain mb-4" loading="lazy" />
-                  <span
-                    className="inline-block text-[11px] font-bold uppercase tracking-wide px-3 py-1 rounded-full text-background mb-3"
-                    style={{ backgroundColor: p.categoryColor }}
-                  >
-                    {p.category}
-                  </span>
-                  <h3 className="font-semibold text-[15px] text-dark uppercase mb-2">{p.name}</h3>
-                  <p className="text-gray-medium text-sm mb-4">{p.shortDescription.slice(0, 80)}…</p>
-                  <Link
-                    to={`/produtos/${p.slug}`}
-                    className="mt-auto w-full bg-yellow text-dark font-bold text-[13px] uppercase py-3 rounded-md hover:opacity-90 transition-opacity text-center block min-h-[44px] flex items-center justify-center"
-                    aria-label={`Ver detalhes do ${p.name}`}
-                  >
-                    Ver Detalhes
-                  </Link>
+                  <span className="font-bold text-dark">{k}</span>
+                  <span className="text-gray-medium">{v}</span>
                 </div>
               ))}
             </div>
           </div>
+
+          {/* Related */}
+          {related.length > 0 && (
+            <div className="mt-20">
+              <h2 className="jcl-heading text-dark text-2xl md:text-3xl accent-line mb-8">
+                PRODUTOS RELACIONADOS
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {related.map(p => (
+                  <Link
+                    key={p.slug}
+                    to={`/produtos/${p.slug}`}
+                    className="bg-background rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col items-center text-center"
+                  >
+                    <img src={p.image} alt={p.name} className="h-36 object-contain mb-4" loading="lazy" />
+                    <h3 className="jcl-heading text-dark text-base accent-line center mb-3">{p.name}</h3>
+                    <p className="text-gray-medium text-sm mt-auto">{p.specs["Capacidade de Carga"]}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -281,5 +222,12 @@ const ProductDetail = () => {
     </div>
   );
 };
+
+const SpecRow = ({ label, value }: { label: string; value: string }) => (
+  <div className="flex gap-2">
+    <dt className="jcl-heading text-dark text-xs">{label}:</dt>
+    <dd className="text-gray-medium text-xs">{value}</dd>
+  </div>
+);
 
 export default ProductDetail;
