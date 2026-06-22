@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, MessageCircle } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { FaWhatsapp } from "react-icons/fa";
 import { categoriesMeta } from "@/data/products";
 
 const navItems = [
@@ -88,7 +87,7 @@ const NavBar = ({ variant = "light" }: NavBarProps) => {
             className="btn-yellow text-xs"
             aria-label="Fale conosco no WhatsApp"
           >
-            <FaWhatsapp size={16} />
+            <MessageCircle size={16} fill="currentColor" />
             FALE CONOSCO
           </a>
           <button
