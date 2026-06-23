@@ -51,6 +51,9 @@ export interface Product {
   specs: Record<string, string>;
   availability: "Disponível" | "Sob Consulta" | "Pronta Entrega";
   applications: string[];
+  model?: string;
+  tags?: string[];
+  aboutProduct?: string;
 }
 
 const ELETRICA_COLOR = "hsl(142, 60%, 40%)";
@@ -59,18 +62,21 @@ const DIESEL_COLOR = "hsl(25, 90%, 50%)";
 export const products: Product[] = [
   // ============ ELÉTRICAS ============
   {
-    slug: "jcl-eletrica-3ton",
-    name: "JCL Elétrica 3 Toneladas",
+    slug: "jclb30",
+    name: "JCLB30 — Empilhadeira Contrabalançada Elétrica JCL(B) B30",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
     image: eletrica3_main,
     images: [eletrica3_main, eletrica3_2, eletrica3_3, eletrica3_4],
-    shortDescription: "Empilhadeira elétrica JCL com capacidade de 3.000 kg, zero emissão e operação silenciosa para ambientes internos exigentes.",
+    shortDescription: "Empilhadeira elétrica JCLB30 com bateria de íons de lítio, capacidade de 3 toneladas, zero emissão e alto desempenho para operações logísticas e industriais.",
     description: [
-      "A Empilhadeira Elétrica JCL de 3 Toneladas combina robustez e sustentabilidade em um equipamento projetado para operações intensivas em armazéns, centros de distribuição e indústrias que exigem zero emissão de gases. Movida a bateria, é a solução ideal para ambientes internos, câmaras frias e operações próximas a alimentos e produtos farmacêuticos.",
-      "Equipada com motor elétrico AC de alto rendimento, oferece torque constante, aceleração suave e frenagem regenerativa que prolonga a autonomia da bateria. O sistema de gerenciamento eletrônico monitora consumo, temperatura e desempenho em tempo real, garantindo máxima eficiência operacional.",
-      "Com mastro duplex de série e opção triplex, cabine ergonômica e excelente visibilidade em 360°, a empilhadeira elétrica JCL 3T proporciona conforto ao operador e produtividade superior em jornadas de até 8 horas contínuas."
+      "A JCLB30 é uma empilhadeira elétrica equipada com bateria de íons de lítio de última geração, desenvolvida pela JCL Empilhadeiras para proporcionar alto desempenho, maior eficiência e redução dos custos operacionais.",
+      "Com emissão zero de poluentes, é a solução ideal para operações logísticas, industriais e ambientes de armazenagem intensiva.",
+      "Sua combinação entre potência, tecnologia avançada e sistemas inteligentes de segurança garante produtividade, confiabilidade e excelente desempenho nas operações do dia a dia."
     ],
+    model: "JCLB30",
+    tags: ["JCLB", "empilhadeira contrabalançada", "empilhadeira contrabalançada elétrica"],
+    aboutProduct: "A JCLB30 une potência, tecnologia e eficiência em uma empilhadeira elétrica de alto desempenho. Equipada com bateria de íons de lítio, oferece menor custo operacional, emissão zero de poluentes e excelente desempenho para operações logísticas, industriais e de armazenagem. Uma solução moderna para mais produtividade e segurança no dia a dia.",
     specs: {
       "Capacidade de Carga": "3.000 kg",
       "Altura Máxima de Elevação": "4.500 mm",
@@ -85,18 +91,21 @@ export const products: Product[] = [
     applications: ["Armazéns internos", "Centros de distribuição", "Indústria alimentícia", "Câmaras frias", "Farmacêutica", "E-commerce"]
   },
   {
-    slug: "jcl-eletrica-4ton",
-    name: "JCL Elétrica 4 Toneladas",
+    slug: "jclb40",
+    name: "JCLB40 — Empilhadeira Contrabalançada Elétrica JCL(B) B40",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
     image: eletrica4_1,
     images: [eletrica4_1, eletrica4_2, eletrica4_3, eletrica4_4],
-    shortDescription: "Empilhadeira elétrica JCL de 4.000 kg, alta autonomia e desempenho para movimentação de cargas pesadas em ambientes internos.",
+    shortDescription: "Empilhadeira elétrica JCLB40 com bateria de íons de lítio, capacidade de 4 toneladas, alta eficiência e zero emissão para operações industriais e de armazenagem.",
     description: [
-      "A Empilhadeira Elétrica JCL 4 Toneladas é a escolha certa para operações de média a alta intensidade que exigem capacidade elevada sem abrir mão dos benefícios da tração elétrica. Indicada para indústrias automotivas, metalúrgicas leves e centros logísticos que operam em múltiplos turnos.",
-      "Seu sistema dual-motor proporciona tração e elevação simultâneas com máxima eficiência, enquanto a tecnologia de gerenciamento inteligente de energia adapta o consumo conforme o perfil de uso. A bateria de alta capacidade permite jornadas extensas com recarga rápida.",
-      "Com chassi reforçado, contrapeso otimizado e sistema avançado de estabilidade eletrônica, a JCL Elétrica 4T entrega performance equivalente a uma empilhadeira a combustão, mas com custo operacional até 60% menor e zero emissão de poluentes."
+      "A JCLB40 é uma empilhadeira elétrica equipada com bateria de íons de lítio de última geração, desenvolvida pela JCL Empilhadeiras para proporcionar alto desempenho, maior eficiência e redução dos custos operacionais.",
+      "Com emissão zero de poluentes, é a solução ideal para operações logísticas, industriais e ambientes de armazenagem intensiva.",
+      "Sua combinação entre potência, tecnologia avançada e sistemas inteligentes de segurança garante produtividade, confiabilidade e excelente desempenho nas operações do dia a dia."
     ],
+    model: "JCLB40",
+    tags: ["JCLB", "empilhadeira contrabalançada", "empilhadeira contrabalançada elétrica"],
+    aboutProduct: "A JCLB40 une potência, tecnologia e eficiência em uma empilhadeira elétrica de alto desempenho. Equipada com bateria de íons de lítio, oferece menor custo operacional, emissão zero de poluentes e excelente desempenho para operações logísticas, industriais e de armazenagem. Uma solução moderna para mais produtividade e segurança no dia a dia.",
     specs: {
       "Capacidade de Carga": "4.000 kg",
       "Altura Máxima de Elevação": "5.000 mm",
@@ -111,18 +120,21 @@ export const products: Product[] = [
     applications: ["Indústria automotiva", "Centros de distribuição", "Logística pesada", "Metalúrgica leve", "Operações multi-turno"]
   },
   {
-    slug: "jcl-eletrica-5ton",
-    name: "JCL Elétrica 5 Toneladas",
+    slug: "jclb50",
+    name: "JCLB50 — Empilhadeira Contrabalançada Elétrica JCL(B) B50",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
     image: eletrica5_main,
     images: [eletrica5_main, eletrica5_2, eletrica5_3, eletrica5_4],
-    shortDescription: "Empilhadeira elétrica JCL de 5.000 kg, robustez industrial com a eficiência energética da tração elétrica.",
+    shortDescription: "Empilhadeira elétrica JCLB50 de 5 toneladas com bateria de íons de lítio, robustez industrial e zero emissão de poluentes.",
     description: [
-      "A Empilhadeira Elétrica JCL 5 Toneladas é projetada para operações industriais pesadas que demandam alta capacidade de carga em ambientes onde a emissão de gases não é permitida. É a solução ideal para indústrias de bebidas, papel e celulose, e centros logísticos de grande porte.",
-      "Equipada com motor elétrico AC de alto torque e bateria industrial de longa duração, oferece desempenho consistente mesmo em rampas e superfícies irregulares. O sistema de recuperação de energia na frenagem aumenta significativamente a autonomia operacional.",
-      "Conta com cabine espaçosa, ar condicionado opcional, controles ergonômicos e múltiplos sensores de segurança. O painel digital completo fornece informações em tempo real sobre carga da bateria, horas de operação, alertas de manutenção e diagnósticos do equipamento."
+      "A JCLB50 é uma empilhadeira elétrica de 5 toneladas desenvolvida para atender operações mais exigentes com máxima potência e resistência.",
+      "Equipada com bateria de íons de lítio de última geração, entrega alta performance, maior autonomia e redução dos custos operacionais.",
+      "Com estrutura robusta, emissão zero de poluentes e tecnologia avançada, oferece mais produtividade, segurança e eficiência para operações industriais, logísticas e de armazenagem."
     ],
+    model: "JCLB50",
+    tags: ["JCLB", "empilhadeira contrabalançada", "empilhadeira contrabalançada elétrica"],
+    aboutProduct: "A JCLB50 foi desenvolvida para operações que exigem mais potência e capacidade de carga. Com capacidade de 5 toneladas e estrutura mais robusta, oferece alto desempenho e resistência para aplicações mais intensas. Equipada com bateria de íons de lítio, proporciona menor custo operacional, emissão zero de poluentes e mais eficiência para operações logísticas, industriais e de armazenagem. Uma solução que une força, tecnologia e segurança para elevar a produtividade do dia a dia.",
     specs: {
       "Capacidade de Carga": "5.000 kg",
       "Altura Máxima de Elevação": "5.500 mm",
@@ -137,18 +149,21 @@ export const products: Product[] = [
     applications: ["Indústria de bebidas", "Papel e celulose", "Logística de grande porte", "Indústria pesada interna", "Operações 24/7"]
   },
   {
-    slug: "jcl-eletrica-7ton",
-    name: "JCL Elétrica 7 Toneladas",
+    slug: "jclb70",
+    name: "JCLB70 — Empilhadeira Contrabalançada Elétrica JCL(B) B70",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
     image: eletrica7_1,
     images: [eletrica7_1, eletrica7_2, eletrica7_3],
-    shortDescription: "Empilhadeira elétrica JCL de 7.000 kg, máxima capacidade da linha elétrica, desenvolvida para cargas extremas com zero emissão.",
+    shortDescription: "Empilhadeira elétrica JCLB70 de 7 toneladas com bateria de íons de lítio, máxima potência da linha elétrica e zero emissão.",
     description: [
-      "A Empilhadeira Elétrica JCL 7 Toneladas representa o ápice da engenharia elétrica da JCL. Desenvolvida para movimentar cargas extremas em ambientes industriais que exigem zero emissão, é uma alternativa moderna às tradicionais empilhadeiras a diesel de mesma capacidade.",
-      "Seu poderoso sistema elétrico de alta tensão entrega torque excepcional para elevação rápida de cargas pesadas e deslocamento ágil mesmo em rampas. A bateria industrial reforçada garante jornadas completas de trabalho sem perda de desempenho.",
-      "Com chassi superdimensionado, eixo motriz reforçado e pneus maciços de alta resistência, a JCL Elétrica 7T é indicada para siderúrgicas internas, indústria de aço, fundições e operações portuárias internas onde o controle de emissões é crítico."
+      "A JCLB70 é uma empilhadeira elétrica de 7 toneladas desenvolvida para atender operações mais exigentes com máxima potência e resistência.",
+      "Equipada com bateria de íons de lítio de última geração, entrega alta performance, maior autonomia e redução dos custos operacionais.",
+      "Com estrutura robusta, emissão zero de poluentes e tecnologia avançada, oferece mais produtividade, segurança e eficiência para operações industriais, logísticas e de armazenagem."
     ],
+    model: "JCLB70",
+    tags: ["JCLB", "empilhadeira contrabalançada", "empilhadeira contrabalançada elétrica"],
+    aboutProduct: "A JCLB70 foi desenvolvida para operações que exigem mais potência e capacidade de carga. Com capacidade de 7 toneladas e estrutura mais robusta, oferece alto desempenho e resistência para aplicações mais intensas. Equipada com bateria de íons de lítio, proporciona menor custo operacional, emissão zero de poluentes e mais eficiência para operações logísticas, industriais e de armazenagem. Uma solução que une força, tecnologia e segurança para elevar a produtividade do dia a dia.",
     specs: {
       "Capacidade de Carga": "7.000 kg",
       "Altura Máxima de Elevação": "5.000 mm",
@@ -165,18 +180,21 @@ export const products: Product[] = [
 
   // ============ DIESEL ============
   {
-    slug: "jcl-diesel-3ton",
-    name: "JCL Diesel 3 Toneladas",
+    slug: "jcld30",
+    name: "JCLD30 — Empilhadeira a diesel JCL(D) D30",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
     image: diesel3_1,
     images: [diesel3_1, diesel3_2, diesel3_3, diesel3_4],
-    shortDescription: "Empilhadeira diesel JCL de 3.000 kg, robustez e versatilidade para operações em pátios e ambientes externos.",
+    shortDescription: "Empilhadeira a diesel JCLD30 com capacidade de até 3.000 kg, robusta e confiável para operações internas e externas de alta demanda.",
     description: [
-      "A Empilhadeira Diesel JCL 3 Toneladas é a porta de entrada da linha a combustão JCL, oferecendo o equilíbrio perfeito entre potência e economia. Projetada para operações em pátios, depósitos abertos e indústrias que demandam mobilidade entre ambientes internos e externos.",
-      "Movida por motor diesel de 4 cilindros com baixo consumo e alto torque, atende às normas de emissão vigentes e oferece intervalos estendidos de manutenção. O sistema de transmissão automática garante mudanças suaves e produtividade superior.",
-      "Com chassi robusto, pneus pneumáticos de alta resistência e cabine ergonômica com excelente visibilidade, a JCL Diesel 3T é a escolha certa para construção civil, depósitos de materiais, indústrias metalúrgicas e operações logísticas externas."
+      "A JCLD30 é uma empilhadeira a diesel com capacidade de carga de até 3.000 kg, desenvolvida para oferecer alto desempenho em operações internas e externas.",
+      "Sua estrutura robusta garante resistência e confiabilidade mesmo em ambientes de trabalho exigentes, enquanto o design ergonômico proporciona maior conforto e segurança ao operador.",
+      "Além disso, conta com fácil acesso aos componentes de manutenção, reduzindo o tempo de parada e aumentando a produtividade. Uma solução eficiente, durável e ideal para aplicações de alta demanda."
     ],
+    model: "JCLD",
+    tags: ["JCLD", "empilhadeira a combustão", "empilhadeira a diesel"],
+    aboutProduct: "Conheça a Empilhadeira a Combustão a diesel JCLD30, desenvolvida para oferecer robustez, desempenho e alta eficiência em operações industriais e logísticas. Ideal para ambientes internos e externos e aplicações que exigem resistência e produtividade, o equipamento proporciona operação segura, estabilidade e excelente desempenho no transporte e movimentação de cargas. Disponível em diferentes capacidades, adapta-se às necessidades de diversos setores, garantindo potência e confiabilidade para o dia a dia operacional.",
     specs: {
       "Capacidade de Carga": "3.000 kg",
       "Altura Máxima de Elevação": "4.500 mm",
@@ -191,18 +209,21 @@ export const products: Product[] = [
     applications: ["Pátios externos", "Construção civil", "Depósitos de materiais", "Metalúrgica", "Operações mistas"]
   },
   {
-    slug: "jcl-diesel-4ton",
-    name: "JCL Diesel 4 Toneladas",
+    slug: "jcld40",
+    name: "JCLD40 — Empilhadeira a diesel JCL(D) D40",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
     image: diesel4_1,
     images: [diesel4_1, diesel4_2, diesel4_3, diesel4_4],
-    shortDescription: "Empilhadeira diesel JCL de 4.000 kg, alta produtividade para operações industriais e logísticas pesadas.",
+    shortDescription: "Empilhadeira a diesel JCLD40 com capacidade de até 4.000 kg, alto desempenho e conforto para operações internas e externas exigentes.",
     description: [
-      "A Empilhadeira Diesel JCL 4 Toneladas combina potência e durabilidade em um equipamento desenvolvido para operações industriais que exigem movimentação contínua de cargas pesadas. Indicada para indústrias de transformação, distribuidoras e operações de carga e descarga.",
-      "Seu motor diesel turbo de última geração entrega torque elevado em baixas rotações, otimizando o consumo de combustível e prolongando a vida útil do equipamento. A transmissão powershift permite inversões de marcha sem perda de velocidade, elevando a produtividade.",
-      "A JCL Diesel 4T conta com sistemas avançados de segurança, incluindo controle de velocidade em curvas, limitador eletrônico de carga, cinto de segurança retrátil e câmera de ré opcional. O sistema de diagnóstico OBD facilita manutenções preventivas e preditivas."
+      "A JCLD40 é uma empilhadeira a diesel com capacidade de carga de até 4.000 kg, desenvolvida para proporcionar alto desempenho em operações internas e externas.",
+      "Sua estrutura reforçada oferece resistência e confiabilidade para ambientes de trabalho exigentes, enquanto os comandos ergonômicos garantem maior conforto e produtividade ao operador.",
+      "Além disso, o fácil acesso aos componentes de manutenção reduz o tempo de parada, tornando a operação mais eficiente e rentável."
     ],
+    model: "JCLD",
+    tags: ["JCLD", "empilhadeira a combustão", "empilhadeira a diesel"],
+    aboutProduct: "Conheça a Empilhadeira a Combustão a diesel JCLD40, desenvolvida para oferecer robustez, desempenho e alta eficiência em operações industriais e logísticas. Ideal para ambientes internos e externos e aplicações que exigem resistência e produtividade, o equipamento proporciona operação segura, estabilidade e excelente desempenho no transporte e movimentação de cargas. Disponível em diferentes capacidades, adapta-se às necessidades de diversos setores, garantindo potência e confiabilidade para o dia a dia operacional.",
     specs: {
       "Capacidade de Carga": "4.000 kg",
       "Altura Máxima de Elevação": "5.000 mm",
@@ -217,18 +238,21 @@ export const products: Product[] = [
     applications: ["Indústria de transformação", "Centros de distribuição", "Carga e descarga", "Operações externas", "Logística pesada"]
   },
   {
-    slug: "jcl-diesel-5ton",
-    name: "JCL Diesel 5 Toneladas",
+    slug: "jcld50",
+    name: "JCLD50 — Empilhadeira a diesel JCL(D) D50",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
     image: diesel5_1,
     images: [diesel5_1, diesel5_2, diesel5_3, diesel5_4],
-    shortDescription: "Empilhadeira diesel JCL de 5.000 kg, alto desempenho para cargas pesadas em pátios industriais e estaleiros.",
+    shortDescription: "Empilhadeira a diesel JCLD50 com capacidade de até 5.000 kg, robusta e confiável para aplicações de alta demanda.",
     description: [
-      "A Empilhadeira Diesel JCL 5 Toneladas é desenvolvida para operações exigentes que demandam capacidade elevada e desempenho consistente. Ideal para pátios industriais, estaleiros, indústrias de bebidas em paletes pesados e operações portuárias.",
-      "Equipada com motor diesel turbo intercooler, oferece potência superior em qualquer condição operacional, mantendo eficiência energética e baixo nível de emissões. O sistema hidráulico de alta vazão proporciona elevação rápida mesmo com carga máxima.",
-      "Possui chassi reforçado, contrapeso fundido em peça única, mastro de alta resistência e proteção integral do operador. Os pneus pneumáticos ou maciços (opcionais) garantem aderência e durabilidade em qualquer terreno, inclusive em condições adversas."
+      "A JCLD50 é uma empilhadeira a diesel com capacidade de carga de até 5.000 kg, desenvolvida para oferecer alto desempenho em operações internas e externas.",
+      "Sua estrutura reforçada garante resistência e confiabilidade em ambientes de trabalho exigentes, enquanto os comandos ergonômicos proporcionam maior conforto e segurança ao operador.",
+      "Além disso, o fácil acesso aos componentes de manutenção contribui para a redução do tempo de parada e o aumento da produtividade. Uma solução robusta, eficiente e confiável para aplicações de alta demanda."
     ],
+    model: "JCLD",
+    tags: ["JCLD", "empilhadeira a combustão", "empilhadeira a diesel"],
+    aboutProduct: "Conheça a Empilhadeira a Combustão a diesel JCLD50, desenvolvida para oferecer robustez, desempenho e alta eficiência em operações industriais e logísticas. Ideal para ambientes internos e externos e aplicações que exigem resistência e produtividade, o equipamento proporciona operação segura, estabilidade e excelente desempenho no transporte e movimentação de cargas. Disponível em diferentes capacidades, adapta-se às necessidades de diversos setores, garantindo potência e confiabilidade para o dia a dia operacional.",
     specs: {
       "Capacidade de Carga": "5.000 kg",
       "Altura Máxima de Elevação": "5.500 mm",
@@ -243,18 +267,21 @@ export const products: Product[] = [
     applications: ["Pátios industriais", "Estaleiros", "Indústria de bebidas", "Operações portuárias", "Indústria pesada"]
   },
   {
-    slug: "jcl-diesel-7ton",
-    name: "JCL Diesel 7 Toneladas",
+    slug: "jcld70",
+    name: "JCLD70 — Empilhadeira a diesel JCL(D) D70",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
     image: diesel7_1,
     images: [diesel7_1, diesel7_2, diesel7_3, diesel7_4],
-    shortDescription: "Empilhadeira diesel JCL de 7.000 kg, máxima potência para movimentação de containers, bobinas e cargas extremas.",
+    shortDescription: "Empilhadeira a diesel JCLD70 com capacidade de até 7.000 kg, máxima potência e confiabilidade para movimentação de cargas pesadas.",
     description: [
-      "A Empilhadeira Diesel JCL 7 Toneladas é a mais robusta da linha JCL, projetada para enfrentar as operações mais severas da indústria pesada. Indicada para movimentação de containers, bobinas de aço, blocos de pedra, madeira em toras e qualquer aplicação que exija máxima capacidade de carga.",
-      "Seu poderoso motor diesel turbo de alta cilindrada entrega torque excepcional, mesmo nas condições mais adversas. O tanque ampliado garante autonomia para jornadas completas, e o sistema de arrefecimento reforçado mantém a temperatura ideal mesmo em climas tropicais e operações intensivas.",
-      "Construída com chassi superdimensionado, eixos reforçados, transmissão de alta resistência e proteção integral contra impactos, a JCL Diesel 7T é a escolha definitiva para portos secos, mineração, siderurgia e construção pesada. Personalizações sob demanda como garfos especiais, posicionadores hidráulicos e cabines fechadas com ar condicionado estão disponíveis."
+      "A JCLD70 é uma empilhadeira a diesel com capacidade de carga de até 7.000 kg, desenvolvida para atender operações de alta demanda com máxima eficiência e confiabilidade.",
+      "Sua estrutura reforçada proporciona excelente desempenho em ambientes internos e externos, mesmo nas aplicações mais exigentes.",
+      "Conta com comandos ergonômicos que garantem maior conforto ao operador e acesso facilitado aos componentes de manutenção, reduzindo o tempo de parada e aumentando a produtividade. Uma solução robusta, segura e durável para a movimentação de cargas pesadas."
     ],
+    model: "JCLD",
+    tags: ["JCLD", "empilhadeira a combustão", "empilhadeira a diesel"],
+    aboutProduct: "Conheça a Empilhadeira a Combustão a diesel JCLD70, desenvolvida para oferecer robustez, desempenho e alta eficiência em operações industriais e logísticas. Ideal para ambientes internos e externos e aplicações que exigem resistência e produtividade, o equipamento proporciona operação segura, estabilidade e excelente desempenho no transporte e movimentação de cargas. Disponível em diferentes capacidades, adapta-se às necessidades de diversos setores, garantindo potência e confiabilidade para o dia a dia operacional.",
     specs: {
       "Capacidade de Carga": "7.000 kg",
       "Altura Máxima de Elevação": "6.000 mm",
@@ -316,7 +343,7 @@ export const categoriesMeta: CategoryMeta[] = [
     slug: "empilhadeira-patolada",
     name: "Empilhadeira Patolada",
     shortName: "Patolada",
-    description: "Compacta e segura para movimentação de cargas leves em armazéns com corredores estreitos.",
+    description: "Elétrica, compacta e versátil — segurança, estabilidade e eficiência para movimentação e elevação de cargas em armazéns, CDs e linhas de produção.",
     image: eletrica3_main,
     comingSoon: true,
   },
@@ -324,7 +351,7 @@ export const categoriesMeta: CategoryMeta[] = [
     slug: "empilhadeira-retratil",
     name: "Empilhadeira Retrátil",
     shortName: "Retrátil",
-    description: "Perfeita para estocagem em alturas e corredores estreitos. Máximo aproveitamento de espaço com segurança.",
+    description: "Elétrica com bateria de lítio para operações intensas de armazenagem em grandes alturas. Potência, autonomia e segurança em design moderno.",
     image: eletrica5_main,
     comingSoon: true,
   },
@@ -332,7 +359,7 @@ export const categoriesMeta: CategoryMeta[] = [
     slug: "transpaleteira-eletrica",
     name: "Transpaleteira Elétrica",
     shortName: "Transpaleteira",
-    description: "Equipamento elétrico para transporte horizontal de paletes com baixo esforço operacional.",
+    description: "Transpaleteira elétrica robusta JCL — potência, baixo ruído e manutenção reduzida para movimentações de médio e alto volume.",
     image: eletrica3_2,
     comingSoon: true,
   },
@@ -340,7 +367,7 @@ export const categoriesMeta: CategoryMeta[] = [
     slug: "paleteira-eletrica",
     name: "Paleteira Elétrica",
     shortName: "Paleteira",
-    description: "Solução prática e ágil para movimentação interna de paletes em pequenos e médios centros logísticos.",
+    description: "Paleteira elétrica compacta JCL — praticidade, resistência e ótimo desempenho para supermercados, armazéns, indústrias e centros de distribuição.",
     image: eletrica3_3,
     comingSoon: true,
   },

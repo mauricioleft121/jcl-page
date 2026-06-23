@@ -5,17 +5,17 @@ const items = [
   {
     id: "missao",
     title: "MISSÃO",
-    body: "[TEXTO ETAPA 2] Oferecer soluções completas em movimentação de cargas, garantindo eficiência, segurança e produtividade para nossos clientes.",
+    body: "Oferecer soluções completas em movimentação de cargas, com eficiência e tecnologia, contribuindo para o crescimento sustentável dos nossos clientes.",
   },
   {
     id: "visao",
     title: "VISÃO",
-    body: "[TEXTO ETAPA 2] Ser referência nacional em equipamentos para movimentação de cargas, reconhecida pela qualidade dos produtos e pela excelência no atendimento.",
+    body: "Ser referência nacional em soluções para movimentação de cargas, reconhecida pela qualidade dos equipamentos, excelência no atendimento e inovação contínua.",
   },
   {
     id: "valores",
     title: "VALORES",
-    body: "[TEXTO ETAPA 2] Compromisso, transparência, segurança, inovação, respeito ao cliente e responsabilidade socioambiental.",
+    body: "Integridade — agimos com ética, transparência e respeito. Excelência — buscamos qualidade em tudo o que fazemos. Segurança — priorizamos a segurança das pessoas e operações. Inovação — investimos em tecnologia e melhoria contínua. Compromisso — somos comprometidos com nossos clientes.",
   },
 ];
 
