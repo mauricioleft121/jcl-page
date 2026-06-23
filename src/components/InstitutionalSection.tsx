@@ -4,18 +4,18 @@ import institutionalImg from "@/assets/institutional.jpg";
 const blocks = [
   {
     Icon: Shield,
-    title: "EXPERIÊNCIA COMPROVADA",
-    text: "[TEXTO ETAPA 2] Anos de mercado atendendo indústrias de diversos segmentos.",
+    title: "PORTFÓLIO COMPLETO",
+    text: "Empilhadeiras a diesel, elétricas com bateria de lítio, retráteis, patoladas, paleteiras e transpaleteiras para diferentes necessidades operacionais.",
   },
   {
     Icon: Users,
     title: "EQUIPE ESPECIALIZADA",
-    text: "[TEXTO ETAPA 2] Time técnico altamente capacitado para todo o ciclo do equipamento.",
+    text: "Profissionais capacitados, prontos para oferecer um atendimento ágil, próximo e eficiente — do equipamento certo ao acompanhamento da operação.",
   },
   {
     Icon: Headphones,
-    title: "ATENDIMENTO PRÓXIMO",
-    text: "[TEXTO ETAPA 2] Relacionamento direto, sem intermediários, em todas as regiões.",
+    title: "COMPROMISSO COM A OPERAÇÃO",
+    text: "Eficiência, segurança e produtividade em cada operação, com soluções práticas, confiáveis e alinhadas ao processo logístico de cada cliente.",
   },
 ];
 
