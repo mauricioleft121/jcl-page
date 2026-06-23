@@ -62,18 +62,21 @@ const DIESEL_COLOR = "hsl(25, 90%, 50%)";
 export const products: Product[] = [
   // ============ ELÉTRICAS ============
   {
-    slug: "jcl-eletrica-3ton",
-    name: "JCL Elétrica 3 Toneladas",
+    slug: "jclb30",
+    name: "JCLB30 — Empilhadeira Contrabalançada Elétrica JCL(B) B30",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
     image: eletrica3_main,
     images: [eletrica3_main, eletrica3_2, eletrica3_3, eletrica3_4],
-    shortDescription: "Empilhadeira elétrica JCL com capacidade de 3.000 kg, zero emissão e operação silenciosa para ambientes internos exigentes.",
+    shortDescription: "Empilhadeira elétrica JCLB30 com bateria de íons de lítio, capacidade de 3 toneladas, zero emissão e alto desempenho para operações logísticas e industriais.",
     description: [
-      "A Empilhadeira Elétrica JCL de 3 Toneladas combina robustez e sustentabilidade em um equipamento projetado para operações intensivas em armazéns, centros de distribuição e indústrias que exigem zero emissão de gases. Movida a bateria, é a solução ideal para ambientes internos, câmaras frias e operações próximas a alimentos e produtos farmacêuticos.",
-      "Equipada com motor elétrico AC de alto rendimento, oferece torque constante, aceleração suave e frenagem regenerativa que prolonga a autonomia da bateria. O sistema de gerenciamento eletrônico monitora consumo, temperatura e desempenho em tempo real, garantindo máxima eficiência operacional.",
-      "Com mastro duplex de série e opção triplex, cabine ergonômica e excelente visibilidade em 360°, a empilhadeira elétrica JCL 3T proporciona conforto ao operador e produtividade superior em jornadas de até 8 horas contínuas."
+      "A JCLB30 é uma empilhadeira elétrica equipada com bateria de íons de lítio de última geração, desenvolvida pela JCL Empilhadeiras para proporcionar alto desempenho, maior eficiência e redução dos custos operacionais.",
+      "Com emissão zero de poluentes, é a solução ideal para operações logísticas, industriais e ambientes de armazenagem intensiva.",
+      "Sua combinação entre potência, tecnologia avançada e sistemas inteligentes de segurança garante produtividade, confiabilidade e excelente desempenho nas operações do dia a dia."
     ],
+    model: "JCLB30",
+    tags: ["JCLB", "empilhadeira contrabalançada", "empilhadeira contrabalançada elétrica"],
+    aboutProduct: "A JCLB30 une potência, tecnologia e eficiência em uma empilhadeira elétrica de alto desempenho. Equipada com bateria de íons de lítio, oferece menor custo operacional, emissão zero de poluentes e excelente desempenho para operações logísticas, industriais e de armazenagem. Uma solução moderna para mais produtividade e segurança no dia a dia.",
     specs: {
       "Capacidade de Carga": "3.000 kg",
       "Altura Máxima de Elevação": "4.500 mm",
@@ -88,18 +91,21 @@ export const products: Product[] = [
     applications: ["Armazéns internos", "Centros de distribuição", "Indústria alimentícia", "Câmaras frias", "Farmacêutica", "E-commerce"]
   },
   {
-    slug: "jcl-eletrica-4ton",
-    name: "JCL Elétrica 4 Toneladas",
+    slug: "jclb40",
+    name: "JCLB40 — Empilhadeira Contrabalançada Elétrica JCL(B) B40",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
     image: eletrica4_1,
     images: [eletrica4_1, eletrica4_2, eletrica4_3, eletrica4_4],
-    shortDescription: "Empilhadeira elétrica JCL de 4.000 kg, alta autonomia e desempenho para movimentação de cargas pesadas em ambientes internos.",
+    shortDescription: "Empilhadeira elétrica JCLB40 com bateria de íons de lítio, capacidade de 4 toneladas, alta eficiência e zero emissão para operações industriais e de armazenagem.",
     description: [
-      "A Empilhadeira Elétrica JCL 4 Toneladas é a escolha certa para operações de média a alta intensidade que exigem capacidade elevada sem abrir mão dos benefícios da tração elétrica. Indicada para indústrias automotivas, metalúrgicas leves e centros logísticos que operam em múltiplos turnos.",
-      "Seu sistema dual-motor proporciona tração e elevação simultâneas com máxima eficiência, enquanto a tecnologia de gerenciamento inteligente de energia adapta o consumo conforme o perfil de uso. A bateria de alta capacidade permite jornadas extensas com recarga rápida.",
-      "Com chassi reforçado, contrapeso otimizado e sistema avançado de estabilidade eletrônica, a JCL Elétrica 4T entrega performance equivalente a uma empilhadeira a combustão, mas com custo operacional até 60% menor e zero emissão de poluentes."
+      "A JCLB40 é uma empilhadeira elétrica equipada com bateria de íons de lítio de última geração, desenvolvida pela JCL Empilhadeiras para proporcionar alto desempenho, maior eficiência e redução dos custos operacionais.",
+      "Com emissão zero de poluentes, é a solução ideal para operações logísticas, industriais e ambientes de armazenagem intensiva.",
+      "Sua combinação entre potência, tecnologia avançada e sistemas inteligentes de segurança garante produtividade, confiabilidade e excelente desempenho nas operações do dia a dia."
     ],
+    model: "JCLB40",
+    tags: ["JCLB", "empilhadeira contrabalançada", "empilhadeira contrabalançada elétrica"],
+    aboutProduct: "A JCLB40 une potência, tecnologia e eficiência em uma empilhadeira elétrica de alto desempenho. Equipada com bateria de íons de lítio, oferece menor custo operacional, emissão zero de poluentes e excelente desempenho para operações logísticas, industriais e de armazenagem. Uma solução moderna para mais produtividade e segurança no dia a dia.",
     specs: {
       "Capacidade de Carga": "4.000 kg",
       "Altura Máxima de Elevação": "5.000 mm",
@@ -114,18 +120,21 @@ export const products: Product[] = [
     applications: ["Indústria automotiva", "Centros de distribuição", "Logística pesada", "Metalúrgica leve", "Operações multi-turno"]
   },
   {
-    slug: "jcl-eletrica-5ton",
-    name: "JCL Elétrica 5 Toneladas",
+    slug: "jclb50",
+    name: "JCLB50 — Empilhadeira Contrabalançada Elétrica JCL(B) B50",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
     image: eletrica5_main,
     images: [eletrica5_main, eletrica5_2, eletrica5_3, eletrica5_4],
-    shortDescription: "Empilhadeira elétrica JCL de 5.000 kg, robustez industrial com a eficiência energética da tração elétrica.",
+    shortDescription: "Empilhadeira elétrica JCLB50 de 5 toneladas com bateria de íons de lítio, robustez industrial e zero emissão de poluentes.",
     description: [
-      "A Empilhadeira Elétrica JCL 5 Toneladas é projetada para operações industriais pesadas que demandam alta capacidade de carga em ambientes onde a emissão de gases não é permitida. É a solução ideal para indústrias de bebidas, papel e celulose, e centros logísticos de grande porte.",
-      "Equipada com motor elétrico AC de alto torque e bateria industrial de longa duração, oferece desempenho consistente mesmo em rampas e superfícies irregulares. O sistema de recuperação de energia na frenagem aumenta significativamente a autonomia operacional.",
-      "Conta com cabine espaçosa, ar condicionado opcional, controles ergonômicos e múltiplos sensores de segurança. O painel digital completo fornece informações em tempo real sobre carga da bateria, horas de operação, alertas de manutenção e diagnósticos do equipamento."
+      "A JCLB50 é uma empilhadeira elétrica de 5 toneladas desenvolvida para atender operações mais exigentes com máxima potência e resistência.",
+      "Equipada com bateria de íons de lítio de última geração, entrega alta performance, maior autonomia e redução dos custos operacionais.",
+      "Com estrutura robusta, emissão zero de poluentes e tecnologia avançada, oferece mais produtividade, segurança e eficiência para operações industriais, logísticas e de armazenagem."
     ],
+    model: "JCLB50",
+    tags: ["JCLB", "empilhadeira contrabalançada", "empilhadeira contrabalançada elétrica"],
+    aboutProduct: "A JCLB50 foi desenvolvida para operações que exigem mais potência e capacidade de carga. Com capacidade de 5 toneladas e estrutura mais robusta, oferece alto desempenho e resistência para aplicações mais intensas. Equipada com bateria de íons de lítio, proporciona menor custo operacional, emissão zero de poluentes e mais eficiência para operações logísticas, industriais e de armazenagem. Uma solução que une força, tecnologia e segurança para elevar a produtividade do dia a dia.",
     specs: {
       "Capacidade de Carga": "5.000 kg",
       "Altura Máxima de Elevação": "5.500 mm",
@@ -140,18 +149,21 @@ export const products: Product[] = [
     applications: ["Indústria de bebidas", "Papel e celulose", "Logística de grande porte", "Indústria pesada interna", "Operações 24/7"]
   },
   {
-    slug: "jcl-eletrica-7ton",
-    name: "JCL Elétrica 7 Toneladas",
+    slug: "jclb70",
+    name: "JCLB70 — Empilhadeira Contrabalançada Elétrica JCL(B) B70",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
     image: eletrica7_1,
     images: [eletrica7_1, eletrica7_2, eletrica7_3],
-    shortDescription: "Empilhadeira elétrica JCL de 7.000 kg, máxima capacidade da linha elétrica, desenvolvida para cargas extremas com zero emissão.",
+    shortDescription: "Empilhadeira elétrica JCLB70 de 7 toneladas com bateria de íons de lítio, máxima potência da linha elétrica e zero emissão.",
     description: [
-      "A Empilhadeira Elétrica JCL 7 Toneladas representa o ápice da engenharia elétrica da JCL. Desenvolvida para movimentar cargas extremas em ambientes industriais que exigem zero emissão, é uma alternativa moderna às tradicionais empilhadeiras a diesel de mesma capacidade.",
-      "Seu poderoso sistema elétrico de alta tensão entrega torque excepcional para elevação rápida de cargas pesadas e deslocamento ágil mesmo em rampas. A bateria industrial reforçada garante jornadas completas de trabalho sem perda de desempenho.",
-      "Com chassi superdimensionado, eixo motriz reforçado e pneus maciços de alta resistência, a JCL Elétrica 7T é indicada para siderúrgicas internas, indústria de aço, fundições e operações portuárias internas onde o controle de emissões é crítico."
+      "A JCLB70 é uma empilhadeira elétrica de 7 toneladas desenvolvida para atender operações mais exigentes com máxima potência e resistência.",
+      "Equipada com bateria de íons de lítio de última geração, entrega alta performance, maior autonomia e redução dos custos operacionais.",
+      "Com estrutura robusta, emissão zero de poluentes e tecnologia avançada, oferece mais produtividade, segurança e eficiência para operações industriais, logísticas e de armazenagem."
     ],
+    model: "JCLB70",
+    tags: ["JCLB", "empilhadeira contrabalançada", "empilhadeira contrabalançada elétrica"],
+    aboutProduct: "A JCLB70 foi desenvolvida para operações que exigem mais potência e capacidade de carga. Com capacidade de 7 toneladas e estrutura mais robusta, oferece alto desempenho e resistência para aplicações mais intensas. Equipada com bateria de íons de lítio, proporciona menor custo operacional, emissão zero de poluentes e mais eficiência para operações logísticas, industriais e de armazenagem. Uma solução que une força, tecnologia e segurança para elevar a produtividade do dia a dia.",
     specs: {
       "Capacidade de Carga": "7.000 kg",
       "Altura Máxima de Elevação": "5.000 mm",
