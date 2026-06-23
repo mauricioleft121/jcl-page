@@ -17,7 +17,7 @@ const Index = () => {
     if (meta) {
       meta.setAttribute(
         "content",
-        "JCL Empilhadeiras: soluções completas em movimentação de cargas. Venda e assistência técnica em Ubá - MG com alcance nacional."
+        "Empilhadeiras a diesel, elétricas (lítio), retráteis, patoladas, paleteiras e transpaleteiras. Venda e suporte em Ubá - MG. Solicite uma cotação."
       );
     }
   }, []);
