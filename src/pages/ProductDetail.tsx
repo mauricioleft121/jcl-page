@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { MessageCircle, ArrowRight, FileText } from "lucide-react";
+import { MessageCircle, ArrowRight, FileText, Phone, Mail, MapPin, Clock } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -146,7 +146,7 @@ const ProductDetail = () => {
               {/* Quick spec */}
               <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-10 text-sm border-t border-border pt-6">
                 <SpecRow label="Categoria" value={product.category} />
-                <SpecRow label="Modelo" value={product.name} />
+                <SpecRow label="Modelo" value={product.model || product.name} />
                 <SpecRow label="Capacidade" value={product.specs["Capacidade de Carga"]} />
                 <SpecRow label="Elevação" value={product.specs["Altura Máxima de Elevação"]} />
                 <SpecRow label="Disponibilidade" value={product.availability} />
@@ -159,6 +159,19 @@ const ProductDetail = () => {
                   </dd>
                 </div>
               </dl>
+
+              {product.tags && product.tags.length > 0 && (
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {product.tags.map(t => (
+                    <span
+                      key={t}
+                      className="inline-block bg-white-ice border border-border text-dark text-[11px] uppercase font-bold tracking-wide rounded-full px-3 py-1"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -173,6 +186,17 @@ const ProductDetail = () => {
               ))}
             </div>
           </div>
+
+          {product.aboutProduct && (
+            <div className="mt-16">
+              <h2 className="jcl-heading text-dark text-2xl md:text-3xl accent-line mb-6">
+                SOBRE O PRODUTO
+              </h2>
+              <p className="text-gray-medium text-[15px] leading-[1.9] max-w-4xl">
+                {product.aboutProduct}
+              </p>
+            </div>
+          )}
 
           {/* Full specs */}
           <div className="mt-16">
@@ -215,6 +239,54 @@ const ProductDetail = () => {
               </div>
             </div>
           )}
+
+          {/* Final CTA — JCL contact */}
+          <div className="mt-20 bg-dark rounded-2xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 p-8 md:p-12">
+              <div>
+                <h2 className="jcl-heading text-background text-2xl md:text-3xl mb-3">
+                  PRECISA DE MAIS INFORMAÇÕES OU UMA <span className="text-yellow">COTAÇÃO</span>?
+                </h2>
+                <p className="text-background/70 text-[15px] leading-[1.8] mb-6">
+                  Fale com um especialista da JCL Empilhadeiras e descubra a melhor solução para sua operação.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={`https://wa.me/553235315957?text=${waMsg}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-yellow text-dark font-bold uppercase rounded-full px-6 py-3 text-sm hover:bg-yellow-dark transition-colors min-h-[44px]"
+                  >
+                    <MessageCircle size={16} fill="currentColor" /> WhatsApp
+                  </a>
+                  <Link
+                    to="/contato"
+                    className="inline-flex items-center gap-2 border-2 border-yellow text-yellow font-bold uppercase rounded-full px-6 py-3 text-sm hover:bg-yellow hover:text-dark transition-colors min-h-[44px]"
+                  >
+                    INICIE UMA COTAÇÃO <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+              <ul className="space-y-3 text-background/80 text-sm self-center">
+                <li className="flex items-start gap-3">
+                  <MapPin size={16} className="text-yellow mt-1 flex-shrink-0" />
+                  <span>R. Cel. Otaviano da Rocha, 1110 — São Domingos, Ubá - MG, 36504-042</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Phone size={16} className="text-yellow mt-1 flex-shrink-0" />
+                  <a href="tel:+553235315957" className="hover:text-yellow">32 3531-5957</a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Mail size={16} className="text-yellow mt-1 flex-shrink-0" />
+                  <a href="mailto:vendas@jclempilhadeiras.com.br" className="hover:text-yellow break-all">vendas@jclempilhadeiras.com.br</a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Clock size={16} className="text-yellow mt-1 flex-shrink-0" />
+                  <span>Segunda a sexta · 08:00 - 17:00</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
