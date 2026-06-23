@@ -180,18 +180,21 @@ export const products: Product[] = [
 
   // ============ DIESEL ============
   {
-    slug: "jcl-diesel-3ton",
-    name: "JCL Diesel 3 Toneladas",
+    slug: "jcld30",
+    name: "JCLD30 — Empilhadeira a diesel JCL(D) D30",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
     image: diesel3_1,
     images: [diesel3_1, diesel3_2, diesel3_3, diesel3_4],
-    shortDescription: "Empilhadeira diesel JCL de 3.000 kg, robustez e versatilidade para operações em pátios e ambientes externos.",
+    shortDescription: "Empilhadeira a diesel JCLD30 com capacidade de até 3.000 kg, robusta e confiável para operações internas e externas de alta demanda.",
     description: [
-      "A Empilhadeira Diesel JCL 3 Toneladas é a porta de entrada da linha a combustão JCL, oferecendo o equilíbrio perfeito entre potência e economia. Projetada para operações em pátios, depósitos abertos e indústrias que demandam mobilidade entre ambientes internos e externos.",
-      "Movida por motor diesel de 4 cilindros com baixo consumo e alto torque, atende às normas de emissão vigentes e oferece intervalos estendidos de manutenção. O sistema de transmissão automática garante mudanças suaves e produtividade superior.",
-      "Com chassi robusto, pneus pneumáticos de alta resistência e cabine ergonômica com excelente visibilidade, a JCL Diesel 3T é a escolha certa para construção civil, depósitos de materiais, indústrias metalúrgicas e operações logísticas externas."
+      "A JCLD30 é uma empilhadeira a diesel com capacidade de carga de até 3.000 kg, desenvolvida para oferecer alto desempenho em operações internas e externas.",
+      "Sua estrutura robusta garante resistência e confiabilidade mesmo em ambientes de trabalho exigentes, enquanto o design ergonômico proporciona maior conforto e segurança ao operador.",
+      "Além disso, conta com fácil acesso aos componentes de manutenção, reduzindo o tempo de parada e aumentando a produtividade. Uma solução eficiente, durável e ideal para aplicações de alta demanda."
     ],
+    model: "JCLD",
+    tags: ["JCLD", "empilhadeira a combustão", "empilhadeira a diesel"],
+    aboutProduct: "Conheça a Empilhadeira a Combustão a diesel JCLD30, desenvolvida para oferecer robustez, desempenho e alta eficiência em operações industriais e logísticas. Ideal para ambientes internos e externos e aplicações que exigem resistência e produtividade, o equipamento proporciona operação segura, estabilidade e excelente desempenho no transporte e movimentação de cargas. Disponível em diferentes capacidades, adapta-se às necessidades de diversos setores, garantindo potência e confiabilidade para o dia a dia operacional.",
     specs: {
       "Capacidade de Carga": "3.000 kg",
       "Altura Máxima de Elevação": "4.500 mm",
@@ -206,18 +209,21 @@ export const products: Product[] = [
     applications: ["Pátios externos", "Construção civil", "Depósitos de materiais", "Metalúrgica", "Operações mistas"]
   },
   {
-    slug: "jcl-diesel-4ton",
-    name: "JCL Diesel 4 Toneladas",
+    slug: "jcld40",
+    name: "JCLD40 — Empilhadeira a diesel JCL(D) D40",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
     image: diesel4_1,
     images: [diesel4_1, diesel4_2, diesel4_3, diesel4_4],
-    shortDescription: "Empilhadeira diesel JCL de 4.000 kg, alta produtividade para operações industriais e logísticas pesadas.",
+    shortDescription: "Empilhadeira a diesel JCLD40 com capacidade de até 4.000 kg, alto desempenho e conforto para operações internas e externas exigentes.",
     description: [
-      "A Empilhadeira Diesel JCL 4 Toneladas combina potência e durabilidade em um equipamento desenvolvido para operações industriais que exigem movimentação contínua de cargas pesadas. Indicada para indústrias de transformação, distribuidoras e operações de carga e descarga.",
-      "Seu motor diesel turbo de última geração entrega torque elevado em baixas rotações, otimizando o consumo de combustível e prolongando a vida útil do equipamento. A transmissão powershift permite inversões de marcha sem perda de velocidade, elevando a produtividade.",
-      "A JCL Diesel 4T conta com sistemas avançados de segurança, incluindo controle de velocidade em curvas, limitador eletrônico de carga, cinto de segurança retrátil e câmera de ré opcional. O sistema de diagnóstico OBD facilita manutenções preventivas e preditivas."
+      "A JCLD40 é uma empilhadeira a diesel com capacidade de carga de até 4.000 kg, desenvolvida para proporcionar alto desempenho em operações internas e externas.",
+      "Sua estrutura reforçada oferece resistência e confiabilidade para ambientes de trabalho exigentes, enquanto os comandos ergonômicos garantem maior conforto e produtividade ao operador.",
+      "Além disso, o fácil acesso aos componentes de manutenção reduz o tempo de parada, tornando a operação mais eficiente e rentável."
     ],
+    model: "JCLD",
+    tags: ["JCLD", "empilhadeira a combustão", "empilhadeira a diesel"],
+    aboutProduct: "Conheça a Empilhadeira a Combustão a diesel JCLD40, desenvolvida para oferecer robustez, desempenho e alta eficiência em operações industriais e logísticas. Ideal para ambientes internos e externos e aplicações que exigem resistência e produtividade, o equipamento proporciona operação segura, estabilidade e excelente desempenho no transporte e movimentação de cargas. Disponível em diferentes capacidades, adapta-se às necessidades de diversos setores, garantindo potência e confiabilidade para o dia a dia operacional.",
     specs: {
       "Capacidade de Carga": "4.000 kg",
       "Altura Máxima de Elevação": "5.000 mm",
@@ -232,18 +238,21 @@ export const products: Product[] = [
     applications: ["Indústria de transformação", "Centros de distribuição", "Carga e descarga", "Operações externas", "Logística pesada"]
   },
   {
-    slug: "jcl-diesel-5ton",
-    name: "JCL Diesel 5 Toneladas",
+    slug: "jcld50",
+    name: "JCLD50 — Empilhadeira a diesel JCL(D) D50",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
     image: diesel5_1,
     images: [diesel5_1, diesel5_2, diesel5_3, diesel5_4],
-    shortDescription: "Empilhadeira diesel JCL de 5.000 kg, alto desempenho para cargas pesadas em pátios industriais e estaleiros.",
+    shortDescription: "Empilhadeira a diesel JCLD50 com capacidade de até 5.000 kg, robusta e confiável para aplicações de alta demanda.",
     description: [
-      "A Empilhadeira Diesel JCL 5 Toneladas é desenvolvida para operações exigentes que demandam capacidade elevada e desempenho consistente. Ideal para pátios industriais, estaleiros, indústrias de bebidas em paletes pesados e operações portuárias.",
-      "Equipada com motor diesel turbo intercooler, oferece potência superior em qualquer condição operacional, mantendo eficiência energética e baixo nível de emissões. O sistema hidráulico de alta vazão proporciona elevação rápida mesmo com carga máxima.",
-      "Possui chassi reforçado, contrapeso fundido em peça única, mastro de alta resistência e proteção integral do operador. Os pneus pneumáticos ou maciços (opcionais) garantem aderência e durabilidade em qualquer terreno, inclusive em condições adversas."
+      "A JCLD50 é uma empilhadeira a diesel com capacidade de carga de até 5.000 kg, desenvolvida para oferecer alto desempenho em operações internas e externas.",
+      "Sua estrutura reforçada garante resistência e confiabilidade em ambientes de trabalho exigentes, enquanto os comandos ergonômicos proporcionam maior conforto e segurança ao operador.",
+      "Além disso, o fácil acesso aos componentes de manutenção contribui para a redução do tempo de parada e o aumento da produtividade. Uma solução robusta, eficiente e confiável para aplicações de alta demanda."
     ],
+    model: "JCLD",
+    tags: ["JCLD", "empilhadeira a combustão", "empilhadeira a diesel"],
+    aboutProduct: "Conheça a Empilhadeira a Combustão a diesel JCLD50, desenvolvida para oferecer robustez, desempenho e alta eficiência em operações industriais e logísticas. Ideal para ambientes internos e externos e aplicações que exigem resistência e produtividade, o equipamento proporciona operação segura, estabilidade e excelente desempenho no transporte e movimentação de cargas. Disponível em diferentes capacidades, adapta-se às necessidades de diversos setores, garantindo potência e confiabilidade para o dia a dia operacional.",
     specs: {
       "Capacidade de Carga": "5.000 kg",
       "Altura Máxima de Elevação": "5.500 mm",
@@ -258,18 +267,21 @@ export const products: Product[] = [
     applications: ["Pátios industriais", "Estaleiros", "Indústria de bebidas", "Operações portuárias", "Indústria pesada"]
   },
   {
-    slug: "jcl-diesel-7ton",
-    name: "JCL Diesel 7 Toneladas",
+    slug: "jcld70",
+    name: "JCLD70 — Empilhadeira a diesel JCL(D) D70",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
     image: diesel7_1,
     images: [diesel7_1, diesel7_2, diesel7_3, diesel7_4],
-    shortDescription: "Empilhadeira diesel JCL de 7.000 kg, máxima potência para movimentação de containers, bobinas e cargas extremas.",
+    shortDescription: "Empilhadeira a diesel JCLD70 com capacidade de até 7.000 kg, máxima potência e confiabilidade para movimentação de cargas pesadas.",
     description: [
-      "A Empilhadeira Diesel JCL 7 Toneladas é a mais robusta da linha JCL, projetada para enfrentar as operações mais severas da indústria pesada. Indicada para movimentação de containers, bobinas de aço, blocos de pedra, madeira em toras e qualquer aplicação que exija máxima capacidade de carga.",
-      "Seu poderoso motor diesel turbo de alta cilindrada entrega torque excepcional, mesmo nas condições mais adversas. O tanque ampliado garante autonomia para jornadas completas, e o sistema de arrefecimento reforçado mantém a temperatura ideal mesmo em climas tropicais e operações intensivas.",
-      "Construída com chassi superdimensionado, eixos reforçados, transmissão de alta resistência e proteção integral contra impactos, a JCL Diesel 7T é a escolha definitiva para portos secos, mineração, siderurgia e construção pesada. Personalizações sob demanda como garfos especiais, posicionadores hidráulicos e cabines fechadas com ar condicionado estão disponíveis."
+      "A JCLD70 é uma empilhadeira a diesel com capacidade de carga de até 7.000 kg, desenvolvida para atender operações de alta demanda com máxima eficiência e confiabilidade.",
+      "Sua estrutura reforçada proporciona excelente desempenho em ambientes internos e externos, mesmo nas aplicações mais exigentes.",
+      "Conta com comandos ergonômicos que garantem maior conforto ao operador e acesso facilitado aos componentes de manutenção, reduzindo o tempo de parada e aumentando a produtividade. Uma solução robusta, segura e durável para a movimentação de cargas pesadas."
     ],
+    model: "JCLD",
+    tags: ["JCLD", "empilhadeira a combustão", "empilhadeira a diesel"],
+    aboutProduct: "Conheça a Empilhadeira a Combustão a diesel JCLD70, desenvolvida para oferecer robustez, desempenho e alta eficiência em operações industriais e logísticas. Ideal para ambientes internos e externos e aplicações que exigem resistência e produtividade, o equipamento proporciona operação segura, estabilidade e excelente desempenho no transporte e movimentação de cargas. Disponível em diferentes capacidades, adapta-se às necessidades de diversos setores, garantindo potência e confiabilidade para o dia a dia operacional.",
     specs: {
       "Capacidade de Carga": "7.000 kg",
       "Altura Máxima de Elevação": "6.000 mm",
