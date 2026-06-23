@@ -43,10 +43,21 @@ const InstitutionalSection = () => {
             <h2 className="jcl-heading text-yellow text-5xl md:text-6xl leading-[0.95] mt-1 accent-line">
               JCL EMPILHADEIRAS
             </h2>
-            <p className="text-dark text-lg font-semibold mt-6 mb-8 leading-[1.6]">
+            <p className="text-dark text-lg font-semibold mt-6 mb-6 leading-[1.6]">
               Especialistas em equipamentos para movimentação de cargas com{" "}
               <span className="text-yellow">alcance nacional</span>.
             </p>
+            <div className="space-y-4 mb-8 text-gray-medium text-[15px] leading-[1.8]">
+              <p>
+                Na <strong className="text-dark">JCL Empilhadeiras</strong>, oferecemos soluções completas para movimentação de cargas, com um portfólio diversificado de equipamentos que atendem diferentes necessidades operacionais. Trabalhamos com empilhadeiras a diesel, empilhadeiras elétricas com bateria de lítio e uma linha completa de equipamentos elétricos, como empilhadeiras retráteis, patoladas, paleteiras elétricas e transpaleteiras.
+              </p>
+              <p>
+                Nosso compromisso é entregar eficiência, segurança e produtividade em cada operação, fornecendo equipamentos de qualidade e suporte adequado para o dia a dia dos nossos clientes. Buscamos entender a real necessidade de cada empresa para oferecer soluções práticas, confiáveis e alinhadas ao seu processo logístico.
+              </p>
+              <p>
+                Contamos com uma equipe de profissionais capacitados, preparados para oferecer um atendimento ágil, próximo e eficiente, garantindo suporte desde a escolha do equipamento até o acompanhamento da operação.
+              </p>
+            </div>
 
             <div className="space-y-6">
               {blocks.map(({ Icon, title, text }) => (
