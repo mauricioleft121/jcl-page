@@ -51,6 +51,9 @@ export interface Product {
   specs: Record<string, string>;
   availability: "Disponível" | "Sob Consulta" | "Pronta Entrega";
   applications: string[];
+  model?: string;
+  tags?: string[];
+  aboutProduct?: string;
 }
 
 const ELETRICA_COLOR = "hsl(142, 60%, 40%)";
