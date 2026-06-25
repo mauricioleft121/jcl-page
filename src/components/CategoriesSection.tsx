@@ -10,19 +10,7 @@ const homeCards = [
 
 const CategoriesSection = () => {
   return (
-    <section id="produtos" className="relative py-24 bg-white-ice overflow-hidden">
-      {/* Decorative diagonal yellow accent */}
-      <div
-        className="absolute top-0 right-0 w-[40%] h-[6px] bg-yellow opacity-80 -skew-y-3 origin-top-right"
-        aria-hidden="true"
-      />
-      {/* Watermark forklift icon */}
-      <Truck
-        size={520}
-        strokeWidth={1}
-        className="absolute -left-32 top-1/2 -translate-y-1/2 text-dark/[0.04] pointer-events-none"
-        aria-hidden="true"
-      />
+    <section id="produtos" className="relative py-24 bg-background overflow-hidden">
 
       <div className="relative container">
         <div className="flex items-start justify-between mb-14 flex-wrap gap-6">
@@ -50,16 +38,16 @@ const CategoriesSection = () => {
             return (
               <article
                 key={slug}
-                className="bg-background rounded-2xl shadow-md hover:shadow-xl transition-shadow p-8 pt-14 flex flex-col items-center text-center relative"
+                className="bg-background rounded-2xl shadow-[0_8px_28px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_14px_36px_-12px_rgba(0,0,0,0.25)] transition-shadow p-8 pt-16 flex flex-col items-center text-center relative"
               >
                 <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-yellow flex items-center justify-center shadow-lg">
                   <Icon size={28} className="text-dark" strokeWidth={2.5} />
                 </div>
-                <div className="h-44 w-full flex items-center justify-center mb-6">
+                <div className="h-56 w-full flex items-center justify-center mb-6 bg-background rounded-xl">
                   <img
                     src={meta.image}
                     alt={meta.name}
-                    className="max-h-44 object-contain"
+                    className="max-h-56 w-full object-contain"
                     loading="lazy"
                   />
                 </div>

@@ -15,10 +15,10 @@ const links = {
   ],
 };
 
-const MAP_EMBED =
-  "https://www.google.com/maps?q=R.+Cel.+Otaviano+da+Rocha,+1110,+Ubá+-+MG&output=embed";
-const MAP_LINK =
-  "https://www.google.com/maps/search/?api=1&query=R.+Cel.+Otaviano+da+Rocha%2C+1110%2C+Ub%C3%A1+-+MG";
+const MAP_QUERY =
+  "R. Cel. Otaviano da Rocha, 1110 - São Domingos, Ubá - MG, 36504-042";
+const MAP_EMBED = `https://maps.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`;
 
 const AccentTitle = ({ children }: { children: React.ReactNode }) => (
   <h4 className="jcl-heading text-background text-sm mb-4 relative">

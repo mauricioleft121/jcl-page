@@ -28,12 +28,12 @@ const TrustSection = () => {
 
       <div className="relative bg-yellow py-16">
         <div className="container">
-          <div className="bg-background rounded-[28px] shadow-xl p-10 md:p-14">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-12 items-center justify-items-center">
+          <div className="bg-background rounded-[28px] shadow-xl p-12 md:p-16">
+            <div className="flex flex-wrap justify-center gap-x-10 gap-y-12">
               {clientLogos.map((name) => (
                 <div
                   key={name}
-                  className="h-20 w-full max-w-[220px] bg-white-ice border border-dashed border-border rounded-md flex items-center justify-center px-4"
+                  className="h-20 w-full max-w-[200px] basis-[45%] sm:basis-[30%] lg:basis-[17%] bg-white-ice border border-dashed border-border rounded-md flex items-center justify-center px-4"
                   aria-label={`Logo cliente ${name}`}
                 >
                   <span className="jcl-heading text-gray-medium text-sm text-center">

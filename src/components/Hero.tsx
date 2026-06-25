@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-forklift.jpg";
+import heroAsset from "@/assets/hero-fachada-jcl.jpg.asset.json";
 
 const Hero = () => {
   return (
     <section id="hero" className="relative min-h-[640px] flex items-center overflow-hidden">
       <img
-        src={heroImage}
+        src={heroAsset.url}
         alt="Fachada da JCL Empilhadeiras em Ubá - MG"
         className="absolute inset-0 w-full h-full object-cover"
         width={1920}
