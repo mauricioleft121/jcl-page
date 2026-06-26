@@ -33,12 +33,10 @@ const InstitutionalSection = () => {
         className="absolute inset-0 w-full h-full object-cover object-right"
         loading="lazy"
       />
-      {/* Reforço CLARO à esquerda para encaixar o texto na área cinza da imagem */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white-ice via-white-ice/85 to-transparent" />
 
       <div className="relative">
         <div className="container min-h-screen flex flex-col justify-center py-24">
-          <div className="max-w-xl">
+          <div className="max-w-[420px]">
             <div className="inline-flex items-center gap-3 mb-3">
               <span className="block w-8 h-[3px] bg-yellow" />
               <span className="jcl-heading text-gray-medium text-sm tracking-wider">SOBRE NÓS</span>
