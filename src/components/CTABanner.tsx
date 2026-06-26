@@ -1,5 +1,5 @@
 import { MessageCircle } from "lucide-react";
-import ctaBg from "@/assets/cta-bg.jpg";
+import ctaBg from "@/assets/sobre_nos.jpg";
 
 const CTABanner = () => {
   return (

@@ -24,8 +24,8 @@ const MissionVisionValues = () => {
 
   return (
     <section className="bg-white-ice py-24">
-      <div className="container max-w-4xl">
-        <h2 className="jcl-heading text-dark text-3xl md:text-4xl accent-line center text-center mb-12">
+      <div className="container max-w-5xl">
+        <h2 className="jcl-heading text-dark text-3xl md:text-4xl accent-line mb-12">
           MISSÃO, VISÃO E VALORES
         </h2>
 

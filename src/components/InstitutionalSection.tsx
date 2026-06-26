@@ -1,5 +1,5 @@
 import { Shield, Users, Headphones, Settings, Handshake } from "lucide-react";
-import institutionalAsset from "@/assets/institutional-jcl.jpg.asset.json";
+import institutionalImg from "@/assets/sobre_nos.jpg";
 
 const blocks = [
   {
@@ -82,7 +82,7 @@ const InstitutionalSection = () => {
             />
             <div className="relative rounded-tr-[80px] rounded-bl-[80px] overflow-hidden">
               <img
-                src={institutionalAsset.url}
+                src={institutionalImg}
                 alt="Empilhadeira JCL amarela e preta em armazém"
                 className="w-full h-full object-cover aspect-[4/3]"
                 loading="lazy"

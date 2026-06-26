@@ -39,6 +39,12 @@ import eletrica7_1 from "@/assets/eletricas/7ton/26.png";
 import eletrica7_2 from "@/assets/eletricas/7ton/edit-1776447604943.png";
 import eletrica7_3 from "@/assets/eletricas/7ton/edit-1776447652669.png";
 
+// Categorias elétricas (linha de equipamentos — imagens reais)
+import patoladaImg from "@/assets/EQUIPAMENTO ELÉTRICO/Empilhadeira patolada/1.png";
+import retratilImg from "@/assets/EQUIPAMENTO ELÉTRICO/Empilhadeira retrátil/1.png";
+import transpaleteiraImg from "@/assets/EQUIPAMENTO ELÉTRICO/Transpaleteiro/1.png";
+import paleteiraImg from "@/assets/EQUIPAMENTO ELÉTRICO/Paleteiro elétrico/1.png";
+
 export interface Product {
   slug: string;
   name: string;
@@ -344,7 +350,7 @@ export const categoriesMeta: CategoryMeta[] = [
     name: "Empilhadeira Patolada",
     shortName: "Patolada",
     description: "Elétrica, compacta e versátil — segurança, estabilidade e eficiência para movimentação e elevação de cargas em armazéns, CDs e linhas de produção.",
-    image: eletrica3_main,
+    image: patoladaImg,
     comingSoon: true,
   },
   {
@@ -352,7 +358,7 @@ export const categoriesMeta: CategoryMeta[] = [
     name: "Empilhadeira Retrátil",
     shortName: "Retrátil",
     description: "Elétrica com bateria de lítio para operações intensas de armazenagem em grandes alturas. Potência, autonomia e segurança em design moderno.",
-    image: eletrica5_main,
+    image: retratilImg,
     comingSoon: true,
   },
   {
@@ -360,7 +366,7 @@ export const categoriesMeta: CategoryMeta[] = [
     name: "Transpaleteira Elétrica",
     shortName: "Transpaleteira",
     description: "Transpaleteira elétrica robusta JCL — potência, baixo ruído e manutenção reduzida para movimentações de médio e alto volume.",
-    image: eletrica3_2,
+    image: transpaleteiraImg,
     comingSoon: true,
   },
   {
@@ -368,7 +374,7 @@ export const categoriesMeta: CategoryMeta[] = [
     name: "Paleteira Elétrica",
     shortName: "Paleteira",
     description: "Paleteira elétrica compacta JCL — praticidade, resistência e ótimo desempenho para supermercados, armazéns, indústrias e centros de distribuição.",
-    image: eletrica3_3,
+    image: paleteiraImg,
     comingSoon: true,
   },
 ];

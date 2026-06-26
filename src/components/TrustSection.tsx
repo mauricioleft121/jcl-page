@@ -1,14 +1,25 @@
+import leifer from "@/assets/empresas/leifer.jpg";
+import ferrari from "@/assets/empresas/Ferrari Estofados.png";
+import nesher from "@/assets/empresas/nesher.jpeg";
+import valde from "@/assets/empresas/valdemoveis.png";
+import jsilva from "@/assets/empresas/JSilva Moveis.png";
+import minasplac from "@/assets/empresas/minasplac.jpg";
+import salleto from "@/assets/empresas/Salleto.png";
+import gabeo from "@/assets/empresas/gabed.jpg";
+import riodoce from "@/assets/empresas/LOGOTIPO-RIODOCE-FUNDO-BRANCO.png";
+import cel from "@/assets/empresas/celmoveis.png";
+
 const clientLogos = [
-  "Leifer Móveis",
-  "Ferrari Estofados",
-  "Nesher",
-  "Valde Móveis",
-  "J Silva Móveis",
-  "minasPlac",
-  "Sallêto",
-  "Gabeo",
-  "Rio Doce",
-  "CEL Móveis",
+  { name: "Leifer Móveis", src: leifer },
+  { name: "Ferrari Estofados", src: ferrari, invert: true },
+  { name: "Nesher", src: nesher },
+  { name: "Valde Móveis", src: valde },
+  { name: "J Silva Móveis", src: jsilva },
+  { name: "minasPlac", src: minasplac },
+  { name: "Sallêto", src: salleto },
+  { name: "Gabeo", src: gabeo },
+  { name: "Rio Doce", src: riodoce },
+  { name: "CEL Móveis", src: cel },
 ];
 
 const TrustSection = () => {
@@ -28,17 +39,19 @@ const TrustSection = () => {
 
       <div className="relative bg-yellow py-16">
         <div className="container">
-          <div className="bg-background rounded-[28px] shadow-xl p-12 md:p-16">
-            <div className="flex flex-wrap justify-center gap-x-10 gap-y-12">
-              {clientLogos.map((name) => (
+          <div className="bg-background rounded-[28px] shadow-xl p-10 md:p-16">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-12 items-center justify-items-center">
+              {clientLogos.map(({ name, src, invert }) => (
                 <div
                   key={name}
-                  className="h-20 w-full max-w-[200px] basis-[45%] sm:basis-[30%] lg:basis-[17%] bg-white-ice border border-dashed border-border rounded-md flex items-center justify-center px-4"
-                  aria-label={`Logo cliente ${name}`}
+                  className="h-24 w-full max-w-[220px] flex items-center justify-center px-4"
                 >
-                  <span className="jcl-heading text-gray-medium text-sm text-center">
-                    {name}
-                  </span>
+                  <img
+                    src={src}
+                    alt={`Logo ${name}`}
+                    className={`max-h-20 max-w-full object-contain ${invert ? "invert" : ""}`}
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>

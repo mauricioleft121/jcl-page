@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollTopButton from "@/components/ScrollTopButton";
 import { categoriesMeta } from "@/data/products";
-import heroImg from "@/assets/hero-forklift.jpg";
+import heroImg from "@/assets/sobre_nos.jpg";
 
 const Catalog = () => {
   useEffect(() => {

@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Arquivos de referência de design (não versionar — pesados)
+/LAYOUT/
+/Layout do site JCL Empilhadeiras.pdf
