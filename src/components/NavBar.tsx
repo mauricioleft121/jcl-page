@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown, MessageCircle } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { categoriesMeta } from "@/data/products";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const navItems = [
   { label: "HOME", href: "/" },
@@ -87,8 +88,8 @@ const NavBar = ({ variant = "light" }: NavBarProps) => {
             className="btn-yellow text-xs"
             aria-label="Fale conosco no WhatsApp"
           >
-            <MessageCircle size={16} fill="currentColor" />
             FALE CONOSCO
+            <WhatsAppIcon size={18} />
           </a>
           <button
             className={`lg:hidden ${textBase}`}

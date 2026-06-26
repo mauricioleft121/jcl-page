@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import ctaBg from "@/assets/sobre_nos.jpg";
 
 const CTABanner = () => {
@@ -32,8 +32,8 @@ const CTABanner = () => {
             className="btn-yellow text-base px-10 py-5"
             aria-label="Fale conosco no WhatsApp"
           >
-            <MessageCircle size={20} fill="currentColor" />
             FALE CONOSCO
+            <WhatsAppIcon size={22} />
           </a>
         </div>
       </div>

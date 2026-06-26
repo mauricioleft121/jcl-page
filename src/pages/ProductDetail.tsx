@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { MessageCircle, ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -140,7 +141,7 @@ const ProductDetail = () => {
                   className="flex-1 inline-flex items-center justify-center gap-2 border-2 border-yellow text-dark font-bold uppercase rounded-full px-6 py-4 text-sm hover:bg-yellow transition-colors min-h-[56px]"
                   aria-label={`Cotação por WhatsApp do ${product.code}`}
                 >
-                  <MessageCircle size={18} fill="currentColor" className="text-yellow-dark" />
+                  <WhatsAppIcon size={18} className="text-yellow-dark" />
                   COTAÇÃO POR WHATSAPP
                 </a>
                 <Link

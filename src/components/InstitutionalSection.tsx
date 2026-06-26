@@ -34,8 +34,8 @@ const InstitutionalSection = () => {
           className="absolute inset-0 w-full h-full object-cover object-right"
           loading="lazy"
         />
-        <div className="relative container min-h-screen flex flex-col justify-center py-20">
-          <div className="max-w-[460px]">
+        <div className="relative min-h-screen flex flex-col justify-center py-20 pl-6 sm:pl-8 lg:pl-12 pr-6">
+          <div className="max-w-[560px]">
             <div className="inline-flex items-center gap-3 mb-2">
               <span className="block w-8 h-[3px] bg-yellow" />
               <span className="jcl-heading text-gray-medium text-xs tracking-wider">SOBRE NÓS</span>
@@ -51,13 +51,13 @@ const InstitutionalSection = () => {
               <span className="text-yellow-dark">alcance nacional</span>.
             </p>
 
-            <div className="space-y-3.5">
+            <div className="space-y-4">
               {points.map(({ Icon, text }, i) => (
-                <div key={i} className="flex gap-3">
-                  <span className="w-8 h-8 rounded-full bg-yellow flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Icon size={16} className="text-dark" />
+                <div key={i} className="flex gap-3.5">
+                  <span className="w-10 h-10 rounded-full bg-yellow flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon size={20} className="text-dark" />
                   </span>
-                  <p className="text-gray-dark text-[12.5px] leading-[1.5]">{text}</p>
+                  <p className="text-gray-dark text-[14.5px] leading-[1.6]">{text}</p>
                 </div>
               ))}
             </div>
