@@ -22,6 +22,22 @@ const Contact = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const linhas = [
+      "Olá! Gostaria de iniciar uma cotação.",
+      "",
+      `*Nome:* ${form.name}`,
+      `*E-mail:* ${form.email}`,
+      form.whatsapp && `*WhatsApp:* ${form.whatsapp}`,
+      form.phone && `*Telefone:* ${form.phone}`,
+      (form.city || form.state) && `*Cidade/Estado:* ${[form.city, form.state].filter(Boolean).join(" / ")}`,
+      form.message && `*Mensagem:* ${form.message}`,
+    ].filter(Boolean);
+    const url = `https://wa.me/553235315957?text=${encodeURIComponent(linhas.join("\n"))}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="min-h-screen">
       <TopBar />
@@ -84,7 +100,7 @@ const Contact = () => {
               <h1 className="jcl-heading text-dark text-3xl md:text-4xl mb-8">
                 INICIE UMA COTAÇÃO
               </h1>
-              <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert("Mensagem enviada!"); }}>
+              <form className="space-y-5" onSubmit={onSubmit}>
                 <Field label="NOME COMPLETO *" name="name" placeholder="Nome completo" value={form.name} onChange={onChange} required />
                 <Field label="E-MAIL *" name="email" type="email" placeholder="email@email.com" value={form.email} onChange={onChange} required />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
