@@ -24,7 +24,7 @@ const clientLogos = [
 
 const TrustSection = () => {
   return (
-    <section className="bg-background py-24">
+    <section className="bg-background py-24 min-h-screen flex flex-col justify-center">
       <div className="container mb-10 flex items-start justify-between flex-wrap gap-4">
         <div>
           <h2 className="jcl-heading text-dark text-3xl md:text-4xl leading-[1] accent-line max-w-2xl">

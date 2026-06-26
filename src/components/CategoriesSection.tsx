@@ -10,7 +10,7 @@ const homeCards = [
 
 const CategoriesSection = () => {
   return (
-    <section id="produtos" className="relative py-24 bg-background overflow-hidden">
+    <section id="produtos" className="relative py-24 bg-background overflow-hidden min-h-screen flex flex-col justify-center">
 
       <div className="relative container">
         <div className="flex items-start justify-between mb-14 flex-wrap gap-6">

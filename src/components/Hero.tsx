@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero.jpg";
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-[640px] flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
       <img
         src={heroImg}
         alt="Fachada da JCL Empilhadeiras em Ubá - MG"
