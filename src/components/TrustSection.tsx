@@ -5,7 +5,7 @@ import valde from "@/assets/empresas/valdemoveis.png";
 import jsilva from "@/assets/empresas/JSilva Moveis.png";
 import minasplac from "@/assets/empresas/minasplac.jpg";
 import salleto from "@/assets/empresas/Salleto.png";
-import gabeo from "@/assets/empresas/gabed.jpg";
+import gabeo from "@/assets/empresas/gabed.png";
 import riodoce from "@/assets/empresas/LOGOTIPO-RIODOCE-FUNDO-BRANCO.png";
 import cel from "@/assets/empresas/celmoveis.png";
 import Logo from "@/components/Logo";
@@ -42,12 +42,12 @@ const TrustSection = () => {
               {clientLogos.map(({ name, src, invert }) => (
                 <div
                   key={name}
-                  className="h-24 w-full max-w-[220px] flex items-center justify-center px-4"
+                  className="h-28 w-full max-w-[240px] flex items-center justify-center px-2"
                 >
                   <img
                     src={src}
                     alt={`Logo ${name}`}
-                    className={`max-h-20 max-w-full object-contain ${invert ? "invert" : ""}`}
+                    className={`max-h-24 max-w-full object-contain ${invert ? "invert" : ""}`}
                     loading="lazy"
                   />
                 </div>
