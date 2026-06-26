@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const items = [
   {
@@ -35,24 +35,18 @@ const MissionVisionValues = () => {
             return (
               <div
                 key={item.id}
-                className={`rounded-xl overflow-hidden border border-border ${
-                  isOpen ? "bg-background shadow-md" : "bg-background"
-                }`}
+                className="rounded-2xl overflow-hidden bg-background shadow-sm"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : item.id)}
-                  className={`w-full flex items-center justify-between px-6 py-5 transition-colors ${
-                    isOpen ? "bg-yellow/30" : "bg-background hover:bg-white-ice"
+                  className={`w-full flex items-center justify-between px-7 py-6 transition-colors ${
+                    isOpen ? "bg-[hsl(45,100%,85%)]" : "bg-background hover:bg-white-ice"
                   }`}
                   aria-expanded={isOpen}
                   aria-controls={`mvv-${item.id}`}
                 >
-                  <span className="jcl-heading text-dark text-xl">{item.title}</span>
-                  {isOpen ? (
-                    <Minus size={22} className="text-dark" />
-                  ) : (
-                    <Plus size={22} className="text-dark" />
-                  )}
+                  <span className="jcl-heading text-dark text-xl md:text-2xl">{item.title}</span>
+                  {!isOpen && <Plus size={26} className="text-dark" strokeWidth={2.5} />}
                 </button>
                 {isOpen && (
                   <div id={`mvv-${item.id}`} className="px-6 py-5 bg-background">

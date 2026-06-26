@@ -16,6 +16,14 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 
+/** "3.000 kg" -> "3 Toneladas" */
+const toTons = (capacity: string): string => {
+  const kg = parseInt(capacity.replace(/\D/g, ""), 10);
+  if (!kg) return capacity;
+  const tons = kg / 1000;
+  return `${tons} ${tons === 1 ? "Tonelada" : "Toneladas"}`;
+};
+
 const Category = () => {
   const { slug = "" } = useParams<{ slug: string }>();
   const meta = getCategoryBySlug(slug);
@@ -70,7 +78,7 @@ const Category = () => {
       </section>
 
       {/* Header */}
-      <section className="bg-white-ice py-16">
+      <section className="bg-background py-16">
         <div className="container">
           <h1 className="jcl-heading text-dark text-3xl md:text-5xl accent-line">
             {meta.name}
@@ -82,7 +90,7 @@ const Category = () => {
       </section>
 
       {/* Product grid */}
-      <section className="bg-white-ice pb-24">
+      <section className="bg-background pb-24">
         <div className="container">
           {items.length === 0 ? (
             <div className="bg-background rounded-2xl p-12 text-center">
@@ -101,37 +109,32 @@ const Category = () => {
               {items.map(p => (
                 <article
                   key={p.slug}
-                  className="bg-background rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col"
+                  className="bg-background rounded-xl border border-border p-7 flex flex-col"
                 >
-                  <div className="h-44 flex items-center justify-center mb-4">
+                  <div className="h-48 flex items-center justify-center mb-5">
                     <img
                       src={p.image}
                       alt={p.name}
-                      className="max-h-44 object-contain"
+                      className="max-h-48 object-contain"
                       loading="lazy"
                     />
                   </div>
-                  <h3 className="jcl-heading text-dark text-lg accent-line mb-4">
-                    {p.name}
-                  </h3>
-                  <ul className="text-sm text-gray-medium space-y-1 mb-6 flex-1">
+                  <h3 className="jcl-heading text-dark text-xl mb-2">{p.code}</h3>
+                  <span className="block w-10 h-[3px] bg-yellow mb-5" />
+                  <ul className="text-sm text-gray-medium space-y-1.5 mb-6 flex-1">
                     <li>
-                      <span className="font-bold text-dark">Capacidade:</span>{" "}
-                      {p.specs["Capacidade de Carga"]}
+                      <span className="font-semibold text-dark">Capacidade:</span>{" "}
+                      {toTons(p.specs["Capacidade de Carga"])}
                     </li>
                     <li>
-                      <span className="font-bold text-dark">Elevação:</span>{" "}
-                      {p.specs["Altura Máxima de Elevação"]}
-                    </li>
-                    <li>
-                      <span className="font-bold text-dark">Motor:</span>{" "}
-                      {p.specs["Tipo de Motor"]}
+                      <span className="font-semibold text-dark">Elevação:</span>{" "}
+                      3000 à 7000 mm
                     </li>
                   </ul>
                   <Link
                     to={`/produtos/${p.slug}`}
                     className="inline-flex items-center justify-center gap-2 border-2 border-dark text-dark font-bold uppercase text-xs px-5 py-3 rounded-md hover:bg-yellow hover:border-yellow transition-colors min-h-[44px]"
-                    aria-label={`Ver detalhes do ${p.name}`}
+                    aria-label={`Ver detalhes do ${p.code}`}
                   >
                     VER DETALHES
                     <ArrowRight size={14} />

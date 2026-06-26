@@ -14,10 +14,10 @@ const CTABanner = () => {
       <div className="relative container">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] items-center gap-10">
           <div>
-            <h2 className="jcl-heading text-background text-3xl md:text-5xl leading-[1]">
+            <h2 className="jcl-heading text-background text-3xl md:text-5xl leading-[1.05]">
               PRECISA DE AJUDA PARA
             </h2>
-            <h2 className="jcl-heading text-yellow text-3xl md:text-5xl leading-[1] mt-2">
+            <h2 className="jcl-heading text-background text-3xl md:text-5xl leading-[1.05] mt-1">
               ESCOLHER O EQUIPAMENTO IDEAL?
             </h2>
             <p className="text-background/80 text-base mt-5 max-w-2xl leading-[1.7]">

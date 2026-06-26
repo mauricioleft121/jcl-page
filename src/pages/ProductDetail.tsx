@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { MessageCircle, ArrowRight, FileText, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { MessageCircle, ArrowRight, FileText } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollTopButton from "@/components/ScrollTopButton";
-import { getProductBySlug, getRelatedProducts, categoriesMeta } from "@/data/products";
+import { getProductBySlug, categoriesMeta } from "@/data/products";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -15,6 +15,14 @@ import {
   BreadcrumbSeparator,
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
+
+/** "3.000 kg" -> "3 toneladas" */
+const toTons = (capacity: string): string => {
+  const kg = parseInt(capacity.replace(/\D/g, ""), 10);
+  if (!kg) return capacity;
+  const tons = kg / 1000;
+  return `${tons} ${tons === 1 ? "tonelada" : "toneladas"}`;
+};
 
 const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -43,8 +51,9 @@ const ProductDetail = () => {
   }
 
   const catMeta = categoriesMeta.find(c => c.productCategory === product.category);
-  const related = getRelatedProducts(product.slug);
-  const waMsg = encodeURIComponent(`Olá! Tenho interesse no modelo ${product.name}.`);
+  const waMsg = encodeURIComponent(`Olá! Tenho interesse no modelo ${product.code}.`);
+  const tons = toTons(product.specs["Capacidade de Carga"]);
+  const title = `${product.code} - ${(catMeta?.name || product.category).toUpperCase()} ${tons.toUpperCase()}`;
 
   return (
     <div className="min-h-screen">
@@ -77,7 +86,7 @@ const ProductDetail = () => {
               )}
               <BreadcrumbSeparator className="text-background/50" />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-yellow">{product.name}</BreadcrumbPage>
+                <BreadcrumbPage className="text-yellow">{product.code}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -85,7 +94,7 @@ const ProductDetail = () => {
       </section>
 
       {/* Main */}
-      <section className="bg-white-ice py-16">
+      <section className="bg-background py-16">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12">
             {/* Gallery */}
@@ -95,7 +104,7 @@ const ProductDetail = () => {
                   <button
                     key={i}
                     onClick={() => setActive(i)}
-                    className={`w-[88px] h-[88px] rounded-lg overflow-hidden border-2 bg-background transition-colors ${
+                    className={`w-[88px] h-[88px] rounded-lg overflow-hidden border-2 bg-white-ice transition-colors ${
                       i === active ? "border-yellow" : "border-border hover:border-dark"
                     }`}
                     aria-label={`Ver imagem ${i + 1}`}
@@ -104,7 +113,7 @@ const ProductDetail = () => {
                   </button>
                 ))}
               </div>
-              <div className="flex-1 bg-background rounded-2xl border border-border flex items-center justify-center min-h-[420px] p-6">
+              <div className="flex-1 bg-white-ice rounded-2xl flex items-center justify-center min-h-[420px] p-6">
                 <img
                   src={product.images[active]}
                   alt={product.name}
@@ -115,67 +124,56 @@ const ProductDetail = () => {
 
             {/* Info */}
             <div>
-              <h1 className="jcl-heading text-dark text-3xl md:text-4xl accent-line">
-                {product.name.toUpperCase()}
+              <h1 className="jcl-heading text-dark text-3xl md:text-4xl leading-[1.05]">
+                {title}
               </h1>
               <p className="text-gray-medium text-[15px] leading-[1.8] mt-6 mb-8">
                 {product.shortDescription}
               </p>
 
-              <div className="space-y-3">
+              {/* Botões lado a lado */}
+              <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href={`https://wa.me/553235315957?text=${waMsg}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 border-2 border-yellow text-dark font-bold uppercase rounded-full px-8 py-4 text-sm hover:bg-yellow transition-colors min-h-[56px]"
-                  aria-label={`Cotação por WhatsApp do ${product.name}`}
+                  className="flex-1 inline-flex items-center justify-center gap-2 border-2 border-yellow text-dark font-bold uppercase rounded-full px-6 py-4 text-sm hover:bg-yellow transition-colors min-h-[56px]"
+                  aria-label={`Cotação por WhatsApp do ${product.code}`}
                 >
                   <MessageCircle size={18} fill="currentColor" className="text-yellow-dark" />
                   COTAÇÃO POR WHATSAPP
                 </a>
                 <Link
                   to="/contato"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-yellow text-dark font-bold uppercase rounded-full px-8 py-4 text-sm hover:bg-yellow-dark transition-colors min-h-[56px]"
-                  aria-label={`Iniciar uma cotação do ${product.name}`}
+                  className="flex-1 inline-flex items-center justify-center gap-2 bg-yellow text-dark font-bold uppercase rounded-full px-6 py-4 text-sm hover:bg-yellow-dark transition-colors min-h-[56px]"
+                  aria-label={`Iniciar uma cotação do ${product.code}`}
                 >
                   INICIE UMA COTAÇÃO
                   <ArrowRight size={16} />
                 </Link>
               </div>
 
-              {/* Quick spec */}
-              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-10 text-sm border-t border-border pt-6">
-                <SpecRow label="Categoria" value={product.category} />
-                <SpecRow label="Modelo" value={product.model || product.name} />
-                <SpecRow label="Capacidade" value={product.specs["Capacidade de Carga"]} />
-                <SpecRow label="Elevação" value={product.specs["Altura Máxima de Elevação"]} />
-                <SpecRow label="Disponibilidade" value={product.availability} />
-                <div className="flex gap-2">
-                  <dt className="jcl-heading text-dark text-xs">Ficha Técnica:</dt>
+              {/* Ficha resumida */}
+              <dl className="mt-10 space-y-2.5 text-[15px] border-t border-border pt-8">
+                <SpecLine label="Categoria" value={product.category} />
+                {product.tags && product.tags.length > 0 && (
+                  <SpecLine label="Tags" value={product.tags.join(", ")} />
+                )}
+                <SpecLine label="Modelo" value={product.model || product.code} />
+                <SpecLine label="Capacidade" value={tons} />
+                <div className="flex flex-wrap gap-x-2">
+                  <dt className="jcl-heading text-dark text-[15px]">Ficha Técnica:</dt>
                   <dd>
-                    <a href="#" className="text-yellow font-semibold text-xs hover:underline inline-flex items-center gap-1">
-                      <FileText size={12} /> Ver Documentação
+                    <a href="#" className="text-yellow-dark font-semibold hover:underline inline-flex items-center gap-1">
+                      <FileText size={14} /> Ver Documentação
                     </a>
                   </dd>
                 </div>
               </dl>
-
-              {product.tags && product.tags.length > 0 && (
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {product.tags.map(t => (
-                    <span
-                      key={t}
-                      className="inline-block bg-white-ice border border-border text-dark text-[11px] uppercase font-bold tracking-wide rounded-full px-3 py-1"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
 
-          {/* Description */}
+          {/* Descrição do produto */}
           <div className="mt-16">
             <h2 className="jcl-heading text-dark text-2xl md:text-3xl accent-line mb-6">
               DESCRIÇÃO DO PRODUTO
@@ -186,107 +184,6 @@ const ProductDetail = () => {
               ))}
             </div>
           </div>
-
-          {product.aboutProduct && (
-            <div className="mt-16">
-              <h2 className="jcl-heading text-dark text-2xl md:text-3xl accent-line mb-6">
-                SOBRE O PRODUTO
-              </h2>
-              <p className="text-gray-medium text-[15px] leading-[1.9] max-w-4xl">
-                {product.aboutProduct}
-              </p>
-            </div>
-          )}
-
-          {/* Full specs */}
-          <div className="mt-16">
-            <h2 className="jcl-heading text-dark text-2xl md:text-3xl accent-line mb-6">
-              ESPECIFICAÇÕES TÉCNICAS
-            </h2>
-            <div className="bg-background rounded-2xl border border-border overflow-hidden max-w-4xl">
-              {Object.entries(product.specs).map(([k, v], i) => (
-                <div
-                  key={k}
-                  className={`flex justify-between px-6 py-4 text-sm ${
-                    i % 2 === 0 ? "bg-background" : "bg-white-ice"
-                  }`}
-                >
-                  <span className="font-bold text-dark">{k}</span>
-                  <span className="text-gray-medium">{v}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Related */}
-          {related.length > 0 && (
-            <div className="mt-20">
-              <h2 className="jcl-heading text-dark text-2xl md:text-3xl accent-line mb-8">
-                PRODUTOS RELACIONADOS
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {related.map(p => (
-                  <Link
-                    key={p.slug}
-                    to={`/produtos/${p.slug}`}
-                    className="bg-background rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col items-center text-center"
-                  >
-                    <img src={p.image} alt={p.name} className="h-36 object-contain mb-4" loading="lazy" />
-                    <h3 className="jcl-heading text-dark text-base accent-line center mb-3">{p.name}</h3>
-                    <p className="text-gray-medium text-sm mt-auto">{p.specs["Capacidade de Carga"]}</p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Final CTA — JCL contact */}
-          <div className="mt-20 bg-dark rounded-2xl overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-10 p-8 md:p-12">
-              <div>
-                <h2 className="jcl-heading text-background text-2xl md:text-3xl mb-3">
-                  PRECISA DE MAIS INFORMAÇÕES OU UMA <span className="text-yellow">COTAÇÃO</span>?
-                </h2>
-                <p className="text-background/70 text-[15px] leading-[1.8] mb-6">
-                  Fale com um especialista da JCL Empilhadeiras e descubra a melhor solução para sua operação.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href={`https://wa.me/553235315957?text=${waMsg}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-yellow text-dark font-bold uppercase rounded-full px-6 py-3 text-sm hover:bg-yellow-dark transition-colors min-h-[44px]"
-                  >
-                    <MessageCircle size={16} fill="currentColor" /> WhatsApp
-                  </a>
-                  <Link
-                    to="/contato"
-                    className="inline-flex items-center gap-2 border-2 border-yellow text-yellow font-bold uppercase rounded-full px-6 py-3 text-sm hover:bg-yellow hover:text-dark transition-colors min-h-[44px]"
-                  >
-                    INICIE UMA COTAÇÃO <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </div>
-              <ul className="space-y-3 text-background/80 text-sm self-center">
-                <li className="flex items-start gap-3">
-                  <MapPin size={16} className="text-yellow mt-1 flex-shrink-0" />
-                  <span>R. Cel. Otaviano da Rocha, 1110 — São Domingos, Ubá - MG, 36504-042</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Phone size={16} className="text-yellow mt-1 flex-shrink-0" />
-                  <a href="tel:+553235315957" className="hover:text-yellow">32 3531-5957</a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Mail size={16} className="text-yellow mt-1 flex-shrink-0" />
-                  <a href="mailto:vendas@jclempilhadeiras.com.br" className="hover:text-yellow break-all">vendas@jclempilhadeiras.com.br</a>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Clock size={16} className="text-yellow mt-1 flex-shrink-0" />
-                  <span>Segunda a sexta · 08:00 - 17:00</span>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -295,10 +192,10 @@ const ProductDetail = () => {
   );
 };
 
-const SpecRow = ({ label, value }: { label: string; value: string }) => (
-  <div className="flex gap-2">
-    <dt className="jcl-heading text-dark text-xs">{label}:</dt>
-    <dd className="text-gray-medium text-xs">{value}</dd>
+const SpecLine = ({ label, value }: { label: string; value: string }) => (
+  <div className="flex flex-wrap gap-x-2">
+    <dt className="jcl-heading text-dark text-[15px]">{label}:</dt>
+    <dd className="text-gray-medium text-[15px]">{value}</dd>
   </div>
 );
 

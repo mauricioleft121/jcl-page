@@ -4,15 +4,15 @@ import institutionalImg from "@/assets/sobre_nos.jpg";
 const points = [
   {
     Icon: Shield,
-    text: "Na JCL Empilhadeiras, oferecemos soluções completas para movimentação de cargas, com um portfólio diversificado de equipamentos que atendem diferentes necessidades operacionais — empilhadeiras a diesel, elétricas com bateria de lítio, retráteis, patoladas, paleteiras e transpaleteiras.",
+    text: "Soluções completas em movimentação de cargas, com um portfólio diversificado de equipamentos para diferentes necessidades operacionais.",
   },
   {
     Icon: Users,
-    text: "Nosso compromisso é entregar eficiência, segurança e produtividade em cada operação, fornecendo equipamentos de qualidade e suporte adequado para o dia a dia dos nossos clientes.",
+    text: "Compromisso com eficiência, segurança e produtividade, oferecendo equipamentos de qualidade e suporte no dia a dia da sua operação.",
   },
   {
     Icon: Headphones,
-    text: "Contamos com uma equipe de profissionais capacitados, preparados para oferecer um atendimento ágil, próximo e eficiente — desde a escolha do equipamento até o acompanhamento da operação.",
+    text: "Equipe capacitada para um atendimento ágil, próximo e eficiente — da escolha do equipamento ao acompanhamento da operação.",
   },
 ];
 
@@ -25,43 +25,42 @@ const diferenciais = [
 
 const InstitutionalSection = () => {
   return (
-    <section id="sobre" className="relative bg-dark overflow-hidden">
-      {/* Background image */}
+    <section id="sobre" className="relative bg-white-ice overflow-hidden">
+      {/* Imagem de fundo (sem camada escura) — a área clara à esquerda recebe o texto */}
       <img
         src={institutionalImg}
         alt="Empilhadeira JCL amarela e preta em armazém"
         className="absolute inset-0 w-full h-full object-cover object-right"
         loading="lazy"
       />
-      {/* Dark gradient overlay — heavier on the left for text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/95 to-dark/55" />
+      {/* Reforço CLARO à esquerda para encaixar o texto na área cinza da imagem */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white-ice via-white-ice/85 to-transparent" />
 
       <div className="relative">
-        {/* Main content */}
         <div className="container min-h-screen flex flex-col justify-center py-24">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-3 mb-4">
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-3 mb-3">
               <span className="block w-8 h-[3px] bg-yellow" />
-              <span className="jcl-heading text-yellow text-sm tracking-wider">SOBRE NÓS</span>
+              <span className="jcl-heading text-gray-medium text-sm tracking-wider">SOBRE NÓS</span>
             </div>
-            <h2 className="jcl-heading text-background text-4xl md:text-5xl leading-[0.95]">
+            <h2 className="jcl-heading text-dark text-4xl md:text-5xl leading-[0.95]">
               CONHEÇA A
             </h2>
-            <h2 className="jcl-heading text-yellow text-5xl md:text-6xl leading-[0.95] mt-1 accent-line">
+            <h2 className="jcl-heading text-dark text-5xl md:text-6xl leading-[0.95] mt-1 accent-line">
               JCL EMPILHADEIRAS
             </h2>
-            <p className="text-background text-lg md:text-xl font-semibold mt-6 mb-8 leading-[1.6]">
+            <p className="text-dark text-lg md:text-xl font-semibold mt-6 mb-8 leading-[1.5]">
               Especialistas em equipamentos para movimentação de cargas com{" "}
-              <span className="text-yellow">alcance nacional</span>.
+              <span className="text-yellow-dark">alcance nacional</span>.
             </p>
 
-            <div className="space-y-5">
+            <div className="space-y-4">
               {points.map(({ Icon, text }, i) => (
                 <div key={i} className="flex gap-4">
-                  <span className="w-11 h-11 rounded-full bg-yellow flex items-center justify-center flex-shrink-0 mt-1">
-                    <Icon size={20} className="text-dark" />
+                  <span className="w-10 h-10 rounded-full bg-yellow flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Icon size={18} className="text-dark" />
                   </span>
-                  <p className="text-background/85 text-[15px] leading-[1.7]">{text}</p>
+                  <p className="text-gray-dark text-[14.5px] leading-[1.6]">{text}</p>
                 </div>
               ))}
             </div>
@@ -69,7 +68,7 @@ const InstitutionalSection = () => {
         </div>
 
         {/* Diferenciais bar */}
-        <div className="border-t border-background/10 bg-dark/70 backdrop-blur-sm">
+        <div className="bg-dark">
           <div className="container py-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {diferenciais.map(({ Icon, title, text }) => (

@@ -29,39 +29,12 @@ const Contact = () => {
       <WhatsAppButton />
       <ScrollTopButton />
 
-      <section className="bg-white-ice py-20">
+      <section className="bg-background py-16">
         <div className="container">
-          <div className="max-w-3xl mb-12">
-            <h1 className="jcl-heading text-dark text-3xl md:text-5xl accent-line">
-              INICIE UMA COTAÇÃO
-            </h1>
-            <p className="text-gray-medium text-[15px] leading-[1.8] mt-6">
-              Entre em contato com a{" "}
-              <span className="font-bold text-dark">JCL EMPILHADEIRAS</span>.
-              Somos especialistas em equipamentos para manuseio de cargas. Fale
-              conosco e descubra como podemos ajudar sua operação a ser mais eficiente.
-            </p>
-            <div className="flex gap-3 mt-5">
-              {[
-                { Icon: Instagram, label: "Instagram" },
-                { Icon: Facebook, label: "Facebook" },
-              ].map(({ Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  className="w-11 h-11 rounded-md bg-dark text-background hover:bg-yellow hover:text-dark transition-colors flex items-center justify-center"
-                  aria-label={`JCL no ${label}`}
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Left — map + info */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Left — map + info + institutional */}
             <div>
-              <div className="rounded-xl overflow-hidden h-[360px] mb-6 shadow-md">
+              <div className="rounded-xl overflow-hidden h-[360px] mb-6 shadow-sm">
                 <iframe
                   src={MAP_EMBED}
                   width="100%"
@@ -86,32 +59,62 @@ const Contact = () => {
                   href="mailto:vendas@jclempilhadeiras.com.br"
                 />
               </div>
+
+              <p className="text-gray-medium text-[15px] leading-[1.8] mt-10">
+                Entre em contato com a{" "}
+                <span className="font-bold text-yellow-dark">JCL EMPILHADEIRAS</span>.
+                Somos especialistas em equipamentos para manuseio de cargas. Fale
+                conosco e descubra como podemos ajudar sua operação a ser mais eficiente.
+              </p>
+              <div className="flex gap-3 mt-5">
+                {[
+                  { Icon: Instagram, label: "Instagram" },
+                  { Icon: Facebook, label: "Facebook" },
+                ].map(({ Icon, label }) => (
+                  <a
+                    key={label}
+                    href="#"
+                    className="w-11 h-11 rounded-md border border-border text-gray-medium hover:bg-yellow hover:text-dark hover:border-yellow transition-colors flex items-center justify-center"
+                    aria-label={`JCL no ${label}`}
+                  >
+                    <Icon size={18} />
+                  </a>
+                ))}
+              </div>
             </div>
 
             {/* Right — form */}
-            <div className="bg-background rounded-2xl p-8 shadow-md">
-              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Mensagem enviada!"); }}>
-                <Field label="NOME COMPLETO *" name="name" value={form.name} onChange={onChange} required />
-                <Field label="E-MAIL *" name="email" type="email" value={form.email} onChange={onChange} required />
-                <div className="grid grid-cols-2 gap-4">
-                  <Field label="WHATSAPP" name="whatsapp" value={form.whatsapp} onChange={onChange} />
-                  <Field label="TELEFONE" name="phone" value={form.phone} onChange={onChange} />
+            <div>
+              <h1 className="jcl-heading text-dark text-3xl md:text-4xl mb-8">
+                INICIE UMA COTAÇÃO
+              </h1>
+              <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert("Mensagem enviada!"); }}>
+                <Field label="NOME COMPLETO *" name="name" placeholder="Nome completo" value={form.name} onChange={onChange} required />
+                <Field label="E-MAIL *" name="email" type="email" placeholder="email@email.com" value={form.email} onChange={onChange} required />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <Field label="WHATSAPP" name="whatsapp" placeholder="(19) 99999-9999" value={form.whatsapp} onChange={onChange} />
+                  <Field label="TELEFONE" name="phone" placeholder="(19) 99999-9999" value={form.phone} onChange={onChange} />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <Field label="ESTADO *" name="state" value={form.state} onChange={onChange} required />
-                  <Field label="CIDADE *" name="city" value={form.city} onChange={onChange} required />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <Field label="ESTADO *" name="state" placeholder="Estado" value={form.state} onChange={onChange} required />
+                  <Field label="CIDADE *" name="city" placeholder="Cidade" value={form.city} onChange={onChange} required />
                 </div>
                 <div>
                   <label className="block jcl-heading text-dark text-xs mb-2">MENSAGEM</label>
                   <textarea
                     name="message"
                     rows={5}
+                    placeholder="Mensagem"
                     value={form.message}
                     onChange={onChange}
                     className="w-full border border-input rounded-md px-3.5 py-3 text-sm bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors"
                   />
                 </div>
-                <button type="submit" className="btn-yellow w-full text-base py-4" aria-label="Enviar cotação">
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center bg-yellow text-dark font-bold uppercase rounded-full px-14 py-4 text-base hover:bg-yellow-dark transition-colors min-h-[56px]"
+                  aria-label="Enviar cotação"
+                >
                   ENVIAR
                 </button>
               </form>
@@ -144,11 +147,11 @@ const InfoLine = ({
 );
 
 const Field = ({
-  label, name, value, onChange, type = "text", required,
+  label, name, value, onChange, type = "text", required, placeholder,
 }: {
   label: string; name: string; value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: string; required?: boolean;
+  type?: string; required?: boolean; placeholder?: string;
 }) => (
   <div>
     <label className="block jcl-heading text-dark text-xs mb-2">{label}</label>
@@ -158,6 +161,7 @@ const Field = ({
       value={value}
       onChange={onChange}
       required={required}
+      placeholder={placeholder}
       className="w-full border border-input rounded-md px-3.5 py-3 text-sm bg-background focus:border-yellow focus:border-2 focus:outline-none transition-colors min-h-[44px]"
     />
   </div>

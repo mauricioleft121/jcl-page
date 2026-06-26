@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
+import Logo from "@/components/Logo";
 
 const links = {
   "LINKS RÁPIDOS": [
@@ -35,13 +36,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr_1fr_1.2fr_1.4fr] gap-10">
             {/* Col 1 — logo + about + social */}
             <div>
-              <div className="flex items-baseline gap-1 mb-4">
-                <span className="jcl-heading text-3xl text-background">JC</span>
-                <span className="jcl-heading text-3xl text-yellow">L</span>
-                <span className="jcl-heading text-[10px] text-background/80 ml-2 tracking-[0.2em]">
-                  EMPILHADEIRAS
-                </span>
-              </div>
+              <Logo theme="light" className="h-12 mb-4" linked={false} />
               <p className="text-background/65 text-sm leading-[1.9] mb-5">
                 Soluções completas em movimentação de cargas com qualidade,
                 segurança e eficiência para o seu negócio.
@@ -134,9 +129,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-yellow py-3">
+      <div className="bg-dark border-t border-background/10 py-4">
         <div className="container">
-          <p className="text-dark text-[12px] font-medium text-center">
+          <p className="text-background/50 text-[12px] text-center">
             © 2026 JCL Empilhadeiras. Todos os direitos reservados.
           </p>
         </div>

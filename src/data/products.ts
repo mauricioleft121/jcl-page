@@ -47,6 +47,8 @@ import paleteiraImg from "@/assets/EQUIPAMENTO ELÉTRICO/Paleteiro elétrico/1.p
 
 export interface Product {
   slug: string;
+  /** Código curto do modelo, exibido em cards e títulos (ex.: JCLFD30) */
+  code: string;
   name: string;
   category: "Empilhadeiras Elétricas" | "Empilhadeiras a Combustão";
   categoryColor: string;
@@ -69,6 +71,7 @@ export const products: Product[] = [
   // ============ ELÉTRICAS ============
   {
     slug: "jclb30",
+    code: "JCLB30",
     name: "JCLB30 — Empilhadeira Contrabalançada Elétrica JCL(B) B30",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
@@ -98,6 +101,7 @@ export const products: Product[] = [
   },
   {
     slug: "jclb40",
+    code: "JCLB40",
     name: "JCLB40 — Empilhadeira Contrabalançada Elétrica JCL(B) B40",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
@@ -127,6 +131,7 @@ export const products: Product[] = [
   },
   {
     slug: "jclb50",
+    code: "JCLB50",
     name: "JCLB50 — Empilhadeira Contrabalançada Elétrica JCL(B) B50",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
@@ -156,6 +161,7 @@ export const products: Product[] = [
   },
   {
     slug: "jclb70",
+    code: "JCLB70",
     name: "JCLB70 — Empilhadeira Contrabalançada Elétrica JCL(B) B70",
     category: "Empilhadeiras Elétricas",
     categoryColor: ELETRICA_COLOR,
@@ -187,6 +193,7 @@ export const products: Product[] = [
   // ============ DIESEL ============
   {
     slug: "jcld30",
+    code: "JCLFD30",
     name: "JCLD30 — Empilhadeira a diesel JCL(D) D30",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
@@ -216,6 +223,7 @@ export const products: Product[] = [
   },
   {
     slug: "jcld40",
+    code: "JCLFD40",
     name: "JCLD40 — Empilhadeira a diesel JCL(D) D40",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
@@ -245,6 +253,7 @@ export const products: Product[] = [
   },
   {
     slug: "jcld50",
+    code: "JCLFD50",
     name: "JCLD50 — Empilhadeira a diesel JCL(D) D50",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
@@ -274,6 +283,7 @@ export const products: Product[] = [
   },
   {
     slug: "jcld70",
+    code: "JCLFD70",
     name: "JCLD70 — Empilhadeira a diesel JCL(D) D70",
     category: "Empilhadeiras a Combustão",
     categoryColor: DIESEL_COLOR,
@@ -333,7 +343,7 @@ export const categoriesMeta: CategoryMeta[] = [
     slug: "empilhadeira-diesel",
     name: "Empilhadeira à Diesel",
     shortName: "Diesel",
-    description: "Alta potência e desempenho para operações em ambientes internos e externos. Robustez e segurança para os mais diversos setores.",
+    description: "As empilhadeiras à diesel são ideais para operações intensas e ambientes externos. Robustez, potência e máxima eficiência para o seu negócio.",
     productCategory: "Empilhadeiras a Combustão",
     image: diesel4_1,
   },

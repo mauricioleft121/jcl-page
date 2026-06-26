@@ -8,6 +8,7 @@ import salleto from "@/assets/empresas/Salleto.png";
 import gabeo from "@/assets/empresas/gabed.jpg";
 import riodoce from "@/assets/empresas/LOGOTIPO-RIODOCE-FUNDO-BRANCO.png";
 import cel from "@/assets/empresas/celmoveis.png";
+import Logo from "@/components/Logo";
 
 const clientLogos = [
   { name: "Leifer Móveis", src: leifer },
@@ -31,10 +32,7 @@ const TrustSection = () => {
             EMPRESAS QUE CONTAM COM A EXPERIÊNCIA DA JCL.
           </h2>
         </div>
-        <div className="hidden md:flex items-baseline gap-1">
-          <span className="jcl-heading text-3xl text-dark">JC</span>
-          <span className="jcl-heading text-3xl text-yellow">L</span>
-        </div>
+        <Logo theme="dark" className="h-9 hidden md:block" linked={false} />
       </div>
 
       <div className="relative bg-yellow py-16">

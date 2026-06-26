@@ -1,18 +1,12 @@
 import { Phone, Clock, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import Logo from "@/components/Logo";
 
 const TopBar = () => {
   return (
     <div className="bg-dark py-3">
       <div className="container flex flex-wrap items-center justify-between gap-y-3">
         {/* Logo */}
-        <Link to="/" className="flex items-baseline gap-1" aria-label="JCL Empilhadeiras — início">
-          <span className="jcl-heading text-3xl text-background">JC</span>
-          <span className="jcl-heading text-3xl text-yellow">L</span>
-          <span className="jcl-heading text-[11px] text-background/80 ml-2 tracking-[0.2em] hidden sm:inline">
-            EMPILHADEIRAS
-          </span>
-        </Link>
+        <Logo theme="light" className="h-11" />
 
         {/* Info groups - hidden on mobile */}
         <div className="hidden lg:flex items-center gap-8">

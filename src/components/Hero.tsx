@@ -12,8 +12,8 @@ const Hero = () => {
         width={1920}
         height={1080}
       />
-      {/* Dark overlay heavier on the left for text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-dark/75 to-dark/30" />
+      {/* Overlay sutil — escurece apenas o lado esquerdo para legibilidade do texto, mantendo a fachada visível */}
+      <div className="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/40 to-transparent" />
 
       <div className="relative container py-20">
         <div className="max-w-2xl">

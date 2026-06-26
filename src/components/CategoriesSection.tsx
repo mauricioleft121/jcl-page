@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Droplet, Layers, Truck } from "lucide-react";
 import { categoriesMeta } from "@/data/products";
+import Logo from "@/components/Logo";
+import bgArmazem from "@/assets/BackgroundEquipamentos.jpg";
 
 const homeCards = [
   { slug: "empilhadeira-eletrica", Icon: Zap, title: "EMPILHADEIRA ELÉTRICA" },
@@ -11,25 +13,32 @@ const homeCards = [
 const CategoriesSection = () => {
   return (
     <section id="produtos" className="relative py-24 bg-background overflow-hidden min-h-screen flex flex-col justify-center">
+      {/* Marca d'água de armazém */}
+      <img
+        src={bgArmazem}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.06]"
+      />
 
       <div className="relative container">
-        <div className="flex items-start justify-between mb-14 flex-wrap gap-6">
-          <div>
-            <h2 className="jcl-heading text-dark text-3xl md:text-5xl leading-[0.95]">
-              CONHEÇA TODA NOSSA LINHA DE
-            </h2>
-            <h2 className="jcl-heading text-yellow text-5xl md:text-7xl leading-[0.95] mt-1 accent-line">
-              EQUIPAMENTOS
-            </h2>
-            <p className="text-gray-medium text-[15px] mt-6 max-w-xl leading-[1.8]">
-              Trabalhamos com soluções que garantem eficiência, segurança e
-              produtividade para os mais diversos segmentos do mercado.
-            </p>
-          </div>
-          <div className="hidden md:flex items-baseline gap-1">
-            <span className="jcl-heading text-3xl text-dark">JC</span>
-            <span className="jcl-heading text-3xl text-yellow">L</span>
-          </div>
+        {/* Logo no canto superior direito */}
+        <div className="hidden md:block absolute right-10 top-0">
+          <Logo theme="dark" className="h-9" linked={false} />
+        </div>
+
+        {/* Título centralizado */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <h2 className="jcl-heading text-dark text-3xl md:text-5xl leading-[0.95]">
+            CONHEÇA TODA NOSSA LINHA DE
+          </h2>
+          <h2 className="jcl-heading text-yellow text-5xl md:text-7xl leading-[0.95] mt-1">
+            EQUIPAMENTOS
+          </h2>
+          <p className="text-gray-medium text-[15px] mt-6 leading-[1.8]">
+            Trabalhamos com soluções que garantem eficiência, segurança e
+            produtividade para os mais diversos segmentos do mercado.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -38,19 +47,22 @@ const CategoriesSection = () => {
             return (
               <article
                 key={slug}
-                className="bg-background rounded-2xl shadow-[0_8px_28px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_14px_36px_-12px_rgba(0,0,0,0.25)] transition-shadow p-8 pt-16 flex flex-col items-center text-center relative"
+                className="bg-background rounded-2xl border border-border shadow-[0_8px_28px_-12px_rgba(0,0,0,0.18)] hover:shadow-[0_14px_36px_-12px_rgba(0,0,0,0.25)] transition-shadow p-7 flex flex-col"
               >
-                <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-yellow flex items-center justify-center shadow-lg">
-                  <Icon size={28} className="text-dark" strokeWidth={2.5} />
-                </div>
-                <div className="h-56 w-full flex items-center justify-center mb-6 bg-background rounded-xl">
+                {/* Ícone no canto superior esquerdo */}
+                <span className="w-12 h-12 rounded-lg bg-yellow/15 flex items-center justify-center mb-5">
+                  <Icon size={24} className="text-yellow-dark" strokeWidth={2.5} />
+                </span>
+
+                <div className="h-52 w-full flex items-center justify-center mb-6">
                   <img
                     src={meta.image}
                     alt={meta.name}
-                    className="max-h-56 w-full object-contain"
+                    className="max-h-52 w-full object-contain"
                     loading="lazy"
                   />
                 </div>
+
                 <h3 className="jcl-heading text-dark text-2xl mb-3">{title}</h3>
                 <p className="text-gray-medium text-sm leading-[1.8] flex-1 mb-6">
                   {meta.description}
