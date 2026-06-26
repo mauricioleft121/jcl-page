@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react";
+import { Instagram, MapPin, Phone, Mail } from "lucide-react";
 import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -67,19 +67,15 @@ const Contact = () => {
                 conosco e descubra como podemos ajudar sua operação a ser mais eficiente.
               </p>
               <div className="flex gap-3 mt-5">
-                {[
-                  { Icon: Instagram, label: "Instagram" },
-                  { Icon: Facebook, label: "Facebook" },
-                ].map(({ Icon, label }) => (
-                  <a
-                    key={label}
-                    href="#"
-                    className="w-11 h-11 rounded-md border border-border text-gray-medium hover:bg-yellow hover:text-dark hover:border-yellow transition-colors flex items-center justify-center"
-                    aria-label={`JCL no ${label}`}
-                  >
-                    <Icon size={18} />
-                  </a>
-                ))}
+                <a
+                  href="https://www.instagram.com/jcl_empilhadeiras/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-md border border-border text-gray-medium hover:bg-yellow hover:text-dark hover:border-yellow transition-colors flex items-center justify-center"
+                  aria-label="JCL Empilhadeiras no Instagram"
+                >
+                  <Instagram size={18} />
+                </a>
               </div>
             </div>
 

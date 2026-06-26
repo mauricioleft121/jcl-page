@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
+import { Instagram, Phone, Mail, MapPin } from "lucide-react";
 import Logo from "@/components/Logo";
 
 const links = {
@@ -42,20 +42,15 @@ const Footer = () => {
                 segurança e eficiência para o seu negócio.
               </p>
               <div className="flex gap-3">
-                {[
-                  { Icon: Facebook, label: "Facebook" },
-                  { Icon: Instagram, label: "Instagram" },
-                  { Icon: Linkedin, label: "LinkedIn" },
-                ].map(({ Icon, label }) => (
-                  <a
-                    key={label}
-                    href="#"
-                    className="w-10 h-10 rounded-full bg-background/10 hover:bg-yellow hover:text-dark text-background flex items-center justify-center transition-colors"
-                    aria-label={`JCL no ${label}`}
-                  >
-                    <Icon size={16} />
-                  </a>
-                ))}
+                <a
+                  href="https://www.instagram.com/jcl_empilhadeiras/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-background/10 hover:bg-yellow hover:text-dark text-background flex items-center justify-center transition-colors"
+                  aria-label="JCL Empilhadeiras no Instagram"
+                >
+                  <Instagram size={16} />
+                </a>
               </div>
             </div>
 
