@@ -25,13 +25,13 @@ const Catalog = () => {
         <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-dark/65" />
         <div className="relative container text-center">
-          <h1 className="jcl-heading text-background text-4xl md:text-6xl lg:text-7xl leading-[0.95]">
+          <h1 className="jcl-heading text-background text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.95] whitespace-normal sm:whitespace-nowrap">
             CONHEÇA TODOS OS NOSSOS
           </h1>
-          <h1 className="jcl-heading text-yellow text-5xl md:text-7xl lg:text-8xl leading-[0.95] mt-2">
+          <h1 className="jcl-heading text-yellow text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] mt-2">
             EQUIPAMENTOS
           </h1>
-          <p className="text-background/85 text-base md:text-lg mt-6 max-w-2xl mx-auto leading-[1.7]">
+          <p className="text-background/85 text-lg md:text-xl lg:text-2xl mt-6 max-w-3xl mx-auto leading-[1.6]">
             A linha completa de equipamentos que transforma a movimentação
             de cargas na sua empresa!
           </p>
@@ -42,7 +42,7 @@ const Catalog = () => {
       <section className="bg-background py-24">
         <div className="container">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
-            {categoriesMeta.map(cat => (
+            {categoriesMeta.filter(cat => !cat.hidden).map(cat => (
               <Link
                 key={cat.slug}
                 to={`/produtos/categoria/${cat.slug}`}

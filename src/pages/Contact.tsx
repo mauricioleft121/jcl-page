@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import { Instagram, MapPin, Phone, Mail } from "lucide-react";
+import { toast } from "sonner";
 import TopBar from "@/components/TopBar";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollTopButton from "@/components/ScrollTopButton";
+
+// Chave de acesso do W3Forms (plano grátis com submissões ilimitadas).
+// Crie um formulário em https://w3forms.com, pegue a access key (formato "w3f_...") no dashboard e cole abaixo:
+const W3FORMS_ACCESS_KEY = "w3f_083f27f053feee6064ed2761f3401b4f7f3464d40bbaadf2";
 
 const MAP_EMBED =
   "https://www.google.com/maps?q=R.+Cel.+Otaviano+da+Rocha,+1110,+Ubá+-+MG&output=embed";
@@ -14,28 +19,64 @@ const Contact = () => {
     document.title = "Contato — Inicie uma Cotação | JCL Empilhadeiras";
   }, []);
 
-  const [form, setForm] = useState({
+  const emptyForm = {
     name: "", email: "", whatsapp: "", phone: "",
     state: "", city: "", message: "",
-  });
+  };
+
+  const [form, setForm] = useState(emptyForm);
+  const [sending, setSending] = useState(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const linhas = [
-      "Olá! Gostaria de iniciar uma cotação.",
-      "",
-      `*Nome:* ${form.name}`,
-      `*E-mail:* ${form.email}`,
-      form.whatsapp && `*WhatsApp:* ${form.whatsapp}`,
-      form.phone && `*Telefone:* ${form.phone}`,
-      (form.city || form.state) && `*Cidade/Estado:* ${[form.city, form.state].filter(Boolean).join(" / ")}`,
-      form.message && `*Mensagem:* ${form.message}`,
-    ].filter(Boolean);
-    const url = `https://wa.me/553235315957?text=${encodeURIComponent(linhas.join("\n"))}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+
+    if ((W3FORMS_ACCESS_KEY as string) === "COLE_SUA_CHAVE_AQUI") {
+      console.warn(
+        "[Contact] A chave do W3Forms ainda não foi configurada. " +
+          "Edite W3FORMS_ACCESS_KEY em src/pages/Contact.tsx com a chave obtida em https://w3forms.com."
+      );
+    }
+
+    setSending(true);
+    try {
+      const cidadeEstado = [form.city, form.state].filter(Boolean).join(" / ");
+      const dadosCotacao = [
+        `Nome: ${form.name}`,
+        `E-mail: ${form.email}`,
+        form.whatsapp && `WhatsApp: ${form.whatsapp}`,
+        form.phone && `Telefone: ${form.phone}`,
+        cidadeEstado && `Cidade/Estado: ${cidadeEstado}`,
+        form.message && `Mensagem: ${form.message}`,
+      ]
+        .filter(Boolean)
+        .join("\n");
+
+      const res = await fetch("https://api.w3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: W3FORMS_ACCESS_KEY,
+          "Dados da cotação": dadosCotacao,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success("Cotação enviada! Em breve entraremos em contato.");
+        setForm(emptyForm);
+      } else {
+        toast.error("Não foi possível enviar. Tente novamente ou fale pelo WhatsApp.");
+      }
+    } catch {
+      toast.error("Não foi possível enviar. Tente novamente ou fale pelo WhatsApp.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -71,8 +112,8 @@ const Contact = () => {
                 <InfoLine
                   Icon={Mail}
                   label="E-MAIL"
-                  value="vendas@jclempilhadeiras.com.br"
-                  href="mailto:vendas@jclempilhadeiras.com.br"
+                  value="jclempilhadeira@gmail.com"
+                  href="mailto:jclempilhadeira@gmail.com"
                 />
               </div>
 
@@ -124,10 +165,11 @@ const Contact = () => {
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center bg-yellow text-dark font-bold uppercase rounded-full px-14 py-4 text-base hover:bg-yellow-dark transition-colors min-h-[56px]"
+                  disabled={sending}
+                  className="inline-flex items-center justify-center bg-yellow text-dark font-bold uppercase rounded-full px-14 py-4 text-base hover:bg-yellow-dark transition-colors min-h-[56px] disabled:opacity-60 disabled:cursor-not-allowed"
                   aria-label="Enviar cotação"
                 >
-                  ENVIAR
+                  {sending ? "ENVIANDO..." : "ENVIAR"}
                 </button>
               </form>
             </div>

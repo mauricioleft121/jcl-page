@@ -83,8 +83,8 @@ const Footer = () => {
                 </li>
                 <li className="flex items-start gap-2 text-background/70">
                   <Mail size={14} className="text-yellow mt-1 flex-shrink-0" />
-                  <a href="mailto:vendas@jclempilhadeiras.com.br" className="hover:text-yellow break-all">
-                    vendas@jclempilhadeiras.com.br
+                  <a href="mailto:jclempilhadeira@gmail.com" className="hover:text-yellow break-all">
+                    jclempilhadeira@gmail.com
                   </a>
                 </li>
                 <li className="flex items-start gap-2 text-background/70">
@@ -124,7 +124,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-dark border-t border-background/10 py-4">
+      <div className="bg-dark border-t-2 border-yellow py-4">
         <div className="container">
           <p className="text-background/50 text-[12px] text-center">
             © 2026 JCL Empilhadeiras. Todos os direitos reservados.

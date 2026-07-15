@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 
-const items = [
+interface MvvItem {
+  id: string;
+  title: string;
+  body?: string;
+  bullets?: { label: string; text: string }[];
+}
+
+const items: MvvItem[] = [
   {
     id: "missao",
     title: "MISSÃO",
@@ -15,7 +22,13 @@ const items = [
   {
     id: "valores",
     title: "VALORES",
-    body: "Integridade — agimos com ética, transparência e respeito. Excelência — buscamos qualidade em tudo o que fazemos. Segurança — priorizamos a segurança das pessoas e operações. Inovação — investimos em tecnologia e melhoria contínua. Compromisso — somos comprometidos com nossos clientes.",
+    bullets: [
+      { label: "Integridade", text: "agimos com ética, transparência e respeito." },
+      { label: "Excelência", text: "buscamos qualidade em tudo o que fazemos." },
+      { label: "Segurança", text: "priorizamos a segurança das pessoas e operações." },
+      { label: "Inovação", text: "investimos em tecnologia e melhoria contínua." },
+      { label: "Compromisso", text: "somos comprometidos com nossos clientes." },
+    ],
   },
 ];
 
@@ -50,9 +63,22 @@ const MissionVisionValues = () => {
                 </button>
                 {isOpen && (
                   <div id={`mvv-${item.id}`} className="px-6 py-5 bg-background">
-                    <p className="text-gray-medium text-[15px] leading-[1.8]">
-                      {item.body}
-                    </p>
+                    {item.bullets ? (
+                      <ul className="space-y-3">
+                        {item.bullets.map(b => (
+                          <li key={b.label} className="flex gap-3 text-[15px] leading-[1.7]">
+                            <span className="mt-[9px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-yellow" />
+                            <span className="text-gray-medium">
+                              <strong className="text-dark font-bold">{b.label}:</strong> {b.text}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-gray-medium text-[15px] leading-[1.8]">
+                        {item.body}
+                      </p>
+                    )}
                   </div>
                 )}
               </div>

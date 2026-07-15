@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -68,9 +68,9 @@
 }
 
 @layer components {
-  /* JCL heading style — condensed bold uppercase */
+  /* JCL heading style — Montserrat bold uppercase */
   .jcl-heading {
-    font-family: 'Barlow Condensed', 'Inter', sans-serif;
+    font-family: 'Montserrat', 'Inter', sans-serif;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.01em;
@@ -81,7 +81,7 @@
   .accent-line::after {
     content: "";
     display: block;
-    width: 60px;
+    width: 220px;
     height: 4px;
     background-color: hsl(var(--yellow));
     margin-top: 12px;

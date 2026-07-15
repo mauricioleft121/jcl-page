@@ -7,7 +7,11 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2.5rem",
+      padding: {
+        DEFAULT: "1.25rem",
+        sm: "1.5rem",
+        lg: "2.5rem",
+      },
       screens: {
         "2xl": "1200px",
       },
@@ -15,7 +19,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-        condensed: ["Barlow Condensed", "Inter", "sans-serif"],
+        condensed: ["Montserrat", "Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

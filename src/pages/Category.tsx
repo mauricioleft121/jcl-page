@@ -6,7 +6,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollTopButton from "@/components/ScrollTopButton";
-import { getCategoryBySlug, getProductsByCategorySlug } from "@/data/products";
+import { getCategoryBySlug, getProductsByCategorySlug, categoriesMeta } from "@/data/products";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -16,8 +16,9 @@ import {
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
 
-/** "3.000 kg" -> "3 Toneladas" */
+/** "3.000 kg" -> "3 Toneladas"; strings já em toneladas (ex.: faixas) passam direto */
 const toTons = (capacity: string): string => {
+  if (/tonelada/i.test(capacity)) return capacity;
   const kg = parseInt(capacity.replace(/\D/g, ""), 10);
   if (!kg) return capacity;
   const tons = kg / 1000;
@@ -58,7 +59,7 @@ const Category = () => {
 
       {/* Breadcrumb */}
       <section className="bg-dark py-5">
-        <div className="container">
+        <div className="w-full pl-[30px] lg:pl-[182px] pr-4 lg:pr-6">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -106,30 +107,42 @@ const Category = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {items.map(p => (
+              {items.map(p => {
+                // Em categorias-grupo (ex.: Equipamentos Elétricos), exibe o nome do
+                // equipamento (Paleteira, Transpaleteira…) em vez do código do modelo.
+                const cardLabel = meta.productCategories
+                  ? categoriesMeta.find(c => c.productCategory === p.category)?.shortName ?? p.code
+                  : p.code;
+                return (
                 <article
                   key={p.slug}
                   className="bg-background rounded-xl border border-border p-7 flex flex-col"
                 >
-                  <div className="h-48 flex items-center justify-center mb-5">
+                  <Link
+                    to={`/produtos/${p.slug}`}
+                    aria-label={`Ver detalhes do ${p.code}`}
+                    className="h-48 flex items-center justify-center mb-5 group"
+                  >
                     <img
                       src={p.image}
                       alt={p.name}
-                      className="max-h-48 object-contain"
+                      className="max-h-48 object-contain transition-transform group-hover:scale-105"
                       loading="lazy"
                     />
-                  </div>
-                  <h3 className="jcl-heading text-dark text-xl mb-2">{p.code}</h3>
+                  </Link>
+                  <h3 className="jcl-heading text-dark text-xl mb-2">{cardLabel}</h3>
                   <span className="block w-10 h-[3px] bg-yellow mb-5" />
                   <ul className="text-sm text-gray-medium space-y-1.5 mb-6 flex-1">
                     <li>
                       <span className="font-semibold text-dark">Capacidade:</span>{" "}
                       {toTons(p.specs["Capacidade de Carga"])}
                     </li>
-                    <li>
-                      <span className="font-semibold text-dark">Elevação:</span>{" "}
-                      3000 à 7000 mm
-                    </li>
+                    {p.specs["Altura Máxima de Elevação"] && (
+                      <li>
+                        <span className="font-semibold text-dark">Elevação:</span>{" "}
+                        {p.specs["Altura Máxima de Elevação"]}
+                      </li>
+                    )}
                   </ul>
                   <Link
                     to={`/produtos/${p.slug}`}
@@ -140,7 +153,8 @@ const Category = () => {
                     <ArrowRight size={14} />
                   </Link>
                 </article>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>

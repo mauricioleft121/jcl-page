@@ -4,18 +4,18 @@ import heroImg from "@/assets/hero.jpg";
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-dark">
       <img
         src={heroImg}
         alt="Fachada da JCL Empilhadeiras em Ubá - MG"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-center lg:object-contain lg:object-right"
         width={1920}
         height={1080}
       />
-      {/* Overlay sutil — escurece apenas o lado esquerdo para legibilidade do texto, mantendo a fachada visível */}
-      <div className="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/40 to-transparent" />
+      {/* Overlay — preto sólido cobre a faixa lateral (emenda da imagem) e derrama como sombra para dentro da foto, sumindo por volta do meio */}
+      <div className="absolute inset-0 bg-gradient-to-r from-dark from-[18%] via-dark/55 via-[38%] to-transparent to-[62%]" />
 
-      <div className="relative container py-20">
+      <div className="relative w-full py-20 pl-6 md:pl-12 lg:pl-20 pr-6">
         <div className="max-w-2xl">
           <h1 className="jcl-heading text-yellow text-6xl sm:text-7xl md:text-8xl lg:text-[140px]">
             JCL

@@ -9,7 +9,7 @@ const navItems = [
   {
     label: "EQUIPAMENTOS",
     href: "/produtos",
-    sub: categoriesMeta.map(c => ({ label: c.name, href: `/produtos/categoria/${c.slug}` })),
+    sub: categoriesMeta.filter(c => !c.hidden).map(c => ({ label: c.name, href: `/produtos/categoria/${c.slug}` })),
   },
   { label: "SOBRE NÓS", href: "/sobre" },
   { label: "CONTATO", href: "/contato" },

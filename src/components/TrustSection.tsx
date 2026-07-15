@@ -1,4 +1,4 @@
-import leifer from "@/assets/empresas/leifer.jpg";
+import leifer from "@/assets/empresas/leifer.jpeg";
 import ferrari from "@/assets/empresas/Ferrari Estofados.png";
 import nesher from "@/assets/empresas/nesher.jpeg";
 import valde from "@/assets/empresas/valdemoveis.png";
@@ -8,6 +8,8 @@ import salleto from "@/assets/empresas/Salleto.png";
 import gabeo from "@/assets/empresas/gabed.png";
 import riodoce from "@/assets/empresas/LOGOTIPO-RIODOCE-FUNDO-BRANCO.png";
 import cel from "@/assets/empresas/celmoveis.png";
+import peroba from "@/assets/empresas/peroba.jpeg";
+import intermovelaria from "@/assets/empresas/intermovelaria.jpeg";
 import Logo from "@/components/Logo";
 
 const clientLogos = [
@@ -21,6 +23,8 @@ const clientLogos = [
   { name: "Gabeo", src: gabeo },
   { name: "Rio Doce", src: riodoce },
   { name: "CEL Móveis", src: cel },
+  { name: "Peroba", src: peroba },
+  { name: "Inter Móvelaria", src: intermovelaria },
 ];
 
 const TrustSection = () => {
@@ -32,7 +36,7 @@ const TrustSection = () => {
             EMPRESAS QUE CONTAM COM A EXPERIÊNCIA DA JCL.
           </h2>
         </div>
-        <Logo theme="dark" className="h-9 hidden md:block" linked={false} />
+        <Logo theme="dark" className="h-20 hidden md:block" linked={false} />
       </div>
 
       <div className="relative bg-yellow py-16">
